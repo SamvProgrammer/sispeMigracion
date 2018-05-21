@@ -32,7 +32,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.group = new System.Windows.Forms.GroupBox();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.btnModifica = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnsalir = new System.Windows.Forms.Button();
             this.txtTitulo = new System.Windows.Forms.Label();
@@ -73,6 +72,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnModifica = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.group.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -127,20 +127,6 @@
             this.btnGuardar.Text = "GUARDAR ";
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
-            // 
-            // btnModifica
-            // 
-            this.btnModifica.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnModifica.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnModifica.Image = ((System.Drawing.Image)(resources.GetObject("btnModifica.Image")));
-            this.btnModifica.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnModifica.Location = new System.Drawing.Point(6, 74);
-            this.btnModifica.Name = "btnModifica";
-            this.btnModifica.Size = new System.Drawing.Size(184, 39);
-            this.btnModifica.TabIndex = 5;
-            this.btnModifica.Text = "    ACTUALIZAR       SOLICITUD";
-            this.btnModifica.UseVisualStyleBackColor = false;
-            this.btnModifica.Click += new System.EventHandler(this.btnModifica_Click);
             // 
             // btnNuevo
             // 
@@ -526,6 +512,20 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
+            // btnModifica
+            // 
+            this.btnModifica.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnModifica.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnModifica.Image = ((System.Drawing.Image)(resources.GetObject("btnModifica.Image")));
+            this.btnModifica.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnModifica.Location = new System.Drawing.Point(6, 74);
+            this.btnModifica.Name = "btnModifica";
+            this.btnModifica.Size = new System.Drawing.Size(184, 39);
+            this.btnModifica.TabIndex = 5;
+            this.btnModifica.Text = "    ACTUALIZAR       SOLICITUD";
+            this.btnModifica.UseVisualStyleBackColor = false;
+            this.btnModifica.Click += new System.EventHandler(this.btnModifica_Click);
+            // 
             // p_caja
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -596,9 +596,9 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.GroupBox group;
         private System.Windows.Forms.Button btnsalir;
-        private System.Windows.Forms.Button btnModifica;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.DateTimePicker txtF_descuento;
+        private System.Windows.Forms.Button btnModifica;
     }
 }
