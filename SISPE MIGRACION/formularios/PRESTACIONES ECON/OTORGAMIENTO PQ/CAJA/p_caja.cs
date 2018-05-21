@@ -112,6 +112,37 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PQ.CAJA
             txtImp_unit.Text = imp_unit;
         }
 
+        public void rellenarcampos2(Dictionary<string, object> datos)
+        {
+            limpiarCampos(true);
+
+            string rfc = Convert.ToString(datos["rfc"]);
+            string secretaria = Convert.ToString(datos["secretaria"]);
+            string descripcion = Convert.ToString(datos["descripcion"]);
+            string nombre = Convert.ToString(datos["nombre_em"]);
+            string folio = Convert.ToString(datos["folio"]);
+            string plazo = Convert.ToString(datos["plazo"]);
+            string imp_unit = Convert.ToString(datos["imp_unit"]);
+            this.fum = Convert.ToString(datos["fum"]);
+            this.hum = Convert.ToString(datos["hum"]);
+
+            txtFolio.Text = folio;
+            txtRfc.Text = rfc;
+            txtSecretaria.Text = secretaria;
+            txtdescripcion.Text = descripcion;
+            txtNombre_em.Text = nombre;
+            txtPlazo.Text = plazo;
+            txtImp_unit.Text = globales.checarDecimales(imp_unit);
+            txtTotal.Text = globales.checarDecimales(Convert.ToString(datos["total"]));
+            txtLetra1.Text = Convert.ToString(datos["imp_unit_capl"]);
+            txtLetra2.Text = Convert.ToString(datos["imp_unit_intl"]);
+            txtDescuentos.Text = Convert.ToString(datos["descuentos"]);
+            txtDelDescuento.Text = Convert.ToString(datos["deldesc"]);
+            txtNumDesc.Text = Convert.ToString(datos["numdesc"]);
+            txtImp_unitCap.Text = globales.checarDecimales(Convert.ToString(datos["imp_unit_cap"]));
+            txtImp_unitIntereses.Text = globales.checarDecimales(Convert.ToString(datos["imp_unit_int"]));
+        }
+
         private void limpiarCampos(bool limpiar)
         {
             deshabilitar(limpiar);
@@ -173,19 +204,83 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PQ.CAJA
                 btnGuardar.Enabled = true;
                 btnModifica.Enabled = false;
                 btnNuevo.Enabled = false;
+
+                frmCatalogoP_quirog cuenta = new frmCatalogoP_quirog();
+                cuenta.enviar2 = rellenarcampos2;
+                cuenta.enviarBool = true;
+                cuenta.tablaConsultar = "p_cajaq";
+                cuenta.ShowDialog();
+
             }
             catch {
 
             }
         }
 
+        
+
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            if (validaciones()) return;
+            p_cajaQ p = obtenerObjeto();
             if (this.esInsertar) {
-                guardar();
+                guardar(p);
+            }
+            else{
+                modificar(p);
             }
         }
 
+        private p_cajaQ obtenerObjeto() {
+            p_cajaQ obj = new p_cajaQ();
+            DateTime fecha = txtF_descuento.Value;
+            string auxFecha = string.Format("{0}-{1}-{2}",fecha.Year,fecha.Month,fecha.Day);
+
+            obj.folio = txtFolio.Text;
+            obj.f_descuento = auxFecha;
+            obj.rfc = txtRfc.Text;
+            obj.nombre_em = txtNombre_em.Text;
+            obj.secretaria = txtSecretaria.Text;
+            obj.descripcion = txtdescripcion.Text;
+            obj.descuentos = Convert.ToInt32(txtDescuentos.Text);
+            obj.total = txtTotal.Text;
+            obj.deldescuentos = Convert.ToInt32(txtDelDescuento.Text);
+            obj.numdesc = Convert.ToInt32(txtNumDesc.Text);
+            obj.plazo = Convert.ToInt32(txtPlazo.Text);
+            obj.imp_unit = txtImp_unit.Text;
+            obj.imp_unit_cap = txtImp_unitCap.Text;
+            obj.imp_unit_int = txtImp_unitIntereses.Text;
+            obj.imp_unit_intl = txtLetra2.Text;
+            obj.imp_unit_capl = txtLetra1.Text;
+            obj.fum = this.fum;
+            obj.hum = this.hum;
+            return obj;
+        }
+
+
+        private void modificar(p_cajaQ obj) {
+            //Proceso para guardar datos.....
+            try { 
+            DialogResult p = MessageBox.Show("¿Desea actualizar los cambios?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (p == DialogResult.No) return;
+
+
+                string query = string.Format("update datos.p_cajaq set f_descuento = '{0}', rfc = '{1}',nombre_em = '{2}',secretaria = '{3}', descripcion = '{4}',descuentos = {5}, deldesc = {6},numdesc = {7}, plazo = {8}, imp_unit = {9}, imp_unit_cap = {10}, imp_unit_int = {11}, imp_unit_capl ='{12}', imp_unit_intl = '{13}', total = {14}, status = '{15}', fum = '{16}', hum = '{17}' where folio = {18}",
+                        obj.f_descuento, obj.rfc, obj.nombre_em, obj.secretaria, obj.descripcion, obj.descuentos, obj.deldescuentos, obj.numdesc, obj.plazo, obj.imp_unit, obj.imp_unit_cap, obj.imp_unit_int, obj.imp_unit_capl, obj.imp_unit_intl, obj.total, "T", obj.fum, obj.hum,obj.folio);
+                if (globales.consulta(query, true))
+            {
+                MessageBox.Show("Registro actualizado existosamente!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                limpiarCampos(false);
+                    btnGuardar.Enabled = false;
+                    btnNuevo.Enabled = true;
+                    btnModifica.Enabled = true;
+                }
+
+        }
+            catch {
+
+            }
+        }
 
         //        ;*** PAGOS POR CAJA***
         //;PROCESO QUE PERMITE EN LA EDICION DE RECIBOS QUIROGRAFARIOS
@@ -225,68 +320,15 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PQ.CAJA
         }
 
 
-        private void guardar() {
+        private void guardar(p_cajaQ obj) {
             try
             {
-                if (string.IsNullOrWhiteSpace(txtDescuentos.Text)) {
-                    MessageBox.Show("Se debe ingresar la cantidad de pagos", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    txtDescuentos.Focus();
-                    return;
-                }
-
-                if (string.IsNullOrWhiteSpace(txtImp_unit.Text)) {
-                    MessageBox.Show("Se debe ingresar el importe unitario", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    txtImp_unit.Focus();
-                    return;
-                }
-
-                if (string.IsNullOrWhiteSpace(txtDelDescuento.Text)) {
-                    MessageBox.Show("Se debe ingresar el primer pago", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    txtDelDescuento.Focus();
-                    return;
-                }
-
-                if (string.IsNullOrWhiteSpace(txtNumDesc.Text)) {
-                    MessageBox.Show("Se debe ingresar el número de descuento", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    txtNumDesc.Focus();
-                    return;
-                }
-
-                if (string.IsNullOrWhiteSpace(txtPlazo.Text)) {
-                    MessageBox.Show("Se debe ingresar los plazos del prestamo", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    txtPlazo.Focus();
-                    return;
-
-                }
-
-                if (string.IsNullOrWhiteSpace(txtImp_unitCap.Text)) {
-                    MessageBox.Show("Se debe ingresar el pago capital", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    txtImp_unitCap.Focus();
-                    return;
-                }
+                 
                 //Proceso para guardar datos.....
                 DialogResult p = MessageBox.Show("¿Desea guardar cambios?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                 if (p == DialogResult.No) return;
 
-                p_cajaQ obj = new p_cajaQ();
-                obj.folio = txtFolio.Text;
-                obj.f_descuento = txtF_descuento.Text;
-                obj.rfc = txtRfc.Text;
-                obj.nombre_em = txtNombre_em.Text;
-                obj.secretaria = txtSecretaria.Text;
-                obj.descripcion = txtdescripcion.Text;
-                obj.descuentos = Convert.ToInt32(txtDescuentos.Text);
-                obj.total = txtTotal.Text;
-                obj.deldescuentos = Convert.ToInt32(txtDelDescuento.Text);
-                obj.numdesc = Convert.ToInt32(txtNumDesc.Text);
-                obj.plazo = Convert.ToInt32(txtPlazo.Text);
-                obj.imp_unit = txtImp_unit.Text;
-                obj.imp_unit_cap = txtImp_unitCap.Text;
-                obj.imp_unit_int = txtImp_unitIntereses.Text;
-                obj.imp_unit_intl = txtLetra2.Text;
-                obj.imp_unit_cap = txtLetra1.Text;
-                obj.fum = this.fum;
-                obj.hum = this.hum;
+               
 
                 string query = string.Format("select * from datos.p_cajaq where folio = {0}",txtFolio.Text);
                 List<Dictionary<string, object>> resultado = globales.consulta(query);
@@ -295,17 +337,68 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PQ.CAJA
                     return;
                 }
 
-                query = string.Format("insert into p_cajaq values ({0},'{1}','{2}','{3}','{4}','{5}')",
-                    obj.folio,obj.f_descuento,obj.rfc,obj.nombre_em,obj.secretaria,obj.descripcion);
-                if (globales.consulta(query,true)) {
-                    MessageBox.Show("Registro insertado existencia!","Aviso",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                query = string.Format("insert into datos.p_cajaq values ({0},'{1}','{2}','{3}','{4}','{5}',{6},{7},{8},{9},{10},{11},{12},'{13}','{14}',{15},'{16}','{17}','{18}',null)",
+                    obj.folio,obj.f_descuento,obj.rfc,obj.nombre_em,obj.secretaria,obj.descripcion,obj.descuentos,obj.deldescuentos,obj.numdesc,obj.plazo,obj.imp_unit,obj.imp_unit_cap,obj.imp_unit_int,obj.imp_unit_capl,obj.imp_unit_intl,obj.total,"T",obj.fum,obj.hum);
+                if (globales.consulta(query, true)) {
+                    MessageBox.Show("Registro insertado existosamente!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     limpiarCampos(false);
+                    btnGuardar.Enabled = false;
+                    btnNuevo.Enabled = true;
+                    btnModifica.Enabled = true;
                 }
                 
             }
             catch {
 
             }
+        }
+
+        private bool validaciones()
+        {
+            bool aux = false;
+            if (string.IsNullOrWhiteSpace(txtDescuentos.Text))
+            {
+                MessageBox.Show("Se debe ingresar la cantidad de pagos", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtDescuentos.Focus();
+                return true;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtImp_unit.Text))
+            {
+                MessageBox.Show("Se debe ingresar el importe unitario", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtImp_unit.Focus();
+                return true;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtDelDescuento.Text))
+            {
+                MessageBox.Show("Se debe ingresar el primer pago", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtDelDescuento.Focus();
+                return true;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtNumDesc.Text))
+            {
+                MessageBox.Show("Se debe ingresar el número de descuento", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtNumDesc.Focus();
+                return true;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtPlazo.Text))
+            {
+                MessageBox.Show("Se debe ingresar los plazos del prestamo", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtPlazo.Focus();
+                return true;
+
+            }
+
+            if (string.IsNullOrWhiteSpace(txtImp_unitCap.Text))
+            {
+                MessageBox.Show("Se debe ingresar el pago capital", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtImp_unitCap.Focus();
+                return true;
+            }
+            return aux;
         }
 
         private void eventoEntrar(object sender, EventArgs e)
