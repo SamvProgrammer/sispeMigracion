@@ -67,9 +67,10 @@ namespace SISPE_MIGRACION.codigo.baseDatos.repositorios
     //==                    TABLA D_QUIROG                         ==
     //===============================================================
 
-    class d_quirog {
+    class d_quirog
+    {
         public double folio { get; set; }
-        public string rfc {get;set;}
+        public string rfc { get; set; }
         public string nombre_em { get; set; }
         public string direccion { get; set; }
         public string proyecto { get; set; }
@@ -77,5 +78,29 @@ namespace SISPE_MIGRACION.codigo.baseDatos.repositorios
         public string nue { get; set; }
         public int antig { get; set; }
         public string _null { get; set; }
+    }
+
+    public class p_cajaQ
+    {
+        public string folio { get; set; }
+        public string f_descuento { get; set; }
+        public string rfc { get; set; }
+        public string nombre_em { get; set; }
+        public string secretaria { get; set; }
+        public string descripcion { get; set; }
+        public int descuentos { get; set; }
+        public int deldescuentos { get; set; }
+        public int numdesc { get; set; }
+        public int plazo { get; set; }
+        public string imp_unit_capl { get; set; }
+        public string imp_unit_intl { get; set; }
+        public string status { get; set; }
+        public string hum { get; set; }
+        public string fum { get; set; }
+        public string imp_unit{ get; set; }
+        public string imp_unit_cap { get; set; }
+        public string imp_unit_int { get; set; }
+        public string total { get; set;
+        }
     }
 }

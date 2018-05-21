@@ -75,6 +75,7 @@
             this.altasCambiosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.pagoPorCajaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hipotecariosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -344,7 +345,8 @@
             // controlYRegistroToolStripMenuItem
             // 
             this.controlYRegistroToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.quirografariosToolStripMenuItem});
+            this.quirografariosToolStripMenuItem,
+            this.hipotecariosToolStripMenuItem1});
             this.controlYRegistroToolStripMenuItem.Name = "controlYRegistroToolStripMenuItem";
             this.controlYRegistroToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.controlYRegistroToolStripMenuItem.Text = "Control y Registro";
@@ -358,7 +360,7 @@
             this.validarSituaciónLaboralToolStripMenuItem,
             this.fondoDeGarantíaToolStripMenuItem});
             this.quirografariosToolStripMenuItem.Name = "quirografariosToolStripMenuItem";
-            this.quirografariosToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.quirografariosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.quirografariosToolStripMenuItem.Text = "Quirografarios";
             // 
             // generarPorFechaToolStripMenuItem
@@ -443,6 +445,13 @@
             this.pagoPorCajaToolStripMenuItem.Text = "Pago por Caja";
             this.pagoPorCajaToolStripMenuItem.Click += new System.EventHandler(this.pagoPorCajaToolStripMenuItem_Click);
             // 
+            // hipotecariosToolStripMenuItem1
+            // 
+            this.hipotecariosToolStripMenuItem1.Name = "hipotecariosToolStripMenuItem1";
+            this.hipotecariosToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.hipotecariosToolStripMenuItem1.Text = "Hipotecarios";
+            this.hipotecariosToolStripMenuItem1.Click += new System.EventHandler(this.hipotecariosToolStripMenuItem1_Click);
+            // 
             // menuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -512,5 +521,6 @@
         private System.Windows.Forms.ToolStripMenuItem altasCambiosToolStripMenuItem1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem pagoPorCajaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem hipotecariosToolStripMenuItem1;
     }
 }

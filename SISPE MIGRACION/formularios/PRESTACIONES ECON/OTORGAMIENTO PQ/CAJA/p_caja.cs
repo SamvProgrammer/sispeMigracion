@@ -1,4 +1,5 @@
-﻿using SISPE_MIGRACION.formularios.CATÁLOGOS;
+﻿using SISPE_MIGRACION.codigo.baseDatos.repositorios;
+using SISPE_MIGRACION.formularios.CATÁLOGOS;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -41,7 +42,7 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PQ.CAJA
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void p_caja_Load(object sender, EventArgs e)
@@ -56,11 +57,11 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PQ.CAJA
             btnGuardar.Enabled = false;
         }
 
-        private void deshabilitar(bool habilitar = false){
+        private void deshabilitar(bool habilitar = false) {
             deshabilitarElemento(txtFolio, habilitar);
             deshabilitarElemento(txtF_descuento, habilitar);
 
-            
+
             deshabilitarElemento(txtSecretaria, habilitar);
 
             deshabilitarElemento(txtDescuentos, habilitar);
@@ -71,7 +72,7 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PQ.CAJA
             deshabilitarElemento(txtImp_unitIntereses, habilitar);
         }
 
-        private void deshabilitarElemento(Control x,bool aux) {
+        private void deshabilitarElemento(Control x, bool aux) {
             x.Enabled = aux;
         }
 
@@ -186,10 +187,10 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PQ.CAJA
         }
 
 
-//        ;*** PAGOS POR CAJA***
-//;PROCESO QUE PERMITE EN LA EDICION DE RECIBOS QUIROGRAFARIOS
-//;O HIPOTECARIOS CALCULAR EL TOTAL Y EL IMPORTE EN LETRAS
-//; ADEMAS DEL PAGO FINAL DEL RECIBO.
+        //        ;*** PAGOS POR CAJA***
+        //;PROCESO QUE PERMITE EN LA EDICION DE RECIBOS QUIROGRAFARIOS
+        //;O HIPOTECARIOS CALCULAR EL TOTAL Y EL IMPORTE EN LETRAS
+        //; ADEMAS DEL PAGO FINAL DEL RECIBO.
         private void letr_recib(string nombre) {
             switch (nombre) {
                 case "txtPlazo":
@@ -211,10 +212,10 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PQ.CAJA
                     }
                     break;
                 case "txtImp_unitIntereses":
-                    this.imp_unit_int = (string.IsNullOrWhiteSpace(txtImp_unitCap.Text)?0: Convert.ToDouble(txtImp_unitIntereses.Text));
+                    this.imp_unit_int = (string.IsNullOrWhiteSpace(txtImp_unitCap.Text) ? 0 : Convert.ToDouble(txtImp_unitIntereses.Text));
                     //this.total = Convert.ToDouble(txtTotal.Text);
-                    this.imp_unit_intl = globales.convertirNumerosLetras(this.imp_unit_int.ToString(),true);
-                    this.imp_unit_capl = globales.convertirNumerosLetras(txtImp_unitCap.Text,true);
+                    this.imp_unit_intl = globales.convertirNumerosLetras(this.imp_unit_int.ToString(), true);
+                    this.imp_unit_capl = globales.convertirNumerosLetras(txtImp_unitCap.Text, true);
                     this.total = this.imp_unit_cap + this.imp_unit_int;
 
 
@@ -228,7 +229,7 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PQ.CAJA
             try
             {
                 if (string.IsNullOrWhiteSpace(txtDescuentos.Text)) {
-                    MessageBox.Show("Se debe ingresar la cantidad de pagos","Aviso",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                    MessageBox.Show("Se debe ingresar la cantidad de pagos", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     txtDescuentos.Focus();
                     return;
                 }
@@ -263,8 +264,44 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PQ.CAJA
                     txtImp_unitCap.Focus();
                     return;
                 }
+                //Proceso para guardar datos.....
+                DialogResult p = MessageBox.Show("¿Desea guardar cambios?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                if (p == DialogResult.No) return;
 
-           
+                p_cajaQ obj = new p_cajaQ();
+                obj.folio = txtFolio.Text;
+                obj.f_descuento = txtF_descuento.Text;
+                obj.rfc = txtRfc.Text;
+                obj.nombre_em = txtNombre_em.Text;
+                obj.secretaria = txtSecretaria.Text;
+                obj.descripcion = txtdescripcion.Text;
+                obj.descuentos = Convert.ToInt32(txtDescuentos.Text);
+                obj.total = txtTotal.Text;
+                obj.deldescuentos = Convert.ToInt32(txtDelDescuento.Text);
+                obj.numdesc = Convert.ToInt32(txtNumDesc.Text);
+                obj.plazo = Convert.ToInt32(txtPlazo.Text);
+                obj.imp_unit = txtImp_unit.Text;
+                obj.imp_unit_cap = txtImp_unitCap.Text;
+                obj.imp_unit_int = txtImp_unitIntereses.Text;
+                obj.imp_unit_intl = txtLetra2.Text;
+                obj.imp_unit_cap = txtLetra1.Text;
+                obj.fum = this.fum;
+                obj.hum = this.hum;
+
+                string query = string.Format("select * from datos.p_cajaq where folio = {0}",txtFolio.Text);
+                List<Dictionary<string, object>> resultado = globales.consulta(query);
+                if (resultado.Count > 0) {
+                    MessageBox.Show("El registro ya esta insertado, dar clic en \"ACTUALIZAR INFORMACIÓN\" si requiere hacer cambios","Aviso",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                    return;
+                }
+
+                query = string.Format("insert into p_cajaq values ({0},'{1}','{2}','{3}','{4}','{5}')",
+                    obj.folio,obj.f_descuento,obj.rfc,obj.nombre_em,obj.secretaria,obj.descripcion);
+                if (globales.consulta(query,true)) {
+                    MessageBox.Show("Registro insertado existencia!","Aviso",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    limpiarCampos(false);
+                }
+                
             }
             catch {
 

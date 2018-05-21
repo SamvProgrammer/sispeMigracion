@@ -346,6 +346,23 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="datosPaty" msprop:Generator_TableClassName="datosPatyDataTable" msprop:Generator_TableVarName="tabledatosPaty" msprop:Generator_RowChangedName="datosPatyRowChanged" msprop:Generator_TablePropName="datosPaty" msprop:Generator_RowDeletingName="datosPatyRowDeleting" msprop:Generator_RowChangingName="datosPatyRowChanging" msprop:Generator_RowEvHandlerName="datosPatyRowChangeEventHandler" msprop:Generator_RowDeletedName="datosPatyRowDeleted" msprop:Generator_RowClassName="datosPatyRow" msprop:Generator_UserTableName="datosPaty" msprop:Generator_RowEvArgName="datosPatyRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="folio" msprop:Generator_ColumnVarNameInTable="columnfolio" msprop:Generator_ColumnPropNameInRow="folio" msprop:Generator_ColumnPropNameInTable="folioColumn" msprop:Generator_UserColumnName="folio" type="xs:string" minOccurs="0" />
+              <xs:element name="rfc" msprop:Generator_ColumnVarNameInTable="columnrfc" msprop:Generator_ColumnPropNameInRow="rfc" msprop:Generator_ColumnPropNameInTable="rfcColumn" msprop:Generator_UserColumnName="rfc" type="xs:string" minOccurs="0" />
+              <xs:element name="saldosispe" msprop:Generator_ColumnVarNameInTable="columnsaldosispe" msprop:Generator_ColumnPropNameInRow="saldosispe" msprop:Generator_ColumnPropNameInTable="saldosispeColumn" msprop:Generator_UserColumnName="saldosispe" type="xs:string" minOccurs="0" />
+              <xs:element name="saldoCalculado" msprop:Generator_ColumnVarNameInTable="columnsaldoCalculado" msprop:Generator_ColumnPropNameInRow="saldoCalculado" msprop:Generator_ColumnPropNameInTable="saldoCalculadoColumn" msprop:Generator_UserColumnName="saldoCalculado" type="xs:string" minOccurs="0" />
+              <xs:element name="diferencia" msprop:Generator_ColumnVarNameInTable="columndiferencia" msprop:Generator_ColumnPropNameInRow="diferencia" msprop:Generator_ColumnPropNameInTable="diferenciaColumn" msprop:Generator_UserColumnName="diferencia" type="xs:string" minOccurs="0" />
+              <xs:element name="numdesc" msprop:Generator_ColumnVarNameInTable="columnnumdesc" msprop:Generator_ColumnPropNameInRow="numdesc" msprop:Generator_ColumnPropNameInTable="numdescColumn" msprop:Generator_UserColumnName="numdesc" type="xs:string" minOccurs="0" />
+              <xs:element name="numdescFaltantes" msprop:Generator_ColumnVarNameInTable="columnnumdescFaltantes" msprop:Generator_ColumnPropNameInRow="numdescFaltantes" msprop:Generator_ColumnPropNameInTable="numdescFaltantesColumn" msprop:Generator_UserColumnName="numdescFaltantes" type="xs:string" minOccurs="0" />
+              <xs:element name="totaldesc" msprop:Generator_ColumnVarNameInTable="columntotaldesc" msprop:Generator_ColumnPropNameInRow="totaldesc" msprop:Generator_ColumnPropNameInTable="totaldescColumn" msprop:Generator_UserColumnName="totaldesc" type="xs:string" minOccurs="0" />
+              <xs:element name="pago_unitario" msprop:Generator_ColumnVarNameInTable="columnpago_unitario" msprop:Generator_ColumnPropNameInRow="pago_unitario" msprop:Generator_ColumnPropNameInTable="pago_unitarioColumn" msprop:Generator_UserColumnName="pago_unitario" type="xs:string" minOccurs="0" />
+              <xs:element name="importe" msprop:Generator_ColumnVarNameInTable="columnimporte" msprop:Generator_ColumnPropNameInRow="importe" msprop:Generator_ColumnPropNameInTable="importeColumn" msprop:Generator_UserColumnName="importe" type="xs:string" minOccurs="0" />
+              <xs:element name="nombre" msprop:Generator_ColumnVarNameInTable="columnnombre" msprop:Generator_ColumnPropNameInRow="nombre" msprop:Generator_ColumnPropNameInTable="nombreColumn" msprop:Generator_UserColumnName="nombre" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
