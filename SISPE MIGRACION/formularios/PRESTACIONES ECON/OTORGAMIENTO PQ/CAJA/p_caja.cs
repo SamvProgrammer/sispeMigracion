@@ -274,6 +274,7 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PQ.CAJA
                     btnGuardar.Enabled = false;
                     btnNuevo.Enabled = true;
                     btnModifica.Enabled = true;
+                    MessageBox.Show("Ella no te ama");
                 }
 
         }
