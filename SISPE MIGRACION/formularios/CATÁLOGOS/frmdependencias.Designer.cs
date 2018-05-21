@@ -37,11 +37,11 @@ namespace SISPE_MIGRACION.formularios.CATÁLOGOS
             this.btnseleccionar = new System.Windows.Forms.Button();
             this.BUSQUEDA = new System.Windows.Forms.Label();
             this.datos = new System.Windows.Forms.DataGridView();
+            this.PROYECTO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtBusqueda = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.PROYECTO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datos)).BeginInit();
@@ -128,6 +128,18 @@ namespace SISPE_MIGRACION.formularios.CATÁLOGOS
             this.datos.CellStateChanged += new System.Windows.Forms.DataGridViewCellStateChangedEventHandler(this.datos_CellStateChanged);
             this.datos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.datos_KeyPress);
             // 
+            // PROYECTO
+            // 
+            this.PROYECTO.HeaderText = "PROYECTO";
+            this.PROYECTO.Name = "PROYECTO";
+            this.PROYECTO.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "DESCRIPCIÓN";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
@@ -159,28 +171,18 @@ namespace SISPE_MIGRACION.formularios.CATÁLOGOS
             this.label1.TabIndex = 0;
             this.label1.Text = "CATÁLOGO DE DEPENDENCIAS";
             // 
-            // PROYECTO
-            // 
-            this.PROYECTO.HeaderText = "PROYECTO";
-            this.PROYECTO.Name = "PROYECTO";
-            this.PROYECTO.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "DESCRIPCIÓN";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
             // frmdependencias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(553, 518);
             this.Controls.Add(this.panel1);
+            this.KeyPreview = true;
             this.Name = "frmdependencias";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DEPENDENCIAS";
             this.Load += new System.EventHandler(this.frmdependencias_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmdependencias_KeyDown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);

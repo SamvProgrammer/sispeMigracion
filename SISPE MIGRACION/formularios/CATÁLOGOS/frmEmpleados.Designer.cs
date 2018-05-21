@@ -179,12 +179,14 @@ namespace SISPE_MIGRACION.formularios.CATÁLOGOS
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(446, 508);
             this.Controls.Add(this.panel1);
+            this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmEmpleados";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SELECCIONA UN EMPLEADO";
             this.Load += new System.EventHandler(this.frmEmpleados_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmEmpleados_KeyDown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);

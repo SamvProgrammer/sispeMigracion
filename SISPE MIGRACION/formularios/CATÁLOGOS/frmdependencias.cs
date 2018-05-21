@@ -98,5 +98,13 @@ namespace SISPE_MIGRACION.formularios.CATÁLOGOS
         {
             proyecto = Convert.ToString(datos.Rows[e.Cell.RowIndex].Cells[0].Value);
         }
+
+        private void frmdependencias_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F2)
+            {
+                Close();
+            }
+        }
     }
 }

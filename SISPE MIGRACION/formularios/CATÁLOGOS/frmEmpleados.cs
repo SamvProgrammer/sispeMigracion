@@ -109,5 +109,13 @@ namespace SISPE_MIGRACION.formularios.CATÁLOGOS
         {
             btnseleccionar_Click(null,null);
         }
+
+        private void frmEmpleados_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F2)
+            {
+                Close();
+            }
+        }
     }
 }

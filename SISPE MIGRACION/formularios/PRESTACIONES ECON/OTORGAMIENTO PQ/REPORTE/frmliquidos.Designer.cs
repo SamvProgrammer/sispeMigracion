@@ -140,6 +140,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "frmliquidos";
             this.Text = "Liquidos";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmliquidos_KeyDown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

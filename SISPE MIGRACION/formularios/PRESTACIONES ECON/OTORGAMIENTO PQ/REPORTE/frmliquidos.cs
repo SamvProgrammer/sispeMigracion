@@ -30,5 +30,13 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PQ.reportes
 
             //filtrar(c1, c2, variable);
         }
+
+        private void frmliquidos_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F2)
+            {
+                Close();
+            }
+        }
     }
 }

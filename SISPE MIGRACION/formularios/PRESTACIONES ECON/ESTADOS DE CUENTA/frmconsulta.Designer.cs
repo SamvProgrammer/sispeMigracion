@@ -112,7 +112,7 @@
             this.Column8});
             this.datosgb.Location = new System.Drawing.Point(13, 334);
             this.datosgb.Name = "datosgb";
-            this.datosgb.Size = new System.Drawing.Size(1263, 412);
+            this.datosgb.Size = new System.Drawing.Size(1351, 412);
             this.datosgb.TabIndex = 6;
             // 
             // Column1
@@ -502,6 +502,7 @@
             this.KeyPreview = true;
             this.Name = "frmconsulta";
             this.Text = "frmconsulta";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmconsulta_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmconsulta_KeyDown);
             this.panel1.ResumeLayout(false);

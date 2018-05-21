@@ -21,16 +21,22 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.ESTADOS_DE_CUENTA
         private void frmdevol_Load(object sender, EventArgs e)
         {
 
-            frmCatalogoP_quirog p_quirog = new frmCatalogoP_quirog();
-            //    p_quirog.enviar2 = rellenarConsulta;
-            p_quirog.tablaConsultar = "p_edocta";
+            frmEmpleados p_quirog = new frmEmpleados();
+                p_quirog.enviar = rellenarConsulta;
+         
             p_quirog.ShowDialog();
 
         }
 
+
+        public void rellenarConsulta (Dictionary<string, object> resultado, bool externo = false)
+        {
+            this.txtrfc.Text = Convert.ToString(resultado["rfc"]);
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
-            string rfc1 = textBox1.Text;
+            string rfc1 = txtrfc.Text;
             object[] objetotablaReporte;
 
             string query = string.Format("select * from datos.p_quirog where rfc = '{0}'", rfc1);

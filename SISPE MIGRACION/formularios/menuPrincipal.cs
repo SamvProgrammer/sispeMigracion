@@ -176,5 +176,26 @@ namespace SISPE_MIGRACION.formularios
         {
             new frmOpcionesPagoCaja().ShowDialog();
         }
+
+        private void quirografarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmconsulta().ShowDialog();
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void saldosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmsaldos().ShowDialog();
+        }
+
+        private void estadoDeCuentasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmedocuenta().ShowDialog();
+        }
     }
 }
