@@ -21,23 +21,29 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.ESTADOS_DE_CUENTA
         private void frmdevol_Load(object sender, EventArgs e)
         {
 
-            frmCatalogoP_quirog p_quirog = new frmCatalogoP_quirog();
-            //    p_quirog.enviar2 = rellenarConsulta;
-            p_quirog.tablaConsultar = "p_edocta";
+            frmEmpleados p_quirog = new frmEmpleados();
+            p_quirog.enviar = rellenarConsulta;
+
             p_quirog.ShowDialog();
 
         }
 
+
+        public void rellenarConsulta(Dictionary<string, object> resultado, bool externo = false)
+        {
+            this.txtrfc.Text = Convert.ToString(resultado["rfc"]);
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
-            string rfc1 = textBox1.Text;
+            string rfc1 = txtrfc.Text;
             object[] objetotablaReporte;
 
             string query = string.Format("select * from datos.p_quirog where rfc = '{0}'", rfc1);
             List<Dictionary<string, object>> resultado = globales.consulta(query);
             objetotablaReporte = new object[resultado.Count];
             int contador = 0;
-            
+
             foreach (Dictionary<string, object> item in resultado)
             {
                 string folio = Convert.ToString(item["folio"]);
@@ -53,17 +59,18 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.ESTADOS_DE_CUENTA
                 string saldo = Convert.ToString(tmp[0]["saldo"]);
                 if (string.IsNullOrWhiteSpace(fultimopago)) continue;
 
-                object[] arregloAux = {  rfc, nombre_em, folio,"SUSCRIPTOR", fultimopago, importe,  pagado, saldo,emision_cheque };
+                object[] arregloAux = { rfc, nombre_em, folio, "SUSCRIPTOR", fultimopago, importe, pagado, saldo, emision_cheque };
                 objetotablaReporte[contador] = arregloAux;
                 contador++;
             }
 
             object[] objectoenviar = new object[contador];
-            for (int x = 0; x < objetotablaReporte.Length; x++) {
+            for (int x = 0; x < objetotablaReporte.Length; x++)
+            {
                 if (objetotablaReporte[x] == null) break;
                 objectoenviar[x] = objetotablaReporte[x];
             }
-        
+
 
             globales.reportes("reporteConsultaPDevolucion", "consultaDevolucion", objectoenviar);
         }

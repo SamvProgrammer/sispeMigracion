@@ -1,9 +1,7 @@
-﻿
-using SISPE_MIGRACION.formularios.CATÁLOGOS;
+﻿using SISPE_MIGRACION.formularios.CATÁLOGOS;
 using SISPE_MIGRACION.formularios.PRESTACIONES_ECON;
 using SISPE_MIGRACION.formularios.PRESTACIONES_ECON.CONTROL_Y_REGISTRO.QUIROGRAFARIO;
 using SISPE_MIGRACION.formularios.PRESTACIONES_ECON.ESTADOS_DE_CUENTA;
-using SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PH;
 using SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PQ;
 using SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PQ.CAJA;
 using SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PQ.Edo_cuenta;
@@ -34,8 +32,9 @@ namespace SISPE_MIGRACION.formularios
         {
             if (saliendo) return;
 
-            DialogResult dialogo = MessageBox.Show("¿Desea salir de la aplicación?","Saliendo Sispe",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
-            if (dialogo == DialogResult.Yes) {
+            DialogResult dialogo = MessageBox.Show("¿Desea salir de la aplicación?", "Saliendo Sispe", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dialogo == DialogResult.Yes)
+            {
                 saliendo = true;
                 Application.Exit();
             }
@@ -44,13 +43,13 @@ namespace SISPE_MIGRACION.formularios
 
         private void altasDeSolicitudesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void modificarSolicitudesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
-            
+
+
         }
 
         private void altasDeSolicitudesToolStripMenuItem_Click_1(object sender, EventArgs e)
@@ -75,7 +74,7 @@ namespace SISPE_MIGRACION.formularios
 
         private void categoríasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           new frmCategorias().ShowDialog();
+            new frmCategorias().ShowDialog();
         }
 
         private void proyectosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -100,7 +99,7 @@ namespace SISPE_MIGRACION.formularios
 
         private void verProgramaciónToolStripMenuItem_Click(object sender, EventArgs e)
         {
-             new frmdiacheque().ShowDialog();
+            new frmdiacheque().ShowDialog();
         }
 
         private void solicEntregaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -114,7 +113,7 @@ namespace SISPE_MIGRACION.formularios
         }
 
         private void alfabéticoToolStripMenuItem_Click(object sender, EventArgs e)
-        { 
+        {
             new SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PQ.reportes.frmAlfabet().ShowDialog();
         }
 
@@ -178,9 +177,25 @@ namespace SISPE_MIGRACION.formularios
             new frmOpcionesPagoCaja().ShowDialog();
         }
 
-        private void hipotecariosToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void quirografarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new hipotecarios().ShowDialog();
+            new frmconsulta().ShowDialog();
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void saldosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmsaldos().ShowDialog();
+        }
+
+        private void estadoDeCuentasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmedocuenta().ShowDialog();
         }
     }
 }
