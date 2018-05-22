@@ -260,7 +260,7 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PQ.CAJA
 
         private void modificar(p_cajaQ obj) {
             //Proceso para guardar datos.....
-            try { 
+         
             DialogResult p = MessageBox.Show("¿Desea actualizar los cambios?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             if (p == DialogResult.No) return;
 
@@ -274,12 +274,12 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PQ.CAJA
                     btnGuardar.Enabled = false;
                     btnNuevo.Enabled = true;
                     btnModifica.Enabled = true;
+
+                imprimir(obj);
                 }
 
-        }
-            catch {
-
-            }
+        
+         
         }
 
         //        ;*** PAGOS POR CAJA***
@@ -321,8 +321,7 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PQ.CAJA
 
 
         private void guardar(p_cajaQ obj) {
-            try
-            {
+           
                  
                 //Proceso para guardar datos.....
                 DialogResult p = MessageBox.Show("¿Desea guardar cambios?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
@@ -345,12 +344,53 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PQ.CAJA
                     btnGuardar.Enabled = false;
                     btnNuevo.Enabled = true;
                     btnModifica.Enabled = true;
+
+                    imprimir(obj);
                 }
                 
-            }
-            catch {
+            
+          
+        }
 
+        private void imprimir(p_cajaQ obj)
+        {
+            DialogResult p = MessageBox.Show("¿Desea visualizar el reporte?", "Reporte", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (p == DialogResult.No) return;
+
+            string[] meses = {"","ENERO","FEBRERO","MARZO","ABRIL","MAYO","JUNIO","JULIO","AGOSTO","SEPTIEMBRE","OCTUBRE","NOVIEMBRE","DICIEMBRE" };
+
+            string total = globales.checarDecimales(obj.total);
+            string nombre = string.Format("{0} ({1})",obj.nombre_em,obj.rfc);
+            string descripcion = obj.descripcion;
+            string imp_unit_cap = string.Format("${0} ({1})",globales.checarDecimales(obj.imp_unit_cap),obj.imp_unit_capl);
+            string texto1 = string.Format("POR CONCEPTO {0} DEL{1} NÚMERO{1} {2} AL {3}/{4} DE SU PRESTAMO QUIROGRAFARIO DE FOLIO {5} {6}",(obj.descuentos == 1)?"DEL":"DE LOS", (obj.descuentos == 1) ? "" : "S",obj.deldescuentos,obj.numdesc,obj.plazo,obj.folio, (obj.descuentos < 0) ? "MÁS" : "MENOS -");
+            string imp_unit_int = string.Format("${0} ({1})",obj.imp_unit_int,obj.imp_unit_intl);
+            string moratorios = string.Format("{0}", (obj.descuentos < 0) ? "BONIFICADOS" : "MORATORIOS");
+            string[] arreglo = new string[3];
+            if (!string.IsNullOrWhiteSpace(obj.f_descuento)) {
+                obj.f_descuento = obj.f_descuento.Replace(" 12:00:00 a. m.", "");
+                if (obj.f_descuento.Contains("/"))
+                {
+                    arreglo = obj.f_descuento.Split('/');
+                }
+                else {
+                    arreglo = obj.f_descuento.Split('-');
+                    string aux = arreglo[2];
+                    arreglo[2] = arreglo[0];
+                    arreglo[0] = aux;
+                }
             }
+            string fecha = string.Format("OAXACA DE JUAREZ, OAX., {0} DE {1} DE {2}",arreglo[0],"",arreglo[2]);
+            string firma = "L.A.E. PATRICIA CRUZ GOMEZ";
+            string cargo = "JEFE DE DEPTO. DE PRESTACIONES ECONOMICAS";
+            object[][] parametros = new object[2][];
+            object[] header = { "total", "nombre", "descripcion", "impCap", "texto1", "imp_unit_int", "moratorios", "fecha", "firma", "cargo" };
+            object[] values = { total,nombre,descripcion, imp_unit_cap ,texto1, imp_unit_int,moratorios,fecha,firma,cargo};
+
+            parametros[0] = header;
+            parametros[1] = values;
+
+            globales.reportes("reportePagoCajaQ", "p_marcha", new object[] { },"",false,parametros);
         }
 
         private bool validaciones()

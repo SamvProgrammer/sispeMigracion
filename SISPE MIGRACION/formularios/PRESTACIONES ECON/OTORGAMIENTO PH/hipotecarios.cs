@@ -25,9 +25,21 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PH
             barra.Maximum = r.Count;
             int barrax = 0;
             int contador = 0;
+            int porcentaje = 0;
+            int checarPorcentaje = r.Count / 100;
+            int verificador = 0;
             foreach (Dictionary<string, object> item in r) {
+                Application.DoEvents();
                 barrax++;
                 barra.Value = barrax;
+
+                if (checarPorcentaje == verificador) {
+                    porcentaje++;
+                    label1.Text = porcentaje.ToString() + " %";
+                    verificador = 0;
+                }
+                verificador++;
+                
                 query = string.Format("select * from datos.edoctahip where folio = {0} order by f_desc desc limit 1;", item["folio"]);
                 List<Dictionary<string, object>> auxItem = globales.consulta(query);
                 int numDescPendiente = Convert.ToInt32(auxItem[0]["totdes"]) - Convert.ToInt32(auxItem[0]["numdesc"]);
@@ -61,7 +73,7 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PH
                 double diferencia = saldo - pagoPendiente;
                 if (saldo == pagoPendiente) continue;
 
-                object[] objeto = {item["folio"], item["rfc"],item["saldo"],pagoPendiente,diferencia };
+                object[] objeto = { item["folio"], item["rfc"], item["saldo"], pagoPendiente, diferencia,"","","","","",item["nombre"] };
                 arreglo[contador] = objeto;
                 contador++;
             }

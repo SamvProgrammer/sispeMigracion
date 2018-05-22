@@ -45,15 +45,16 @@
             // 
             // barra
             // 
-            this.barra.Location = new System.Drawing.Point(52, 54);
+            this.barra.Location = new System.Drawing.Point(52, 37);
             this.barra.Name = "barra";
-            this.barra.Size = new System.Drawing.Size(322, 23);
+            this.barra.Size = new System.Drawing.Size(322, 46);
             this.barra.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(186, 64);
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Location = new System.Drawing.Point(191, 54);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(24, 13);
             this.label1.TabIndex = 2;

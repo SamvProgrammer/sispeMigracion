@@ -2,6 +2,7 @@
 using SISPE_MIGRACION.formularios.PRESTACIONES_ECON;
 using SISPE_MIGRACION.formularios.PRESTACIONES_ECON.CONTROL_Y_REGISTRO.QUIROGRAFARIO;
 using SISPE_MIGRACION.formularios.PRESTACIONES_ECON.ESTADOS_DE_CUENTA;
+using SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PH;
 using SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PQ;
 using SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PQ.CAJA;
 using SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PQ.Edo_cuenta;
@@ -196,6 +197,11 @@ namespace SISPE_MIGRACION.formularios
         private void estadoDeCuentasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new frmedocuenta().ShowDialog();
+        }
+
+        private void hipotecarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new hipotecarios().ShowDialog();
         }
     }
 }

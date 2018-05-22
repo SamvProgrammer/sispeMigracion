@@ -77,6 +77,7 @@
             this.altasCambiosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.pagoPorCajaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hipotecarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -376,7 +377,8 @@
             // controlYRegistroToolStripMenuItem
             // 
             this.controlYRegistroToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.quirografariosToolStripMenuItem});
+            this.quirografariosToolStripMenuItem,
+            this.hipotecarioToolStripMenuItem});
             this.controlYRegistroToolStripMenuItem.Name = "controlYRegistroToolStripMenuItem";
             this.controlYRegistroToolStripMenuItem.Size = new System.Drawing.Size(208, 24);
             this.controlYRegistroToolStripMenuItem.Text = "Control y Registro";
@@ -475,6 +477,13 @@
             this.pagoPorCajaToolStripMenuItem.Text = "Pago por Caja";
             this.pagoPorCajaToolStripMenuItem.Click += new System.EventHandler(this.pagoPorCajaToolStripMenuItem_Click);
             // 
+            // hipotecarioToolStripMenuItem
+            // 
+            this.hipotecarioToolStripMenuItem.Name = "hipotecarioToolStripMenuItem";
+            this.hipotecarioToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.hipotecarioToolStripMenuItem.Text = "Hipotecario";
+            this.hipotecarioToolStripMenuItem.Click += new System.EventHandler(this.hipotecarioToolStripMenuItem_Click);
+            // 
             // menuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -548,5 +557,6 @@
         private System.Windows.Forms.ToolStripMenuItem pagoPorCajaToolStripMenuItem;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ToolStripMenuItem hipotecarioToolStripMenuItem;
     }
 }
