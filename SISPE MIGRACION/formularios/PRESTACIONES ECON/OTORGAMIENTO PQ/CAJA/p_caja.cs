@@ -380,7 +380,7 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PQ.CAJA
                     arreglo[0] = aux;
                 }
             }
-            string fecha = string.Format("OAXACA DE JUAREZ, OAX., {0} DE {1} DE {2}",arreglo[0],"",arreglo[2]);
+            string fecha = string.Format("OAXACA DE JUAREZ, OAX., {0} DE {1} DE {2}",arreglo[0], meses[Convert.ToInt32(arreglo[1])], arreglo[2]);
             string firma = "L.A.E. PATRICIA CRUZ GOMEZ";
             string cargo = "JEFE DE DEPTO. DE PRESTACIONES ECONOMICAS";
             object[][] parametros = new object[2][];
