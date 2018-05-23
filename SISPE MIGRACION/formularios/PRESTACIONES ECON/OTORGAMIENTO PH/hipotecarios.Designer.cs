@@ -52,11 +52,10 @@
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Location = new System.Drawing.Point(191, 54);
+            this.label1.Location = new System.Drawing.Point(181, 53);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(24, 13);
+            this.label1.Size = new System.Drawing.Size(73, 20);
             this.label1.TabIndex = 2;
             this.label1.Text = "0 %";
             // 
@@ -64,6 +63,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(454, 209);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.barra);
@@ -71,7 +71,6 @@
             this.Name = "hipotecarios";
             this.Text = "hipotecarios";
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

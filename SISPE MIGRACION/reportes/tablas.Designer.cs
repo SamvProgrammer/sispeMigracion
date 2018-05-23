@@ -5398,6 +5398,10 @@ namespace SISPE_MIGRACION.reportes {
             
             private global::System.Data.DataColumn columnnombre;
             
+            private global::System.Data.DataColumn columnfecha;
+            
+            private global::System.Data.DataColumn columnimporte_unitario;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public datosPatyDataTable() {
@@ -5521,6 +5525,22 @@ namespace SISPE_MIGRACION.reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn fechaColumn {
+                get {
+                    return this.columnfecha;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn importe_unitarioColumn {
+                get {
+                    return this.columnimporte_unitario;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -5556,7 +5576,7 @@ namespace SISPE_MIGRACION.reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public datosPatyRow AdddatosPatyRow(string folio, string rfc, string saldosispe, string saldoCalculado, string diferencia, string numdesc, string numdescFaltantes, string totaldesc, string pago_unitario, string importe, string nombre) {
+            public datosPatyRow AdddatosPatyRow(string folio, string rfc, string saldosispe, string saldoCalculado, string diferencia, string numdesc, string numdescFaltantes, string totaldesc, string pago_unitario, string importe, string nombre, string fecha, string importe_unitario) {
                 datosPatyRow rowdatosPatyRow = ((datosPatyRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         folio,
@@ -5569,7 +5589,9 @@ namespace SISPE_MIGRACION.reportes {
                         totaldesc,
                         pago_unitario,
                         importe,
-                        nombre};
+                        nombre,
+                        fecha,
+                        importe_unitario};
                 rowdatosPatyRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowdatosPatyRow);
                 return rowdatosPatyRow;
@@ -5603,6 +5625,8 @@ namespace SISPE_MIGRACION.reportes {
                 this.columnpago_unitario = base.Columns["pago_unitario"];
                 this.columnimporte = base.Columns["importe"];
                 this.columnnombre = base.Columns["nombre"];
+                this.columnfecha = base.Columns["fecha"];
+                this.columnimporte_unitario = base.Columns["importe_unitario"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5630,6 +5654,10 @@ namespace SISPE_MIGRACION.reportes {
                 base.Columns.Add(this.columnimporte);
                 this.columnnombre = new global::System.Data.DataColumn("nombre", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnombre);
+                this.columnfecha = new global::System.Data.DataColumn("fecha", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnfecha);
+                this.columnimporte_unitario = new global::System.Data.DataColumn("importe_unitario", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnimporte_unitario);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -12029,6 +12057,38 @@ namespace SISPE_MIGRACION.reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string fecha {
+                get {
+                    try {
+                        return ((string)(this[this.tabledatosPaty.fechaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'fecha\' in table \'datosPaty\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledatosPaty.fechaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string importe_unitario {
+                get {
+                    try {
+                        return ((string)(this[this.tabledatosPaty.importe_unitarioColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'importe_unitario\' in table \'datosPaty\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledatosPaty.importe_unitarioColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsfolioNull() {
                 return this.IsNull(this.tabledatosPaty.folioColumn);
             }
@@ -12157,6 +12217,30 @@ namespace SISPE_MIGRACION.reportes {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetnombreNull() {
                 this[this.tabledatosPaty.nombreColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsfechaNull() {
+                return this.IsNull(this.tabledatosPaty.fechaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetfechaNull() {
+                this[this.tabledatosPaty.fechaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isimporte_unitarioNull() {
+                return this.IsNull(this.tabledatosPaty.importe_unitarioColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setimporte_unitarioNull() {
+                this[this.tabledatosPaty.importe_unitarioColumn] = global::System.Convert.DBNull;
             }
         }
         
