@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PH
 {
-    public partial class frmexpediente : Form
+    public partial class frmsolicitudes : Form
     {
-        public frmexpediente()
+        public frmsolicitudes()
         {
             InitializeComponent();
             btnGuardar.Visible = false;
@@ -49,7 +49,7 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PH
             this.txttel.Text = Convert.ToString(datos["tel_partic"]);
             this.txtedad.Text = Convert.ToString(datos["edad"]);
             this.txtedocivil.Text = Convert.ToString(datos["edo_civil"]);
-            
+
             ///primer panel
             /// 
             this.txtdependencia.Text = Convert.ToString(datos["secretaria"]);
@@ -63,7 +63,7 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PH
             this.txtTrl.Text = Convert.ToString(datos["tipo_rel"]);
             this.txtsexo.Text = Convert.ToString(datos["sexo"]);
             this.txtccatdes.Text = Convert.ToString(datos["ccatdes"]);
-            txtdescripcion.Text = Convert.ToString(datos["descripcion"]);      
+            txtdescripcion.Text = Convert.ToString(datos["descripcion"]);
             // panel 2
             this.txtubicacion.Text = Convert.ToString(datos["direc_inmu"]);
 
@@ -109,6 +109,11 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PH
             {
                 Close();
             }
+
+            if (e.KeyCode == Keys.F4)
+            {
+                txttipo.Focus();
+            }
         }
 
         private void frmexpediente_KeyPress(object sender, KeyPressEventArgs e)
@@ -139,13 +144,13 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PH
             btnImprimir.Visible = false;
             txtexpediente.Text = "AUTOGENERADO";
 
-            
+
 
 
 
         }
 
-        private void emplea ()
+        private void emplea()
         {
             frmEmpleados empleados = new frmEmpleados();
             empleados.enviar = rellenarConsulta;
@@ -167,15 +172,12 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PH
             this.txtdependencia.Text = Convert.ToString(resultado["depe"]);
 
             string dato = txtdependencia.Text;
-            string depe= "SELECT descripcion FROM catalogos.dependencias where proy = '{0}'";
-            string convierte = string.Format(depe,dato);
-            List<Dictionary<string,object>> tmp =  globales.consulta(convierte);
-            if (tmp.Count > 0) {
-                string descripcion = Convert.ToString(tmp[0]["descripcion"]);
-                txtdescripcion.Text = descripcion;
-            }
-             
-           
+            string depe = "SELECT dependencias FROM catalogos.dependencias where proy = '{0}'";
+            string convierte = string.Format(depe, dato);
+            globales.consulta(depe, true);
+
+
+
 
         }
 
@@ -199,7 +201,7 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PH
             {
                 MessageBox.Show("ERROR , CONTACTE A SISTEMAS");
             }
-           
+
         }
 
         private void actualiza()
@@ -207,21 +209,21 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PH
             try
             {
                 string llena = "UPDATE datos.p_hipotecarios set rfc= '{0}',nombre_em='{1}',sexo='{2}',fecha_nac='{3}',direccion='{4}',proyecto='{5}',nombre_cony='{6}',cve_categ='{7}',sueldo_base='{8}',tipo_rel='{9}',nomina='{10}',secretaria='{11}',descripcion='{12}',edad='{13}',edo_civil= '{14}',tel_ofici='{15}',tel_partic='{16}',direc_inmu='{17}',f_nombran='{18}',ant_a='{19}',ccatdes='{20}' where folio={21}";
-                string query = string.Format(llena,txtRfc.Text, txtnombre_em.Text, txtsexo.Text, txtfechanac.Text, txtdomi.Text, txtproy.Text, txtconyuge.Text, txtcvecateg.Text, txtsueldob.Text, txtTrl.Text, txtnomina.Text,txtdependencia.Text, txtdescripcion.Text, txtedad.Text, txtedocivil.Text, txttel.Text, txtteléfono.Text, txtubicacion.Text, txtfechadenom.Text, txtantiguedad.Text , txtccatdes.Text , txtexpediente.Text );
+                string query = string.Format(llena, txtRfc.Text, txtnombre_em.Text, txtsexo.Text, txtfechanac.Text, txtdomi.Text, txtproy.Text, txtconyuge.Text, txtcvecateg.Text, txtsueldob.Text, txtTrl.Text, txtnomina.Text, txtdependencia.Text, txtdescripcion.Text, txtedad.Text, txtedocivil.Text, txttel.Text, txtteléfono.Text, txtubicacion.Text, txtfechadenom.Text, txtantiguedad.Text, txtccatdes.Text, txtexpediente.Text);
                 if (globales.consulta(query, true))
                     MessageBox.Show("Registros modificados");
                 else
                     MessageBox.Show("Existe un error contacte a sistemas");
             }
-            
+
             catch
             {
-               
+
 
             }
             btnImprimir.Visible = true;
         }
-            
+
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
@@ -334,7 +336,7 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PH
                 return;
             }
 
-               actualiza();
+            actualiza();
             limpiacampos();
             btnNuevo.Visible = true;
             btnguardanuevo.Visible = false;
@@ -345,7 +347,7 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PH
 
         private void btnguardanuevo_Click(object sender, EventArgs e)
         {
-            
+
             nuevo();
             limpiacampos();
             btnguardanuevo.Visible = false;
@@ -354,3 +356,4 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PH
         }
     }
 }
+

@@ -265,14 +265,14 @@
             this.txtconcepto.Location = new System.Drawing.Point(421, 230);
             this.txtconcepto.Name = "txtconcepto";
             this.txtconcepto.Size = new System.Drawing.Size(550, 20);
-            this.txtconcepto.TabIndex = 14;
+            this.txtconcepto.TabIndex = 16;
             // 
             // txtimporteletra
             // 
             this.txtimporteletra.Location = new System.Drawing.Point(164, 289);
             this.txtimporteletra.Name = "txtimporteletra";
             this.txtimporteletra.Size = new System.Drawing.Size(807, 20);
-            this.txtimporteletra.TabIndex = 16;
+            this.txtimporteletra.TabIndex = 18;
             // 
             // label17
             // 
@@ -288,7 +288,7 @@
             this.txtliquido.Location = new System.Drawing.Point(164, 260);
             this.txtliquido.Name = "txtliquido";
             this.txtliquido.Size = new System.Drawing.Size(232, 20);
-            this.txtliquido.TabIndex = 15;
+            this.txtliquido.TabIndex = 17;
             // 
             // label16
             // 
@@ -304,7 +304,7 @@
             this.txtdescuento.Location = new System.Drawing.Point(164, 230);
             this.txtdescuento.Name = "txtdescuento";
             this.txtdescuento.Size = new System.Drawing.Size(232, 20);
-            this.txtdescuento.TabIndex = 13;
+            this.txtdescuento.TabIndex = 15;
             // 
             // label13
             // 
@@ -320,7 +320,7 @@
             this.txtmonto.Location = new System.Drawing.Point(164, 198);
             this.txtmonto.Name = "txtmonto";
             this.txtmonto.Size = new System.Drawing.Size(232, 20);
-            this.txtmonto.TabIndex = 12;
+            this.txtmonto.TabIndex = 14;
             // 
             // label11
             // 
@@ -336,7 +336,7 @@
             this.txtfecobro.Location = new System.Drawing.Point(164, 145);
             this.txtfecobro.Name = "txtfecobro";
             this.txtfecobro.Size = new System.Drawing.Size(167, 20);
-            this.txtfecobro.TabIndex = 11;
+            this.txtfecobro.TabIndex = 13;
             // 
             // label10
             // 
@@ -352,7 +352,7 @@
             this.txtparentesco.Location = new System.Drawing.Point(164, 114);
             this.txtparentesco.Name = "txtparentesco";
             this.txtparentesco.Size = new System.Drawing.Size(478, 20);
-            this.txtparentesco.TabIndex = 10;
+            this.txtparentesco.TabIndex = 12;
             // 
             // label9
             // 
@@ -368,7 +368,7 @@
             this.txtsuertudo.Location = new System.Drawing.Point(164, 82);
             this.txtsuertudo.Name = "txtsuertudo";
             this.txtsuertudo.Size = new System.Drawing.Size(807, 20);
-            this.txtsuertudo.TabIndex = 19;
+            this.txtsuertudo.TabIndex = 11;
             // 
             // label12
             // 
@@ -384,7 +384,7 @@
             this.txtmeses.Location = new System.Drawing.Point(183, 36);
             this.txtmeses.Name = "txtmeses";
             this.txtmeses.Size = new System.Drawing.Size(178, 20);
-            this.txtmeses.TabIndex = 8;
+            this.txtmeses.TabIndex = 10;
             // 
             // label14
             // 
@@ -400,7 +400,7 @@
             this.txtmuerto.Location = new System.Drawing.Point(183, 10);
             this.txtmuerto.Name = "txtmuerto";
             this.txtmuerto.Size = new System.Drawing.Size(178, 20);
-            this.txtmuerto.TabIndex = 7;
+            this.txtmuerto.TabIndex = 9;
             // 
             // label15
             // 
@@ -561,21 +561,21 @@
             this.txtdependencia.Location = new System.Drawing.Point(486, 87);
             this.txtdependencia.Name = "txtdependencia";
             this.txtdependencia.Size = new System.Drawing.Size(312, 20);
-            this.txtdependencia.TabIndex = 5;
+            this.txtdependencia.TabIndex = 7;
             // 
             // txtnombre
             // 
             this.txtnombre.Location = new System.Drawing.Point(275, 51);
             this.txtnombre.Name = "txtnombre";
             this.txtnombre.Size = new System.Drawing.Size(523, 20);
-            this.txtnombre.TabIndex = 3;
+            this.txtnombre.TabIndex = 5;
             // 
             // txtnumcheq
             // 
             this.txtnumcheq.Location = new System.Drawing.Point(718, 11);
             this.txtnumcheq.Name = "txtnumcheq";
             this.txtnumcheq.Size = new System.Drawing.Size(116, 20);
-            this.txtnumcheq.TabIndex = 1;
+            this.txtnumcheq.TabIndex = 3;
             // 
             // label7
             // 
@@ -609,21 +609,21 @@
             this.txtvida.Location = new System.Drawing.Point(97, 123);
             this.txtvida.Name = "txtvida";
             this.txtvida.Size = new System.Drawing.Size(242, 20);
-            this.txtvida.TabIndex = 6;
+            this.txtvida.TabIndex = 8;
             // 
             // txtsueldo
             // 
             this.txtsueldo.Location = new System.Drawing.Point(164, 87);
             this.txtsueldo.Name = "txtsueldo";
             this.txtsueldo.Size = new System.Drawing.Size(167, 20);
-            this.txtsueldo.TabIndex = 4;
+            this.txtsueldo.TabIndex = 6;
             // 
             // txtfecharec
             // 
             this.txtfecharec.Location = new System.Drawing.Point(443, 11);
             this.txtfecharec.Name = "txtfecharec";
             this.txtfecharec.Size = new System.Drawing.Size(100, 20);
-            this.txtfecharec.TabIndex = 0;
+            this.txtfecharec.TabIndex = 2;
             // 
             // label4
             // 
@@ -639,7 +639,7 @@
             this.txtrfc.Location = new System.Drawing.Point(69, 51);
             this.txtrfc.Name = "txtrfc";
             this.txtrfc.Size = new System.Drawing.Size(167, 20);
-            this.txtrfc.TabIndex = 2;
+            this.txtrfc.TabIndex = 4;
             // 
             // label3
             // 

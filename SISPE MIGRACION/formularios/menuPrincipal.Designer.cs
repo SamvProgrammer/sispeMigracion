@@ -53,6 +53,8 @@
             this.alfabéticoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.montosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tasasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.otorgamientoPHToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.expedientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quirografariosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -77,6 +79,7 @@
             this.altasCambiosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.pagoPorCajaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.solicitudesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -194,6 +197,7 @@
             // 
             this.prestacionesEconómicasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.otorgamientoPQToolStripMenuItem,
+            this.otorgamientoPHToolStripMenuItem,
             this.eToolStripMenuItem,
             this.controlYRegistroToolStripMenuItem,
             this.segurosToolStripMenuItem,
@@ -295,6 +299,22 @@
             this.tasasToolStripMenuItem.Size = new System.Drawing.Size(302, 24);
             this.tasasToolStripMenuItem.Text = "Tasas";
             this.tasasToolStripMenuItem.Click += new System.EventHandler(this.tasasToolStripMenuItem_Click);
+            // 
+            // otorgamientoPHToolStripMenuItem
+            // 
+            this.otorgamientoPHToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.expedientesToolStripMenuItem,
+            this.solicitudesToolStripMenuItem});
+            this.otorgamientoPHToolStripMenuItem.Name = "otorgamientoPHToolStripMenuItem";
+            this.otorgamientoPHToolStripMenuItem.Size = new System.Drawing.Size(208, 24);
+            this.otorgamientoPHToolStripMenuItem.Text = "Otorgamiento P.H";
+            // 
+            // expedientesToolStripMenuItem
+            // 
+            this.expedientesToolStripMenuItem.Name = "expedientesToolStripMenuItem";
+            this.expedientesToolStripMenuItem.Size = new System.Drawing.Size(162, 24);
+            this.expedientesToolStripMenuItem.Text = "Expedientes";
+            this.expedientesToolStripMenuItem.Click += new System.EventHandler(this.expedientesToolStripMenuItem_Click);
             // 
             // eToolStripMenuItem
             // 
@@ -475,6 +495,13 @@
             this.pagoPorCajaToolStripMenuItem.Text = "Pago por Caja";
             this.pagoPorCajaToolStripMenuItem.Click += new System.EventHandler(this.pagoPorCajaToolStripMenuItem_Click);
             // 
+            // solicitudesToolStripMenuItem
+            // 
+            this.solicitudesToolStripMenuItem.Name = "solicitudesToolStripMenuItem";
+            this.solicitudesToolStripMenuItem.Size = new System.Drawing.Size(162, 24);
+            this.solicitudesToolStripMenuItem.Text = "Solicitudes";
+            this.solicitudesToolStripMenuItem.Click += new System.EventHandler(this.solicitudesToolStripMenuItem_Click);
+            // 
             // menuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -548,5 +575,8 @@
         private System.Windows.Forms.ToolStripMenuItem pagoPorCajaToolStripMenuItem;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ToolStripMenuItem otorgamientoPHToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem expedientesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem solicitudesToolStripMenuItem;
     }
 }
