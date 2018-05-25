@@ -391,9 +391,9 @@
             this.controlYRegistroToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.quirografariosToolStripMenuItem,
             this.hipotecarioToolStripMenuItem1,
-            this.hipotecarioToolStripMenuItem,
             this.reportesToolStripMenuItem1,
             this.diskettesToolStripMenuItem,
+            this.hipotecarioToolStripMenuItem,
             this.toolStripSeparator2,
             this.validacionesToolStripMenuItem});
             this.controlYRegistroToolStripMenuItem.Name = "controlYRegistroToolStripMenuItem";
@@ -541,6 +541,7 @@
             this.reportesToolStripMenuItem1.Name = "reportesToolStripMenuItem1";
             this.reportesToolStripMenuItem1.Size = new System.Drawing.Size(199, 24);
             this.reportesToolStripMenuItem1.Text = "Reportes...";
+            this.reportesToolStripMenuItem1.Click += new System.EventHandler(this.reportesToolStripMenuItem1_Click);
             // 
             // diskettesToolStripMenuItem
             // 
