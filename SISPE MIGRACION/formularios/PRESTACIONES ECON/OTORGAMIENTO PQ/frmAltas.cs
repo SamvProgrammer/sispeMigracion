@@ -1525,6 +1525,7 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PQ
         private void button1_Click_1(object sender, EventArgs e)
         {
             frmCatalogoP_quirog p_quirog = new frmCatalogoP_quirog();
+            p_quirog.tablaConsultar = "p_quirog";
             p_quirog.enviar = rellenarModificarFolios;
             p_quirog.ShowDialog();
 

@@ -512,6 +512,7 @@
             this.diskettesToolStripMenuItem.Name = "diskettesToolStripMenuItem";
             this.diskettesToolStripMenuItem.Size = new System.Drawing.Size(199, 24);
             this.diskettesToolStripMenuItem.Text = "Diskettes...";
+            this.diskettesToolStripMenuItem.Click += new System.EventHandler(this.diskettesToolStripMenuItem_Click);
             // 
             // hipotecarioToolStripMenuItem
             // 

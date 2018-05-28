@@ -134,7 +134,7 @@
             this.MinimizeBox = false;
             this.Name = "frmTiporelacion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmTiporelacion";
+            this.Text = "Lista tipo de relación";
             this.Load += new System.EventHandler(this.frmTiporelacion_Load);
             this.panel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
