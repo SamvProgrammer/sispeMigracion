@@ -23,12 +23,10 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PH
 
         private void btnModifica_Click(object sender, EventArgs e)
         {
-            btnImprimir.Visible = false;
+  
             btnGuardar.Visible = true;
             btnNuevo.Visible = false;
             btnModifica.Visible = false;
-            btnImprimir.Visible = false;
-            btnImprimir.Visible = true;
             frmCatalogoP_quirog p_hipo = new frmCatalogoP_quirog();
             p_hipo.enviar2 = llenacampos;
             p_hipo.tablaConsultar = "p_hipotecarios";
@@ -112,7 +110,7 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PH
 
             if (e.KeyCode == Keys.F4)
             {
-                txttipo.Focus();
+                
             }
         }
 
@@ -141,7 +139,6 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PH
             emplea();
             btnguardanuevo.Visible = true;
             btnModifica.Visible = false;
-            btnImprimir.Visible = false;
             txtexpediente.Text = "AUTOGENERADO";
 
 
@@ -221,7 +218,7 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PH
 
 
             }
-            btnImprimir.Visible = true;
+           
         }
 
 
@@ -352,7 +349,11 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PH
             limpiacampos();
             btnguardanuevo.Visible = false;
             btnModifica.Visible = true;
-            btnImprimir.Visible = true;
+        }
+
+        private void txtexpediente_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using SISPE_MIGRACION.formularios.CATÁLOGOS;
 using SISPE_MIGRACION.formularios.PRESTACIONES_ECON;
 using SISPE_MIGRACION.formularios.PRESTACIONES_ECON.CONTROL_Y_REGISTRO.QUIROGRAFARIO;
+using SISPE_MIGRACION.formularios.PRESTACIONES_ECON.CONTROL_Y_REGISTRO.REPORTES;
 using SISPE_MIGRACION.formularios.PRESTACIONES_ECON.ESTADOS_DE_CUENTA;
 using SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PH;
 using SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PQ;
@@ -18,8 +19,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+//************************************************
+//**       SECCIÓN DE CÓDIGO DONDÉ SE DECLARA   **
+//**       LOS DELEGADOS...                     **
+//************************************************
+public delegate void setLista(List<Dictionary<string,object>> obj);
+public delegate void setString(string cadena);
 namespace SISPE_MIGRACION.formularios
 {
+    
     public partial class menuPrincipal : Form
     {
         private bool saliendo;
@@ -199,12 +207,32 @@ namespace SISPE_MIGRACION.formularios
             new frmedocuenta().ShowDialog();
         }
 
+        private void hipotecarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new hipotecarios().ShowDialog();
+        }
+
+        private void reportesToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            new frmMenuOpciones().ShowDialog();
+        }
+
         private void expedientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new frmexpediente().ShowDialog();
         }
 
         private void solicitudesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmsolicitudes().ShowDialog();
+        }
+
+        private void expedientesToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            new frmexpediente().ShowDialog();
+        }
+
+        private void solicitudesToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             new frmsolicitudes().ShowDialog();
         }

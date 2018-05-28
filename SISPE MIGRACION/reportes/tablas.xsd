@@ -360,6 +360,21 @@
               <xs:element name="pago_unitario" msprop:Generator_ColumnVarNameInTable="columnpago_unitario" msprop:Generator_ColumnPropNameInRow="pago_unitario" msprop:Generator_ColumnPropNameInTable="pago_unitarioColumn" msprop:Generator_UserColumnName="pago_unitario" type="xs:string" minOccurs="0" />
               <xs:element name="importe" msprop:Generator_ColumnVarNameInTable="columnimporte" msprop:Generator_ColumnPropNameInRow="importe" msprop:Generator_ColumnPropNameInTable="importeColumn" msprop:Generator_UserColumnName="importe" type="xs:string" minOccurs="0" />
               <xs:element name="nombre" msprop:Generator_ColumnVarNameInTable="columnnombre" msprop:Generator_ColumnPropNameInRow="nombre" msprop:Generator_ColumnPropNameInTable="nombreColumn" msprop:Generator_UserColumnName="nombre" type="xs:string" minOccurs="0" />
+              <xs:element name="fecha" msprop:Generator_ColumnVarNameInTable="columnfecha" msprop:Generator_ColumnPropNameInRow="fecha" msprop:Generator_ColumnPropNameInTable="fechaColumn" msprop:Generator_UserColumnName="fecha" type="xs:string" minOccurs="0" />
+              <xs:element name="importe_unitario" msprop:Generator_ColumnVarNameInTable="columnimporte_unitario" msprop:Generator_ColumnPropNameInRow="importe_unitario" msprop:Generator_ColumnPropNameInTable="importe_unitarioColumn" msprop:Generator_UserColumnName="importe_unitario" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="impAltaQ" msprop:Generator_TableClassName="impAltaQDataTable" msprop:Generator_TableVarName="tableimpAltaQ" msprop:Generator_TablePropName="impAltaQ" msprop:Generator_RowDeletingName="impAltaQRowDeleting" msprop:Generator_RowChangingName="impAltaQRowChanging" msprop:Generator_RowEvHandlerName="impAltaQRowChangeEventHandler" msprop:Generator_RowDeletedName="impAltaQRowDeleted" msprop:Generator_UserTableName="impAltaQ" msprop:Generator_RowChangedName="impAltaQRowChanged" msprop:Generator_RowEvArgName="impAltaQRowChangeEvent" msprop:Generator_RowClassName="impAltaQRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="folio" msprop:Generator_ColumnVarNameInTable="columnfolio" msprop:Generator_ColumnPropNameInRow="folio" msprop:Generator_ColumnPropNameInTable="folioColumn" msprop:Generator_UserColumnName="folio" type="xs:string" minOccurs="0" />
+              <xs:element name="rfc" msprop:Generator_ColumnVarNameInTable="columnrfc" msprop:Generator_ColumnPropNameInRow="rfc" msprop:Generator_ColumnPropNameInTable="rfcColumn" msprop:Generator_UserColumnName="rfc" type="xs:string" minOccurs="0" />
+              <xs:element name="nombre" msprop:Generator_ColumnVarNameInTable="columnnombre" msprop:Generator_ColumnPropNameInRow="nombre" msprop:Generator_ColumnPropNameInTable="nombreColumn" msprop:Generator_UserColumnName="nombre" type="xs:string" minOccurs="0" />
+              <xs:element name="proyecto" msprop:Generator_ColumnVarNameInTable="columnproyecto" msprop:Generator_ColumnPropNameInRow="proyecto" msprop:Generator_ColumnPropNameInTable="proyectoColumn" msprop:Generator_UserColumnName="proyecto" type="xs:string" minOccurs="0" />
+              <xs:element name="numdesc" msprop:Generator_ColumnVarNameInTable="columnnumdesc" msprop:Generator_ColumnPropNameInRow="numdesc" msprop:Generator_ColumnPropNameInTable="numdescColumn" msprop:Generator_UserColumnName="numdesc" type="xs:string" minOccurs="0" />
+              <xs:element name="totdesc" msprop:Generator_ColumnVarNameInTable="columntotdesc" msprop:Generator_ColumnPropNameInRow="totdesc" msprop:Generator_ColumnPropNameInTable="totdescColumn" msprop:Generator_UserColumnName="totdesc" type="xs:string" minOccurs="0" />
+              <xs:element name="imp_unit" msprop:Generator_ColumnVarNameInTable="columnimp_unit" msprop:Generator_ColumnPropNameInRow="imp_unit" msprop:Generator_ColumnPropNameInTable="imp_unitColumn" msprop:Generator_UserColumnName="imp_unit" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

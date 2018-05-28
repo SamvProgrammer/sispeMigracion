@@ -59,5 +59,10 @@ namespace SISPE_MIGRACION.formularios.CATÁLOGOS
                 e.Cancel = false;
             }
         }
+
+        private void ntnmodifica_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

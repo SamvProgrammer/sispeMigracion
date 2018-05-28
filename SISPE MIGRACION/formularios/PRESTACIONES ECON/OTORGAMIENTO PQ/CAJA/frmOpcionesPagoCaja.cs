@@ -27,7 +27,7 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PQ.CAJA
             }
             else {
                 if (rdQuiro.Checked) {
-
+                    new frmImpresion().ShowDialog();
                 }
             }
         }
