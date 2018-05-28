@@ -216,5 +216,10 @@ namespace SISPE_MIGRACION.formularios
         {
             new frmMenuOpciones().ShowDialog();
         }
+
+        private void diskettesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new SISPE_MIGRACION.formularios.PRESTACIONES_ECON.CONTROL_Y_REGISTRO.REPORTES.frmMenuOpciones(true).ShowDialog();
+        }
     }
 }

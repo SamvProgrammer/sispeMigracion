@@ -6,7 +6,7 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>2.20113cm</Width>
+              <Width>2.48334cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>2.76832cm</Width>
@@ -18,7 +18,7 @@
               <Width>2.52652cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.31486cm</Width>
+              <Width>1.9691cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>2.64993cm</Width>
@@ -223,7 +223,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!folio.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -253,7 +255,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!rfc.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -283,7 +287,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!nombre.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -313,7 +319,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!proyecto.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -343,7 +351,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!numdesc.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -373,7 +383,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!imp_unit.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -414,6 +426,9 @@
             </TablixMember>
             <TablixMember>
               <Group Name="Details" />
+              <TablixMembers>
+                <TablixMember />
+              </TablixMembers>
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
@@ -421,7 +436,7 @@
         <Top>0.64354cm</Top>
         <Left>0.28787cm</Left>
         <Height>1.25292cm</Height>
-        <Width>16.16026cm</Width>
+        <Width>16.09672cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -432,7 +447,7 @@
     <Height>2in</Height>
     <Style />
   </Body>
-  <Width>6.60064in</Width>
+  <Width>6.60065in</Width>
   <Page>
     <PageHeader>
       <Height>5.35932cm</Height>
@@ -650,8 +665,7 @@
       </Style>
     </PageHeader>
     <PageFooter>
-      <Height>4.94771cm</Height>
-      <PrintOnFirstPage>true</PrintOnFirstPage>
+      <Height>4.57302cm</Height>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
         <Textbox Name="Textbox21">
@@ -785,9 +799,9 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox21</rd:DefaultName>
-          <Top>1.56531cm</Top>
+          <Top>1.20827cm</Top>
           <Left>2.37808cm</Left>
-          <Height>3.00771cm</Height>
+          <Height>2.66375cm</Height>
           <Width>12.08339cm</Width>
           <ZIndex>2</ZIndex>
           <Style>
