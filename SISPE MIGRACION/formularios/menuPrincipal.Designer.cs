@@ -537,6 +537,7 @@
             this.sinPagosToolStripMenuItem.Name = "sinPagosToolStripMenuItem";
             this.sinPagosToolStripMenuItem.Size = new System.Drawing.Size(217, 24);
             this.sinPagosToolStripMenuItem.Text = "Sin pagos...";
+            this.sinPagosToolStripMenuItem.Click += new System.EventHandler(this.sinPagosToolStripMenuItem_Click);
             // 
             // terminarDePagarToolStripMenuItem
             // 
