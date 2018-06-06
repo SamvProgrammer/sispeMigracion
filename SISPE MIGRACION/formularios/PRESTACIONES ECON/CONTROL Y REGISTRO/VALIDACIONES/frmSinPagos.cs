@@ -67,7 +67,7 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.CONTROL_Y_REGISTRO.VALID
             {
                 R3F1 = string.Format("{0}-{1}-01", cmbAño.Text, cmbMes.SelectedIndex + 1);
                 R3F2 = string.Format("{0}-{1}-15", cmbAño.Text, cmbMes.SelectedIndex + 1);
-                R3JPT = " AND c1.tipo_pago <> 'M' ";
+                R3JPT = " AND tipo_pago <> 'M' ";
             }
             else if (rdQuincena2.Checked)
             {
@@ -102,11 +102,11 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.CONTROL_Y_REGISTRO.VALID
             }
 
             if (rdNormal.Checked)
-                R3NCA = " and c1.ubic_pagare = '' ";
+                R3NCA = " and ubic_pagare = '' ";
             else if (rdCobranzas.Checked)
-                R3NCA = "  and c1.ubic_pagare = 'C' ";
+                R3NCA = "  and ubic_pagare = 'C' ";
             else
-                R3NCA = "  and c1.ubic_pagare <> 'X' ";
+                R3NCA = "  and ubic_pagare <> 'X' ";
 
             this.Cursor = Cursors.WaitCursor;
 
@@ -115,11 +115,19 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.CONTROL_Y_REGISTRO.VALID
             #region obteniendo saldos
 
             MessageBox.Show("Se va a obtener los saldos...", "Saldos",MessageBoxButtons.OK,MessageBoxIcon.Information);
-            
-            string query = "SELECT	folio,rfc,nombre_em,proyecto,	importe,	ubic_pagare,'' as numdesc,'' as totdesc,'' as pagado,'' as ultimop,'' as tipo_mov,'' as f_descuento FROM	datos.p_edocta WHERE 	(f_emischeq <= '2018-04-30' or f_emischeq is null) AND ubic_pagare = '' AND tipo_pago <> 'M' order by folio asc";
+
+            string[] auxArregloFecha = R3F1.Split('-');
+            DateTime f1 = new DateTime(Convert.ToInt32(auxArregloFecha[0]), Convert.ToInt32(auxArregloFecha[1]), 1);
+            f1 = f1.AddDays(-1);
+            string fechaEmision = string.Format("{0}-{1}-{2}",f1.Year,f1.Month,f1.Day);
+
+
+            string query = "SELECT	folio,rfc,nombre_em,proyecto,	importe,	ubic_pagare,'' as numdesc,'' as totdesc,'' as pagado,'' as ultimop,'' as tipo_mov,'' as f_descuento FROM	datos.{0} WHERE 	(f_emischeq <= '{1}' or f_emischeq is null) {2} {3} order by folio asc";
+            query = string.Format(query, R3EDOCTA, fechaEmision, R3NCA, R3JPT);
             List<Dictionary<string, object>> r1 = globales.consulta(query);
 
-            query = "select folio, max(numdesc) as numdesc, max(totdesc) totdesc,sum(imp_unit) as pagado,max(f_descuento) as ultimop from datos.d_ecquir where f_descuento <= '2018-05-15' group by folio order by folio asc";
+            query = "select folio, max(numdesc) as numdesc, max(totdesc) totdesc,sum(imp_unit) as pagado,max(f_descuento) as ultimop from datos.{0} where f_descuento <= '{1}' group by folio order by folio asc";
+            query = string.Format(query, R3EC, R3F2);
 
             List<Dictionary<string, object>> r2 = globales.consulta(query);
 
@@ -153,7 +161,8 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.CONTROL_Y_REGISTRO.VALID
                
             }
 
-            query = "select folio,max(f_descuento) as ultimop from datos.d_ecquir  group by folio order by folio asc";
+            query = "select folio,max(f_descuento) as ultimop from datos.{0}  group by folio order by folio asc";
+            query = string.Format(query, R3EC);
             contador = 0;
             r2 = globales.consulta(query);
             for (int x = 0; x < r2.Count; x++) {
@@ -220,7 +229,7 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.CONTROL_Y_REGISTRO.VALID
 
             MessageBox.Show("Se seleccionara folios no pagados en el período...", "Saldos en el periodo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            query = string.Format("select folio from datos.d_ecquir where f_descuento >= '{0}' and f_descuento <= '{1}'", R3F1, R3F2);
+            query = string.Format("select folio from datos.{0} where f_descuento >= '{1}' and f_descuento <= '{2}'", R3EC, R3F1, R3F2);
             List<Dictionary<string, object>> folios = globales.consulta(query);
             foreach (Dictionary<string, object> item in folios)
             {
@@ -238,7 +247,8 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.CONTROL_Y_REGISTRO.VALID
 
             MessageBox.Show("Se buscara altas a las dependencias...", "Altas dependencias", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            query = "select folio,tipo_mov,f_descuento from datos.d_ecqdep  order by folio asc,f_descuento desc";
+            query = "select folio,tipo_mov,f_descuento from datos.{0}  order by folio asc,f_descuento desc";
+            query = string.Format(query, R3ECD);
 
             tmp = globales.consulta(query);
 
@@ -364,7 +374,7 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.CONTROL_Y_REGISTRO.VALID
 
             this.Cursor = Cursors.Default;
 
-            new frmSalida(rdQuiro.Checked, R3F1, R3F2, objetos).ShowDialog();
+            new frmSalida(rdQuiro.Checked, R3F1, R3F2, objetos,resultado).ShowDialog();
 
         }
 
