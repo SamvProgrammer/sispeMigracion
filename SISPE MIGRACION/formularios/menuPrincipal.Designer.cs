@@ -544,6 +544,7 @@
             this.terminarDePagarToolStripMenuItem.Name = "terminarDePagarToolStripMenuItem";
             this.terminarDePagarToolStripMenuItem.Size = new System.Drawing.Size(217, 24);
             this.terminarDePagarToolStripMenuItem.Text = "Terminar de pagar...";
+            this.terminarDePagarToolStripMenuItem.Click += new System.EventHandler(this.terminarDePagarToolStripMenuItem_Click);
             // 
             // sinEstadosDeCtaToolStripMenuItem
             // 

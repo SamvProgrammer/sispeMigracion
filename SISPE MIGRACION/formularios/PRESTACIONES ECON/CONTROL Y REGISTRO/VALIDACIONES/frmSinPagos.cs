@@ -12,9 +12,11 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.CONTROL_Y_REGISTRO.VALID
 {
     public partial class frmSinPagos : Form
     {
-        public frmSinPagos()
+        private bool terminanDePagar { get; set; }
+        public frmSinPagos(bool terminanDePagar = false)
         {
             InitializeComponent();
+            this.terminanDePagar = terminanDePagar;
         }
 
         private void rdHipotecario_CheckedChanged(object sender, EventArgs e)
@@ -40,6 +42,8 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.CONTROL_Y_REGISTRO.VALID
 
             cmbAño.SelectedIndex = 1;
             cmbMes.SelectedIndex = DateTime.Now.Month - 1;
+
+            this.Text = (this.terminanDePagar) ? "Saldo pagado.." : "Sin saldo..";
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -104,80 +108,117 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.CONTROL_Y_REGISTRO.VALID
             else
                 R3NCA = "  and c1.ubic_pagare <> 'X' ";
 
-
-            MessageBox.Show("Se va a obtener los saldos", "Saldos", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-
-
-            string[] auxsplit = R3F1.Split('-');
-            tiempo = new DateTime(Convert.ToInt32(auxsplit[0]), Convert.ToInt32(auxsplit[1]), 1);
-            tiempo = tiempo.AddDays(-1);
-            sFechaEmision = string.Format("{0}-{1}-{2}", tiempo.Year, tiempo.Month, tiempo.Day);
-
-            string query = "SELECT c1.folio,c1.rfc,c1.nombre_em,c1.proyecto,c1.importe,c1.ubic_pagare,max(d.numdesc) as numdesc,max(d.totdesc) as totdesc,sum(d.imp_unit) as pagado, max(f_descuento) as ultimop  " +
-                " FROM datos.{0} c1 LEFT JOIN datos.{1} d ON d.folio = c1.folio " +
-                " WHERE	(	(c1.f_emischeq <= '{2}'OR c1.f_emischeq IS NULL)) " +
-                " {3} " +
-                " {4} " +
-                " GROUP BY c1.folio,c1.importe,c1.ubic_pagare,c1.rfc,c1.nombre_em,c1.proyecto " +
-                " ORDER BY	folio asc ";
-            query = string.Format(query, R3EDOCTA, R3EC, sFechaEmision, R3NCA, R3JPT);
-
-
             this.Cursor = Cursors.WaitCursor;
 
+            List<Dictionary<string, object>> resultado;
 
-            List<Dictionary<string, object>> resultado = globales.consulta(query);
+            #region obteniendo saldos
+
+            MessageBox.Show("Se va a obtener los saldos...", "Saldos",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            
+            string query = "SELECT	folio,rfc,nombre_em,proyecto,	importe,	ubic_pagare,'' as numdesc,'' as totdesc,'' as pagado,'' as ultimop,'' as tipo_mov,'' as f_descuento FROM	datos.p_edocta WHERE 	(f_emischeq <= '2018-04-30' or f_emischeq is null) AND ubic_pagare = '' AND tipo_pago <> 'M' order by folio asc";
+            List<Dictionary<string, object>> r1 = globales.consulta(query);
+
+            query = "select folio, max(numdesc) as numdesc, max(totdesc) totdesc,sum(imp_unit) as pagado,max(f_descuento) as ultimop from datos.d_ecquir where f_descuento <= '2018-05-15' group by folio order by folio asc";
+
+            List<Dictionary<string, object>> r2 = globales.consulta(query);
+
+            int contador = 0;
+            for (int x = 0; x < r2.Count; x++) {
+                if (r1.Count == contador) break;
+                double folio = Convert.ToDouble(r2[x]["folio"]);
+                double folio2 = Convert.ToDouble(r1[contador]["folio"]);
+
+                if (folio > folio2) {
+                    for (int y = contador; y < r1.Count; y++ ) {
+                        double folioAux = Convert.ToDouble(r1[contador]["folio"]);
+                        if (folioAux >= folio)
+                        {
+                            folio2 = Convert.ToDouble(r1[contador]["folio"]);
+                            break;
+                        }
+                            
+                        contador++;
+                    }
+                }
+
+                if (folio == folio2) {
+                    r1[contador]["numdesc"] = r2[x]["numdesc"];
+                    r1[contador]["totdesc"] = r2[x]["totdesc"];
+                    r1[contador]["pagado"] = r2[x]["pagado"];
+                    r1[contador]["ultimop"] = r2[x]["ultimop"].ToString().Replace(" 12:00:00 a. m.","");
+                    contador++;
+                }
+
+               
+            }
+
+            query = "select folio,max(f_descuento) as ultimop from datos.d_ecquir  group by folio order by folio asc";
+            contador = 0;
+            r2 = globales.consulta(query);
+            for (int x = 0; x < r2.Count; x++) {
+                if (r1.Count == contador) break;
+                double folio = Convert.ToDouble(r2[x]["folio"]);
+                double folio2 = Convert.ToDouble(r1[contador]["folio"]);
+
+                if (folio > folio2)
+                {
+                    for (int y = contador; y < r1.Count; y++)
+                    {
+                        double folioAux = Convert.ToDouble(r1[contador]["folio"]);
+                        if (folioAux >= folio)
+                        {
+                            folio2 = Convert.ToDouble(r1[contador]["folio"]);
+                            break;
+                        }
+
+                        contador++;
+                    }
+                }
+               
+                if (folio == folio2)
+                {
+                    r1[contador]["ultimop"] = r2[x]["ultimop"].ToString().Replace(" 12:00:00 a. m.", "");
+                    contador++;
+                }
+
+                var xss = r2[x]["ultimop"];
+
+            }
+
+
+            #endregion
+
+            resultado = r1;
+            r1 = null;
+
+            #region seleccionando folios con saldo
+
+            MessageBox.Show("Se seleccionara folios con saldo...", "Con saldo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
             List<Dictionary<string, object>> tmp = new List<Dictionary<string, object>>();
-            MessageBox.Show("Se seleccionara folios con saldo...", "Saldos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
             foreach (Dictionary<string, object> item in resultado)
             {
                 string sImporte = (string.IsNullOrWhiteSpace(Convert.ToString(item["importe"]))) ? "0" : Convert.ToString(item["importe"]);
                 string sPagado = (string.IsNullOrWhiteSpace(Convert.ToString(item["pagado"]))) ? "0" : Convert.ToString(item["pagado"]);
-               
-                double dImporte = Math.Round(Convert.ToDouble(sImporte));
-                double dPagado = Math.Round(Convert.ToDouble(sPagado));
 
-
-
-
-
-
-                if (dPagado >= dImporte - 0.0001)
-                {
-                    string sUltimop = (string.IsNullOrWhiteSpace(Convert.ToString(item["ultimop"])) ? "" : Convert.ToString(item["ultimop"]).Replace(" 12:00:00 a. m.", ""));
-
-                    string[] auxArreglo = R3F2.Split('-');
-
-                    bool valido = string.IsNullOrWhiteSpace(sUltimop);
-                    bool va2 = false;
-                    DateTime auxTiempo1 = new DateTime(Convert.ToInt32(auxArreglo[0]), Convert.ToInt32(auxArreglo[1]), Convert.ToInt32(auxArreglo[2]));
-                    if (!valido)
-                    {
-                        string[] auxArreglo2 = sUltimop.Replace(" 12:00:00 a. m.", "").Split('/');
-                        DateTime auxTiempo2 = new DateTime(Convert.ToInt32(auxArreglo2[2]), Convert.ToInt32(auxArreglo2[1]), Convert.ToInt32(auxArreglo2[0]));
-                        va2 = auxTiempo2 > auxTiempo1;
-                    }
-                    if (Convert.ToDouble(item["folio"]) == 54573)
-                    {
-                        var xxx = 3;
-                    }
-
-                    bool nullImporte = string.IsNullOrWhiteSpace(Convert.ToString(item["importe"])) && string.IsNullOrWhiteSpace(Convert.ToString(item["pagado"]));
-
-                    if (!valido && !va2 || nullImporte) {
-                        continue;
-                    }
-                    
-                    
+                double dImporte = Math.Round(Convert.ToDouble(sImporte), 2);
+                double dPagado = Math.Round(Convert.ToDouble(sPagado), 2);
+            
+                if (dPagado >= dImporte || dImporte == 0) {
+                    continue;
                 }
+
                 tmp.Add(item);
             }
 
             resultado = tmp;
             tmp = null;
 
-            MessageBox.Show("Se seleccionara folios no pagados en el período...", "Saldos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            #endregion
+
+            MessageBox.Show("Se seleccionara folios no pagados en el período...", "Saldos en el periodo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             query = string.Format("select folio from datos.d_ecquir where f_descuento >= '{0}' and f_descuento <= '{1}'", R3F1, R3F2);
             List<Dictionary<string, object>> folios = globales.consulta(query);
@@ -195,103 +236,101 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.CONTROL_Y_REGISTRO.VALID
                 }
             }
 
-            //Es necesario este proceso ya que igual se puede sacar con pura sententencia sql pero 
-            //se tarda demasiado, ahora con una sentencia for se saca todos los movimiento de d_ecqdep y la cantidad que sale se 
-            //agrega al resultado final :) .... by Santiago...
+            MessageBox.Show("Se buscara altas a las dependencias...", "Altas dependencias", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            query = "select folio,tipo_mov,f_descuento from datos.d_ecqdep order by folio asc";
+            query = "select folio,tipo_mov,f_descuento from datos.d_ecqdep  order by folio asc,f_descuento desc";
+
             tmp = globales.consulta(query);
-            List<Dictionary<string, object>> listaEcq_dep = new List<Dictionary<string, object>>();
-            int contador = 0;
-            int auxContador = 0;
-            foreach (Dictionary<string, object> item in tmp)
-            {
 
-                double folio = Convert.ToDouble(item["folio"]);
-
-
-                if (contador == resultado.Count) break;
-
-
-                double folio2 = Convert.ToDouble(resultado[contador]["folio"]);
-                if (folio != folio2)
-                {
-                    auxContador++;
-                    continue;
-                }
-
-                bool bFechas = string.IsNullOrWhiteSpace(Convert.ToString(item["f_descuento"]));
-
-
-                if (bFechas) goto continuar;
-
-                if (string.IsNullOrWhiteSpace(Convert.ToString(resultado[contador]["ultimop"])))
-                {
-                    listaEcq_dep.Add(item);
-                    goto continuar;
-                }
-
-                string[] saFecha1 = Convert.ToString(item["f_descuento"]).Replace(" 12:00:00 a. m.", "").Split('/');
-                string[] saFecha2 = Convert.ToString(resultado[contador]["ultimop"]).Replace(" 12:00:00 a. m.", "").Split('/');
-
-                DateTime fecha1 = new DateTime(Convert.ToInt32(saFecha1[2]), Convert.ToInt32(saFecha1[1]), Convert.ToInt32(saFecha1[0]));
-                DateTime fecha2 = new DateTime(Convert.ToInt32(saFecha2[2]), Convert.ToInt32(saFecha2[1]), Convert.ToInt32(saFecha2[0]));
-
-                if (fecha1 > fecha2)
-                {
-                    listaEcq_dep.Add(item);
-                }
-
-                continuar:
-
-                double folioAux = Convert.ToInt32(tmp[auxContador + 1]["folio"]);
-
-                if (folio != folioAux)
-                {
-                    contador++;
-                }
-                auxContador++;
-            }
             contador = 0;
-            List<Dictionary<string,object>> listaFinal = new List<Dictionary<string, object>>();
-            foreach (Dictionary<string, object> item in resultado) {
-                double folio = Convert.ToDouble(item["folio"]);
-                double folio2 = Convert.ToDouble(listaEcq_dep[contador]["folio"]);
-                
-                Dictionary<string, object> obj = new Dictionary<string, object>();
-                if (folio == folio2)
+
+            List<Dictionary<string, object>> lista_ecqdep = new List<Dictionary<string, object>>();
+
+            int x1 = 0;
+            foreach (Dictionary<string,object> item in tmp) {
+                if (contador == resultado.Count) break;
+                double folio1 = Convert.ToDouble(item["folio"]);
+                double folio2 = Convert.ToDouble(resultado[contador]["folio"]);
+               
+                if (folio1 > folio2)
                 {
-                    for(int y = contador; y < listaEcq_dep.Count; y++) {
-                        double folioAux = Convert.ToDouble(listaEcq_dep[y]["folio"]);
-                        if (folioAux != folio2) {
-                            contador = y;
+                    for (int y = contador; y < resultado.Count; y++)
+                    {
+                        double folioAux = Convert.ToDouble(resultado[contador]["folio"]);
+                        if (folioAux >= folio1)
+                        {
+                            folio2 = Convert.ToDouble(resultado[contador]["folio"]);
                             break;
                         }
-                        obj = new Dictionary<string, object>();
-                        foreach (string llave in item.Keys)
-                            obj.Add(llave, item[llave]);
 
-                        obj.Add("tipo_mov", listaEcq_dep[y]["tipo_mov"]);
-                        obj.Add("f_descuento", listaEcq_dep[y]["f_descuento"]);
-
-                        listaFinal.Add(obj);
-                        
+                        contador++;
                     }
-                    
                 }
-                else {
-                    foreach (string llave in item.Keys)
-                        obj.Add(llave, item[llave]);
 
-                    obj.Add("tipo_mov", "");
-                    obj.Add("f_descuento", "");
+                if (folio1 == folio2) {
+                    string fecha1 = Convert.ToString(item["f_descuento"]).Replace(" 12:00:00 a. m.", "");
+                    if (!string.IsNullOrWhiteSpace(fecha1)) {
+                        string[] tmpArreglo = fecha1.Split('/');
+                        DateTime tiempo1 = new DateTime(Convert.ToInt32(tmpArreglo[2]), Convert.ToInt32(tmpArreglo[1]), Convert.ToInt32(tmpArreglo[0]));
+                        string fecha2 = Convert.ToString(resultado[contador]["ultimop"]);
+                        if (!string.IsNullOrWhiteSpace(fecha2))
+                        {
+                            string[] tmpArreglo2 = fecha2.Split('/');
+                            DateTime tiempo2 = new DateTime(Convert.ToInt32(tmpArreglo2[2]), Convert.ToInt32(tmpArreglo2[1]), Convert.ToInt32(tmpArreglo2[0]));
+                            if (tiempo1 > tiempo2)
+                            {
+                                lista_ecqdep.Add(item);
+                            }
+                        }
+                        else {
+                            lista_ecqdep.Add(item);
+                        }
+                    }
+                    if (folio2 !=  Convert.ToDouble(tmp[x1+1]["folio"]))
+                        contador++;
+                }
+                x1++;
+            }
 
+
+            contador = 0;
+
+            List<Dictionary<string, object>> listaFinal = new List<Dictionary<string, object>>();
+            for(int x = 0; x < resultado.Count; x++) {
+                double folio = Convert.ToDouble(resultado[x]["folio"]);
+                double folio2 = Convert.ToDouble(lista_ecqdep[contador]["folio"]);
+                if (folio == folio2)
+                {
+                    
+
+                    Dictionary<string, object> obj = new Dictionary<string, object>();
+                    foreach (string llave in resultado[x].Keys)
+                        obj.Add(llave, resultado[x][llave]);
+
+                    obj["tipo_mov"] = lista_ecqdep[contador]["tipo_mov"];
+                    obj["f_descuento"] = lista_ecqdep[contador]["f_descuento"];
+
+                    if (!(contador + 1 == lista_ecqdep.Count))
+                    {
+                        if (Convert.ToDouble(lista_ecqdep[contador + 1]["folio"]) != folio)
+                            contador++;
+                        else
+                        {
+                            x--;
+                            contador++;
+
+                        }
+                    }
                     listaFinal.Add(obj);
                 }
-           
+                else
+                {
+                    listaFinal.Add(resultado[x]);
+                }
             }
 
             resultado = listaFinal;
+            listaFinal = null;
 
             this.Cursor = Cursors.Default;
             object[] objetos = new object[resultado.Count];
@@ -306,13 +345,13 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.CONTROL_Y_REGISTRO.VALID
                 string ubicpagare = Convert.ToString(item["ubic_pagare"]);
                 string proyecto = Convert.ToString(item["proyecto"]);
                 string numdesc = Convert.ToString(item["numdesc"]) + "/" + Convert.ToString(item["totdesc"]);
-                string importe = globales.checarDecimales(string.IsNullOrWhiteSpace(Convert.ToString(item["importe"]))?"0.00": Convert.ToString(item["importe"]));
+                string importe = globales.checarDecimales(string.IsNullOrWhiteSpace(Convert.ToString(item["importe"])) ? "0.00" : Convert.ToString(item["importe"]));
                 string pagado = string.IsNullOrWhiteSpace(Convert.ToString(item["pagado"])) ? "0.00" : Convert.ToString(item["pagado"]);
                 string saldo = globales.checarDecimales((Convert.ToDouble(importe) - Convert.ToDouble(pagado)));
-                string ultimop = (fecha.Length == 3) ? string.Format("{0}/{1}/{2}", fecha[2], fecha[1], fecha[0]):"";
+                string ultimop = (fecha.Length == 3) ? string.Format("{0}/{1}/{2}", fecha[2], fecha[1], fecha[0]) : "";
                 string tipomov = Convert.ToString(item["tipo_mov"]);
-                string f_descuento = (fecha2.Length == 3)? string.Format("{0}/{1}/{2}", fecha2[2], fecha2[1], fecha2[0]):"";
-               
+                string f_descuento = (fecha2.Length == 3) ? string.Format("{0}/{1}/{2}", fecha2[2], fecha2[1], fecha2[0]) : "";
+
                 
 
                 objetos[contador] = new object[] {

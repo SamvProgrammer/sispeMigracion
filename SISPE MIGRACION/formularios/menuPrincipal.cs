@@ -227,5 +227,10 @@ namespace SISPE_MIGRACION.formularios
         {
             new frmSinPagos().ShowDialog();
         }
+
+        private void terminarDePagarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmSinPagos(true).ShowDialog();
+        }
     }
 }
