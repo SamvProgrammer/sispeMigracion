@@ -137,6 +137,7 @@ namespace SISPE_MIGRACION.formularios.CATÁLOGOS
         private void btnmodifica_Click(object sender, EventArgs e)
         {
             string cprodes = Convert.ToString(elemento1.Cells[1].Value);
+            string cprocve = Convert.ToString(elemento1.Cells[0].Value);
             txtdes.Text = cprodes;
             txtproye.Text = cprocve;
 

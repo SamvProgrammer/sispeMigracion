@@ -35,6 +35,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label45 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.label23 = new System.Windows.Forms.Label();
             this.txtsexo = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.txtedocivil = new System.Windows.Forms.TextBox();
@@ -84,6 +85,7 @@
             this.txtsueldob = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.label28 = new System.Windows.Forms.Label();
             this.txtccatdes = new System.Windows.Forms.TextBox();
             this.txtdescripcion = new System.Windows.Forms.TextBox();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -93,7 +95,7 @@
             this.label36 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.data01 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -113,7 +115,7 @@
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.data01)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -180,6 +182,7 @@
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel4.Controls.Add(this.label23);
             this.panel4.Controls.Add(this.txtsexo);
             this.panel4.Controls.Add(this.label20);
             this.panel4.Controls.Add(this.txtedocivil);
@@ -204,10 +207,20 @@
             this.panel4.Size = new System.Drawing.Size(1160, 122);
             this.panel4.TabIndex = 11;
             // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Location = new System.Drawing.Point(301, 64);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(65, 13);
+            this.label23.TabIndex = 41;
+            this.label23.Text = "DD/MM/AA";
+            // 
             // txtsexo
             // 
             this.txtsexo.Cursor = System.Windows.Forms.Cursors.No;
-            this.txtsexo.Location = new System.Drawing.Point(386, 61);
+            this.txtsexo.Location = new System.Drawing.Point(442, 61);
             this.txtsexo.MaxLength = 7;
             this.txtsexo.Name = "txtsexo";
             this.txtsexo.Size = new System.Drawing.Size(63, 20);
@@ -217,7 +230,7 @@
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(339, 65);
+            this.label20.Location = new System.Drawing.Point(395, 65);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(40, 13);
             this.label20.TabIndex = 40;
@@ -561,7 +574,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(486, 81);
+            this.label16.Location = new System.Drawing.Point(523, 81);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(88, 13);
             this.label16.TabIndex = 31;
@@ -612,7 +625,7 @@
             // txtantiguedad
             // 
             this.txtantiguedad.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.txtantiguedad.Location = new System.Drawing.Point(585, 74);
+            this.txtantiguedad.Location = new System.Drawing.Point(622, 74);
             this.txtantiguedad.Name = "txtantiguedad";
             this.txtantiguedad.Size = new System.Drawing.Size(114, 20);
             this.txtantiguedad.TabIndex = 11;
@@ -630,7 +643,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(750, 81);
+            this.label15.Location = new System.Drawing.Point(787, 81);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(166, 13);
             this.label15.TabIndex = 39;
@@ -639,7 +652,7 @@
             // txtTrl
             // 
             this.txtTrl.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.txtTrl.Location = new System.Drawing.Point(918, 78);
+            this.txtTrl.Location = new System.Drawing.Point(955, 78);
             this.txtTrl.Name = "txtTrl";
             this.txtTrl.Size = new System.Drawing.Size(54, 20);
             this.txtTrl.TabIndex = 12;
@@ -686,6 +699,7 @@
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel5.Controls.Add(this.label28);
             this.panel5.Controls.Add(this.txtccatdes);
             this.panel5.Controls.Add(this.txtdescripcion);
             this.panel5.Controls.Add(this.label11);
@@ -711,6 +725,16 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(1161, 144);
             this.panel5.TabIndex = 12;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.Location = new System.Drawing.Point(407, 81);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(65, 13);
+            this.label28.TabIndex = 45;
+            this.label28.Text = "DD/MM/AA";
             // 
             // txtccatdes
             // 
@@ -778,9 +802,9 @@
             this.label36.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label36.Location = new System.Drawing.Point(13, 559);
             this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(50, 20);
+            this.label36.Size = new System.Drawing.Size(240, 20);
             this.label36.TabIndex = 46;
-            this.label36.Text = "[ F4 ]";
+            this.label36.Text = "[ F4 ] DATOS ADICIONALES";
             // 
             // label24
             // 
@@ -795,19 +819,19 @@
             // 
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel7.Controls.Add(this.dataGridView1);
+            this.panel7.Controls.Add(this.data01);
             this.panel7.Controls.Add(this.label24);
             this.panel7.Location = new System.Drawing.Point(7, 566);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(1161, 162);
             this.panel7.TabIndex = 45;
             // 
-            // dataGridView1
+            // data01
             // 
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.data01.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.data01.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.data01.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.data01.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
             this.Column3,
@@ -818,10 +842,12 @@
             this.Column8,
             this.Column9,
             this.Column10});
-            this.dataGridView1.Location = new System.Drawing.Point(6, 14);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1153, 134);
-            this.dataGridView1.TabIndex = 42;
+            this.data01.Location = new System.Drawing.Point(6, 14);
+            this.data01.Name = "data01";
+            this.data01.Size = new System.Drawing.Size(1148, 134);
+            this.data01.TabIndex = 42;
+            this.data01.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.data01_CellEnter);
+            this.data01.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.data01_CellValueChanged);
             // 
             // Column1
             // 
@@ -896,7 +922,7 @@
             this.Text = "frmexpediente";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmexpediente_FormClosing);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmexpediente_KeyDown);
+            this.Load += new System.EventHandler(this.frmsolicitudes_Load);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.frmexpediente_KeyPress);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -912,7 +938,7 @@
             this.panel6.PerformLayout();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.data01)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -985,7 +1011,9 @@
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView data01;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label28;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;

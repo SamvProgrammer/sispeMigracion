@@ -1,4 +1,5 @@
 ﻿using SISPE_MIGRACION.formularios.CATÁLOGOS;
+using SISPE_MIGRACION.formularios.Fondo_de_Pensiones;
 using SISPE_MIGRACION.formularios.PRESTACIONES_ECON;
 using SISPE_MIGRACION.formularios.PRESTACIONES_ECON.CONTROL_Y_REGISTRO.QUIROGRAFARIO;
 using SISPE_MIGRACION.formularios.PRESTACIONES_ECON.CONTROL_Y_REGISTRO.REPORTES;
@@ -240,6 +241,22 @@ namespace SISPE_MIGRACION.formularios
         private void diskettesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new SISPE_MIGRACION.formularios.PRESTACIONES_ECON.CONTROL_Y_REGISTRO.REPORTES.frmMenuOpciones(true).ShowDialog();
+        }
+
+        private void consultaToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            new frmreporlisaporta().ShowDialog();
+        }
+
+        private void documentosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmDocumentos().ShowDialog();
+
         }
     }
 }

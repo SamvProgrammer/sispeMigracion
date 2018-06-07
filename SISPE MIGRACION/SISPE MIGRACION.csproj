@@ -48,6 +48,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DotNetDBF">
+      <HintPath>..\packages\DotNetDBF.5.0.4\lib\net35\DotNetDBF.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Report.Viewer.11.0.0.0\lib\net\Microsoft.ReportViewer.Common.dll</HintPath>
       <Private>True</Private>
@@ -180,6 +183,12 @@
     <Compile Include="formularios\CATÁLOGOS\frmProyecto.Designer.cs">
       <DependentUpon>frmProyecto.cs</DependentUpon>
     </Compile>
+    <Compile Include="formularios\Fondo de Pensiones\frmreporlisaporta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formularios\Fondo de Pensiones\frmreporlisaporta.Designer.cs">
+      <DependentUpon>frmreporlisaporta.cs</DependentUpon>
+    </Compile>
     <Compile Include="formularios\login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -216,6 +225,18 @@
     <Compile Include="formularios\PRESTACIONES ECON\CONTROL Y REGISTRO\QUIROGRAFARIO\validarSituacionLaboral.Designer.cs">
       <DependentUpon>validarSituacionLaboral.cs</DependentUpon>
     </Compile>
+    <Compile Include="formularios\PRESTACIONES ECON\CONTROL Y REGISTRO\REPORTES\frmMenuOpciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formularios\PRESTACIONES ECON\CONTROL Y REGISTRO\REPORTES\frmMenuOpciones.Designer.cs">
+      <DependentUpon>frmMenuOpciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formularios\PRESTACIONES ECON\CONTROL Y REGISTRO\REPORTES\frmTiporelacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formularios\PRESTACIONES ECON\CONTROL Y REGISTRO\REPORTES\frmTiporelacion.Designer.cs">
+      <DependentUpon>frmTiporelacion.cs</DependentUpon>
+    </Compile>
     <Compile Include="formularios\PRESTACIONES ECON\ESTADOS DE CUENTA\adicionalconsulta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -233,6 +254,66 @@
     </Compile>
     <Compile Include="formularios\PRESTACIONES ECON\ESTADOS DE CUENTA\frmdevol.Designer.cs">
       <DependentUpon>frmdevol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formularios\PRESTACIONES ECON\ESTADOS DE CUENTA\frmedocuenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formularios\PRESTACIONES ECON\ESTADOS DE CUENTA\frmedocuenta.Designer.cs">
+      <DependentUpon>frmedocuenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formularios\PRESTACIONES ECON\ESTADOS DE CUENTA\frmsaldos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formularios\PRESTACIONES ECON\ESTADOS DE CUENTA\frmsaldos.Designer.cs">
+      <DependentUpon>frmsaldos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formularios\PRESTACIONES ECON\OTORGAMIENTO PH\DOCUMENTOS\frmadicionaldocu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formularios\PRESTACIONES ECON\OTORGAMIENTO PH\DOCUMENTOS\frmadicionaldocu.Designer.cs">
+      <DependentUpon>frmadicionaldocu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formularios\PRESTACIONES ECON\OTORGAMIENTO PH\DOCUMENTOS\frmavaluo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formularios\PRESTACIONES ECON\OTORGAMIENTO PH\DOCUMENTOS\frmavaluo.Designer.cs">
+      <DependentUpon>frmavaluo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formularios\PRESTACIONES ECON\OTORGAMIENTO PH\DOCUMENTOS\frmDocumentos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formularios\PRESTACIONES ECON\OTORGAMIENTO PH\DOCUMENTOS\frmDocumentos.Designer.cs">
+      <DependentUpon>frmDocumentos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formularios\PRESTACIONES ECON\OTORGAMIENTO PH\DOCUMENTOS\frmdocusolic.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formularios\PRESTACIONES ECON\OTORGAMIENTO PH\DOCUMENTOS\frmdocusolic.Designer.cs">
+      <DependentUpon>frmdocusolic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formularios\PRESTACIONES ECON\OTORGAMIENTO PH\frmexpediente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formularios\PRESTACIONES ECON\OTORGAMIENTO PH\frmexpediente.Designer.cs">
+      <DependentUpon>frmexpediente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formularios\PRESTACIONES ECON\OTORGAMIENTO PH\frmsolicitudes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formularios\PRESTACIONES ECON\OTORGAMIENTO PH\frmsolicitudes.Designer.cs">
+      <DependentUpon>frmsolicitudes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formularios\PRESTACIONES ECON\OTORGAMIENTO PH\hipotecarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formularios\PRESTACIONES ECON\OTORGAMIENTO PH\hipotecarios.Designer.cs">
+      <DependentUpon>hipotecarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formularios\PRESTACIONES ECON\OTORGAMIENTO PQ\CAJA\frmImpresion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formularios\PRESTACIONES ECON\OTORGAMIENTO PQ\CAJA\frmImpresion.Designer.cs">
+      <DependentUpon>frmImpresion.cs</DependentUpon>
     </Compile>
     <Compile Include="formularios\PRESTACIONES ECON\OTORGAMIENTO PQ\CAJA\frmOpcionesPagoCaja.cs">
       <SubType>Form</SubType>
@@ -364,6 +445,9 @@
     <EmbeddedResource Include="formularios\CATÁLOGOS\frmProyecto.resx">
       <DependentUpon>frmProyecto.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="formularios\Fondo de Pensiones\frmreporlisaporta.resx">
+      <DependentUpon>frmreporlisaporta.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="formularios\login.resx">
       <DependentUpon>login.cs</DependentUpon>
     </EmbeddedResource>
@@ -379,6 +463,12 @@
     <EmbeddedResource Include="formularios\PRESTACIONES ECON\CONTROL Y REGISTRO\QUIROGRAFARIO\frmGenerarPorFecha.resx">
       <DependentUpon>frmGenerarPorFecha.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="formularios\PRESTACIONES ECON\CONTROL Y REGISTRO\REPORTES\frmMenuOpciones.resx">
+      <DependentUpon>frmMenuOpciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formularios\PRESTACIONES ECON\CONTROL Y REGISTRO\REPORTES\frmTiporelacion.resx">
+      <DependentUpon>frmTiporelacion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="formularios\PRESTACIONES ECON\ESTADOS DE CUENTA\adicionalconsulta.resx">
       <DependentUpon>adicionalconsulta.cs</DependentUpon>
     </EmbeddedResource>
@@ -387,6 +477,36 @@
     </EmbeddedResource>
     <EmbeddedResource Include="formularios\PRESTACIONES ECON\ESTADOS DE CUENTA\frmdevol.resx">
       <DependentUpon>frmdevol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formularios\PRESTACIONES ECON\ESTADOS DE CUENTA\frmedocuenta.resx">
+      <DependentUpon>frmedocuenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formularios\PRESTACIONES ECON\ESTADOS DE CUENTA\frmsaldos.resx">
+      <DependentUpon>frmsaldos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formularios\PRESTACIONES ECON\OTORGAMIENTO PH\DOCUMENTOS\frmadicionaldocu.resx">
+      <DependentUpon>frmadicionaldocu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formularios\PRESTACIONES ECON\OTORGAMIENTO PH\DOCUMENTOS\frmavaluo.resx">
+      <DependentUpon>frmavaluo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formularios\PRESTACIONES ECON\OTORGAMIENTO PH\DOCUMENTOS\frmDocumentos.resx">
+      <DependentUpon>frmDocumentos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formularios\PRESTACIONES ECON\OTORGAMIENTO PH\DOCUMENTOS\frmdocusolic.resx">
+      <DependentUpon>frmdocusolic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formularios\PRESTACIONES ECON\OTORGAMIENTO PH\frmexpediente.resx">
+      <DependentUpon>frmexpediente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formularios\PRESTACIONES ECON\OTORGAMIENTO PH\frmsolicitudes.resx">
+      <DependentUpon>frmsolicitudes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formularios\PRESTACIONES ECON\OTORGAMIENTO PH\hipotecarios.resx">
+      <DependentUpon>hipotecarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formularios\PRESTACIONES ECON\OTORGAMIENTO PQ\CAJA\frmImpresion.resx">
+      <DependentUpon>frmImpresion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formularios\PRESTACIONES ECON\OTORGAMIENTO PQ\CAJA\frmOpcionesPagoCaja.resx">
       <DependentUpon>frmOpcionesPagoCaja.cs</DependentUpon>
@@ -437,11 +557,15 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="reportes\frmrepoalfaaporta.rdlc" />
     <EmbeddedResource Include="reportes\p_quirogSolicitud.rdlc" />
     <EmbeddedResource Include="reportes\reporteConsultaPDevolucion.rdlc" />
+    <EmbeddedResource Include="reportes\reporteImpAltasQ.rdlc" />
     <EmbeddedResource Include="reportes\ReporteMarcha.rdlc" />
     <EmbeddedResource Include="reportes\reportePagareQuiro.rdlc" />
     <EmbeddedResource Include="reportes\reporteAlfa.rdlc" />
+    <EmbeddedResource Include="reportes\reportePagoCajaQ.rdlc" />
+    <EmbeddedResource Include="reportes\reportePaty.rdlc" />
     <EmbeddedResource Include="reportes\reporteSolicitudEntrega.rdlc" />
     <EmbeddedResource Include="reportes\reporteTasasDeInteresQ.rdlc" />
     <EmbeddedResource Include="reportes\reportMonto.rdlc" />
@@ -492,9 +616,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="formularios\PRESTACIONES ECON\OTORGAMIENTO PH\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -28,13 +28,46 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.ESTADOS_DE_CUENTA
         {
 
             DateTime fec1 = fecha1.Value;
-            DateTime fec2 = fecha2.Value;
             string c1 = string.Format("{0}-{1}-{2}", fec1.Year, fec1.Month, fec1.Day);
-            string c2 = string.Format("{0}-{1}-{2}", fec2.Year, fec2.Month, fec2.Day);
-            string tipoprestamo = (RBquiro.Checked)?"from datos.p_quirog": "from datos.p_hípote";
-            string query = "";
-            MessageBox.Show("estas seleccionando" + tipoprestamo);
             
+            // Validación de tipo de prestmo 
+            if (RBquiro.Checked)
+            {
+                string R2_EDOCTA = "P_edocta";
+                string R2_EC = "D_ecquir";
+            }
+            else 
+            {
+                string R2_EDOCTA = "P_edocth";
+                string R2_EC = "D_echipo";
+            }
+            
+
+            if (rbnormal.Checked)
+            {
+                string R2_NCA = " ";
+            }
+            else if (rbambos.Checked)
+            {
+                string R2_NCA = "and ubic_pagare <> 'X'";
+
+            }
+            else 
+            {
+                string R2_NCA = " and ubic_pagare = 'C'";
+            }
+
+            MessageBox.Show("Seleccionando ultima CTA. de cada folio al " +fec1 );
+
+            string qry = string.Format("select folio from  {0}  ");
+
+
+
+
+
+
+
+
 
         }
     }

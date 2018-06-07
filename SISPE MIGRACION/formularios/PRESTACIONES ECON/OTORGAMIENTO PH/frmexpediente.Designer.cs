@@ -128,14 +128,14 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1271, 104);
+            this.panel1.Size = new System.Drawing.Size(1174, 104);
             this.panel1.TabIndex = 10;
             // 
             // panel3
             // 
             this.panel3.Controls.Add(this.pictureBox1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel3.Location = new System.Drawing.Point(996, 0);
+            this.panel3.Location = new System.Drawing.Point(899, 0);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(275, 104);
             this.panel3.TabIndex = 0;
@@ -188,7 +188,7 @@
             this.panel4.Controls.Add(this.label3);
             this.panel4.Location = new System.Drawing.Point(8, 150);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1257, 122);
+            this.panel4.Size = new System.Drawing.Size(1160, 122);
             this.panel4.TabIndex = 11;
             // 
             // txtsexo
@@ -397,7 +397,7 @@
             this.group.Controls.Add(this.btnNuevo);
             this.group.Dock = System.Windows.Forms.DockStyle.Right;
             this.group.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.group.Location = new System.Drawing.Point(1271, 0);
+            this.group.Location = new System.Drawing.Point(1174, 0);
             this.group.Name = "group";
             this.group.Size = new System.Drawing.Size(196, 728);
             this.group.TabIndex = 14;
@@ -714,7 +714,7 @@
             this.panel5.Controls.Add(this.label27);
             this.panel5.Location = new System.Drawing.Point(7, 293);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1258, 144);
+            this.panel5.Size = new System.Drawing.Size(1161, 144);
             this.panel5.TabIndex = 12;
             // 
             // txtccatdes
@@ -744,7 +744,7 @@
             this.panel6.Controls.Add(this.txtubicacion);
             this.panel6.Location = new System.Drawing.Point(7, 482);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1258, 112);
+            this.panel6.Size = new System.Drawing.Size(1161, 112);
             this.panel6.TabIndex = 44;
             // 
             // label19
@@ -779,7 +779,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1467, 728);
+            this.ClientSize = new System.Drawing.Size(1370, 728);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.label9);

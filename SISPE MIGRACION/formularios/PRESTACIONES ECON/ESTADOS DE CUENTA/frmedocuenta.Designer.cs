@@ -211,9 +211,9 @@
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(71, 15);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(136, 13);
+            this.label4.Size = new System.Drawing.Size(132, 13);
             this.label4.TabIndex = 0;
-            this.label4.Text = "TIPO DE COBRANZA::";
+            this.label4.Text = "TIPO DE COBRANZA:";
             // 
             // panel4
             // 
