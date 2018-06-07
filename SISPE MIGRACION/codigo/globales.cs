@@ -52,5 +52,8 @@ class globales
     public static string checarDecimales(object texto) {
         return herramientas.checarDecimales(texto);
     }
+    public static string[] getMeses() {
+        return herramientas.meses;
+    }
 }
 

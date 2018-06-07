@@ -13,6 +13,7 @@ namespace SISPE_MIGRACION.codigo.herramientas
 {
     class herramientas
     {
+        public static string[] meses = { "","Enero","Febrero","Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" };
         public static DateTime sacarFechaHabil(int dias, string fechaEspecifica = "")
         {
             DateTime tiempo = DateTime.Now;

@@ -3,6 +3,7 @@ using SISPE_MIGRACION.formularios.Fondo_de_Pensiones;
 using SISPE_MIGRACION.formularios.PRESTACIONES_ECON;
 using SISPE_MIGRACION.formularios.PRESTACIONES_ECON.CONTROL_Y_REGISTRO.QUIROGRAFARIO;
 using SISPE_MIGRACION.formularios.PRESTACIONES_ECON.CONTROL_Y_REGISTRO.REPORTES;
+using SISPE_MIGRACION.formularios.PRESTACIONES_ECON.CONTROL_Y_REGISTRO.VALIDACIONES;
 using SISPE_MIGRACION.formularios.PRESTACIONES_ECON.ESTADOS_DE_CUENTA;
 using SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PH;
 using SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PQ;
@@ -257,6 +258,16 @@ namespace SISPE_MIGRACION.formularios
         {
             new frmDocumentos().ShowDialog();
 
+        }
+
+        private void sinPagosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmSinPagos().ShowDialog();
+        }
+
+        private void terminarDePagarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmSinPagos(true).ShowDialog();
         }
     }
 }
