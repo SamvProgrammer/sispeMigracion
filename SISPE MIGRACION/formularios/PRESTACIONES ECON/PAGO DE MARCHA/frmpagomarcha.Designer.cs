@@ -134,14 +134,14 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1372, 75);
+            this.panel3.Size = new System.Drawing.Size(1370, 75);
             this.panel3.TabIndex = 6;
             // 
             // panel4
             // 
             this.panel4.Controls.Add(this.pictureBox1);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel4.Location = new System.Drawing.Point(1097, 0);
+            this.panel4.Location = new System.Drawing.Point(1095, 0);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(275, 75);
             this.panel4.TabIndex = 0;
@@ -156,7 +156,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 75);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1372, 681);
+            this.panel1.Size = new System.Drawing.Size(1370, 674);
             this.panel1.TabIndex = 7;
             // 
             // label18
@@ -422,9 +422,9 @@
             this.group.Controls.Add(this.btnGuarda);
             this.group.Dock = System.Windows.Forms.DockStyle.Right;
             this.group.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.group.Location = new System.Drawing.Point(1157, 0);
+            this.group.Location = new System.Drawing.Point(1155, 0);
             this.group.Name = "group";
-            this.group.Size = new System.Drawing.Size(215, 681);
+            this.group.Size = new System.Drawing.Size(215, 674);
             this.group.TabIndex = 55;
             this.group.TabStop = false;
             this.group.Text = "Opciones";
@@ -671,7 +671,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1372, 756);
+            this.ClientSize = new System.Drawing.Size(1370, 749);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel3);
             this.KeyPreview = true;
