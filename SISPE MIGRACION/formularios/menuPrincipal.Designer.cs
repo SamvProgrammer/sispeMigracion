@@ -66,12 +66,15 @@
             this.otorgamientoPHToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.expedientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.solicitudesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.documentosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quirografariosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.hipotecariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultaPdevToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.quirografarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.reportesToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.saldosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.estadoDeCuentasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -103,7 +106,6 @@
             this.altasCambiosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.pagoPorCajaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.documentosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -422,12 +424,21 @@
             this.solicitudesToolStripMenuItem.Text = "Solicitudes";
             this.solicitudesToolStripMenuItem.Click += new System.EventHandler(this.solicitudesToolStripMenuItem_Click_1);
             // 
+            // documentosToolStripMenuItem
+            // 
+            this.documentosToolStripMenuItem.Name = "documentosToolStripMenuItem";
+            this.documentosToolStripMenuItem.Size = new System.Drawing.Size(167, 24);
+            this.documentosToolStripMenuItem.Text = "Documentos";
+            this.documentosToolStripMenuItem.Click += new System.EventHandler(this.documentosToolStripMenuItem_Click);
+            // 
             // eToolStripMenuItem
             // 
             this.eToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.consultaToolStripMenuItem,
             this.consultaPdevToolStripMenuItem,
+            this.toolStripSeparator3,
             this.quirografarioToolStripMenuItem,
+            this.toolStripSeparator4,
             this.reportesToolStripMenuItem2});
             this.eToolStripMenuItem.Name = "eToolStripMenuItem";
             this.eToolStripMenuItem.Size = new System.Drawing.Size(208, 24);
@@ -457,10 +468,16 @@
             // 
             // consultaPdevToolStripMenuItem
             // 
+            this.consultaPdevToolStripMenuItem.Enabled = false;
             this.consultaPdevToolStripMenuItem.Name = "consultaPdevToolStripMenuItem";
             this.consultaPdevToolStripMenuItem.Size = new System.Drawing.Size(184, 24);
             this.consultaPdevToolStripMenuItem.Text = "Consulta p/dev";
             this.consultaPdevToolStripMenuItem.Click += new System.EventHandler(this.consultaPdevToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(181, 6);
             // 
             // quirografarioToolStripMenuItem
             // 
@@ -468,6 +485,11 @@
             this.quirografarioToolStripMenuItem.Size = new System.Drawing.Size(184, 24);
             this.quirografarioToolStripMenuItem.Text = "Quirografario";
             this.quirografarioToolStripMenuItem.Click += new System.EventHandler(this.quirografarioToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(181, 6);
             // 
             // reportesToolStripMenuItem2
             // 
@@ -664,6 +686,7 @@
             this.sinEstadosDeCtaToolStripMenuItem.Name = "sinEstadosDeCtaToolStripMenuItem";
             this.sinEstadosDeCtaToolStripMenuItem.Size = new System.Drawing.Size(217, 24);
             this.sinEstadosDeCtaToolStripMenuItem.Text = "Sin estados de cta.";
+            this.sinEstadosDeCtaToolStripMenuItem.Click += new System.EventHandler(this.sinEstadosDeCtaToolStripMenuItem_Click);
             // 
             // segurosToolStripMenuItem
             // 
@@ -697,13 +720,6 @@
             this.pagoPorCajaToolStripMenuItem.Size = new System.Drawing.Size(208, 24);
             this.pagoPorCajaToolStripMenuItem.Text = "Pago por Caja";
             this.pagoPorCajaToolStripMenuItem.Click += new System.EventHandler(this.pagoPorCajaToolStripMenuItem_Click);
-            // 
-            // documentosToolStripMenuItem
-            // 
-            this.documentosToolStripMenuItem.Name = "documentosToolStripMenuItem";
-            this.documentosToolStripMenuItem.Size = new System.Drawing.Size(167, 24);
-            this.documentosToolStripMenuItem.Text = "Documentos";
-            this.documentosToolStripMenuItem.Click += new System.EventHandler(this.documentosToolStripMenuItem_Click);
             // 
             // menuPrincipal
             // 
@@ -805,5 +821,7 @@
         private System.Windows.Forms.ToolStripMenuItem reporteDeSaldosToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem reporteDePendientesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem documentosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
     }
 }
