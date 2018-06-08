@@ -32,10 +32,10 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.rd1 = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.rd1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -95,6 +95,28 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Seleccionar";
             // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(135, 38);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(71, 20);
+            this.radioButton2.TabIndex = 1;
+            this.radioButton2.Text = "Archivo";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // rd1
+            // 
+            this.rd1.AutoSize = true;
+            this.rd1.Checked = true;
+            this.rd1.Location = new System.Drawing.Point(26, 38);
+            this.rd1.Name = "rd1";
+            this.rd1.Size = new System.Drawing.Size(75, 20);
+            this.rd1.TabIndex = 0;
+            this.rd1.TabStop = true;
+            this.rd1.Text = "Reporte";
+            this.rd1.UseVisualStyleBackColor = true;
+            // 
             // label1
             // 
             this.label1.BackColor = System.Drawing.SystemColors.ButtonFace;
@@ -117,28 +139,6 @@
             this.pictureBox1.TabIndex = 11;
             this.pictureBox1.TabStop = false;
             // 
-            // rd1
-            // 
-            this.rd1.AutoSize = true;
-            this.rd1.Checked = true;
-            this.rd1.Location = new System.Drawing.Point(26, 38);
-            this.rd1.Name = "rd1";
-            this.rd1.Size = new System.Drawing.Size(75, 20);
-            this.rd1.TabIndex = 0;
-            this.rd1.TabStop = true;
-            this.rd1.Text = "Reporte";
-            this.rd1.UseVisualStyleBackColor = true;
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(135, 38);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(71, 20);
-            this.radioButton2.TabIndex = 1;
-            this.radioButton2.Text = "Archivo";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
             // frmSalida
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -150,6 +150,7 @@
             this.Name = "frmSalida";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Salida";
+            this.Load += new System.EventHandler(this.frmSalida_Load);
             this.panel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

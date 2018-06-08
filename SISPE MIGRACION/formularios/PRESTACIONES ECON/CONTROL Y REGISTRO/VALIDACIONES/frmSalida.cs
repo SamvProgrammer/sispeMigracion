@@ -18,6 +18,7 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.CONTROL_Y_REGISTRO.VALID
         private string r3f1;
         private string r3f2;
         private List<Dictionary<string, object>> resultado;
+        private bool sinEstadoCtA;
         public frmSalida(bool tipoPrestamo, string t1, string t2, object[] arreglo, List<Dictionary<string, object>> resultado)
         {
             InitializeComponent();
@@ -26,6 +27,11 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.CONTROL_Y_REGISTRO.VALID
             this.r3f1 = t1;
             this.r3f2 = t2;
             this.resultado = resultado;
+        }
+
+        public frmSalida() {
+            InitializeComponent();
+            this.sinEstadoCtA = true;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -38,7 +44,68 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.CONTROL_Y_REGISTRO.VALID
             DialogResult p = MessageBox.Show("¿Seguro que desea realizar la operación?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             if (p == DialogResult.No) return;
 
+            
+
             this.Cursor = Cursors.WaitCursor;
+            if (!sinEstadoCtA)
+                reporteEstados();
+            else
+                estadosCuenta();
+
+            this.Cursor = Cursors.Default;
+        }
+
+        private void estadosCuenta()
+        {
+            MessageBox.Show("Se seleccionara folios de solicitudes", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            string query = "(select  folio from datos.p_quirog  EXCEPT SELECT  folio from datos.p_edocta) order by folio asc";
+            List<Dictionary<string, object>> tmp1 = globales.consulta(query);
+            query = "select  folio,f_solicitud,f_emischeq,nombre_em,descripcion from datos.p_quirog order by folio asc";
+            List<Dictionary<string, object>> tmp2 = globales.consulta(query);
+            List<Dictionary<string, object>> resultado = new List<Dictionary<string, object>>();
+            int contador = 0;
+            foreach (Dictionary<string,object> item in tmp2) {
+                string folio = Convert.ToString(item["folio"]);
+                string folio2 = Convert.ToString(tmp1[contador]["folio"]);
+                if (folio == folio2) {
+                    resultado.Add(item);
+                    contador++;
+                }
+            }
+
+            if (rd1.Checked) {
+                object[] obj = new object[resultado.Count];
+
+                for (int x = 0; x < resultado.Count; x++) {
+                    string folio = Convert.ToString(resultado[x]["folio"]);
+                    string solicitud = Convert.ToString(resultado[x]["f_solicitud"]).Replace(" 12:00:00 a. m.","");
+                    string f_emisionCheque = Convert.ToString(resultado[x]["f_emischeq"]).Replace(" 12:00:00 a. m.","");
+                    string nombre = Convert.ToString(resultado[x]["nombre_em"]);
+                    string descripcion = Convert.ToString(resultado[x]["descripcion"]);
+
+                    object[] objeto = {folio,solicitud,f_emisionCheque,nombre,descripcion };
+                    obj[x] = objeto;
+
+                }
+
+                object[][] parametros = new object[2][];
+                object[] headers = { "fecha","total" };
+                object[] body = { string.Format("{0}/{1}/{2}",DateTime.Now.Day,DateTime.Now.Month,DateTime.Now.Year),resultado.Count.ToString() };
+
+                parametros[0] = headers;
+                parametros[1] = body;
+
+                globales.reportes("reporteSinEstadosCuenta", "tasaInteres", obj,"",false,parametros);
+            }
+
+
+        }
+
+        private void frmSalida_Load(object sender, EventArgs e)
+        {
+
+        }
+        private void reporteEstados() {
             if (rd1.Checked)
             {
                 string tipoPrestamo = this.tipoPrestamo ? "QUIROGRAFARIOS" : "HIPOTECARIOS";
@@ -71,12 +138,12 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.CONTROL_Y_REGISTRO.VALID
                     DotNetDBF.DBFWriter escribir = new DotNetDBF.DBFWriter();
                     escribir.DataMemoLoc = ruta.Replace("dbf", "dbt");
 
-                    DotNetDBF.DBFField c1 = new DotNetDBF.DBFField("FOLIO", DotNetDBF.NativeDbType.Numeric, 20,2);
+                    DotNetDBF.DBFField c1 = new DotNetDBF.DBFField("FOLIO", DotNetDBF.NativeDbType.Numeric, 20, 2);
                     DotNetDBF.DBFField c2 = new DotNetDBF.DBFField("RFC", DotNetDBF.NativeDbType.Char, 100);
                     DotNetDBF.DBFField c3 = new DotNetDBF.DBFField("NOMBRE_EM", DotNetDBF.NativeDbType.Char, 100);
                     DotNetDBF.DBFField c4 = new DotNetDBF.DBFField("PROYECTO", DotNetDBF.NativeDbType.Char, 100);
                     DotNetDBF.DBFField c5 = new DotNetDBF.DBFField("IMPORTE", DotNetDBF.NativeDbType.Numeric, 10, 2);
-                    DotNetDBF.DBFField c6 = new DotNetDBF.DBFField("UBIC_PAGAR", DotNetDBF.NativeDbType.Char,10);
+                    DotNetDBF.DBFField c6 = new DotNetDBF.DBFField("UBIC_PAGAR", DotNetDBF.NativeDbType.Char, 10);
                     DotNetDBF.DBFField c7 = new DotNetDBF.DBFField("NUMDESC", DotNetDBF.NativeDbType.Numeric, 10, 2);
                     DotNetDBF.DBFField c8 = new DotNetDBF.DBFField("TOTDESC", DotNetDBF.NativeDbType.Numeric, 10, 2);
                     DotNetDBF.DBFField c9 = new DotNetDBF.DBFField("PAGADO", DotNetDBF.NativeDbType.Numeric, 10, 2);
@@ -114,7 +181,6 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.CONTROL_Y_REGISTRO.VALID
                     MessageBox.Show("Archivo .DBF generado exitosamente", "Archivo generado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-            this.Cursor = Cursors.Default;
         }
     }
 }
