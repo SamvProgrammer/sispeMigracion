@@ -246,7 +246,7 @@ namespace SISPE_MIGRACION.formularios
 
         private void consultaToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-
+            new frmaportaciones().ShowDialog();
         }
 
         private void toolStripMenuItem2_Click(object sender, EventArgs e)

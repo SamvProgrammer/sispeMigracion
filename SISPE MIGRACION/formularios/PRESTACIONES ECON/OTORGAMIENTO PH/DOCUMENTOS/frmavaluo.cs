@@ -44,12 +44,16 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PH.DOCUMENT
             this.txtcvecateg.Text = Convert.ToString(datos["cve_categ"]);
             this.txtubicacion.Text = Convert.ToString(datos["direc_inmu"]);
 
-           string query = "SELECT * FROM datos.h_evalua";
-            globales.consulta(query);
-            List<Dictionary<string, object>> resultado = globales.consulta(query);
+
+            string query = "SELECT * FROM datos.h_evalua where expediente='{0}' ";
+            string con = string.Format(query, txtexpediente.Text);
+            List<Dictionary<string, object>> resultado = globales.consulta(con);
+            this.txtfecha.Text = Convert.ToString(resultado[0]["f_solic"]).Replace("12:00:00 a. m.", "");
+            this.txtdestinario.Text = Convert.ToString(resultado[0]["nombre"]);
+            this.txtvalor.Text = Convert.ToString(resultado[0]["valor_bien"]);
 
             // joelk d
-            
+
 
 
 
