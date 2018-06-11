@@ -29,325 +29,238 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.rdAmbos = new System.Windows.Forms.RadioButton();
+            this.rdCobranzas = new System.Windows.Forms.RadioButton();
+            this.rdNormal = new System.Windows.Forms.RadioButton();
             this.button1 = new System.Windows.Forms.Button();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.radioButton13 = new System.Windows.Forms.RadioButton();
-            this.radioButton11 = new System.Windows.Forms.RadioButton();
-            this.radioButton10 = new System.Windows.Forms.RadioButton();
-            this.radioButton9 = new System.Windows.Forms.RadioButton();
-            this.radioButton8 = new System.Windows.Forms.RadioButton();
-            this.radioButton7 = new System.Windows.Forms.RadioButton();
-            this.radioButton6 = new System.Windows.Forms.RadioButton();
-            this.label5 = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.rbcobranza = new System.Windows.Forms.RadioButton();
-            this.rbambos = new System.Windows.Forms.RadioButton();
-            this.rbnormal = new System.Windows.Forms.RadioButton();
-            this.label4 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.RBhipote = new System.Windows.Forms.RadioButton();
-            this.RBquiro = new System.Windows.Forms.RadioButton();
-            this.label3 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.fecha1 = new System.Windows.Forms.DateTimePicker();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rdHipotecario = new System.Windows.Forms.RadioButton();
+            this.rdQuiro = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.dFecha = new System.Windows.Forms.DateTimePicker();
+            this.lbl1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            this.panel6.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.panel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panel1.Controls.Add(this.lbl1);
+            this.panel1.Controls.Add(this.groupBox4);
+            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.groupBox3);
             this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.panel6);
-            this.panel1.Controls.Add(this.panel5);
-            this.panel1.Controls.Add(this.panel4);
-            this.panel1.Controls.Add(this.panel3);
-            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Controls.Add(this.groupBox1);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(820, 406);
-            this.panel1.TabIndex = 0;
+            this.panel1.Size = new System.Drawing.Size(563, 433);
+            this.panel1.TabIndex = 7;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.dFecha);
+            this.groupBox4.Controls.Add(this.label2);
+            this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox4.Location = new System.Drawing.Point(46, 141);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(478, 89);
+            this.groupBox4.TabIndex = 16;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Seleccionar";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(41, 18);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(49, 16);
+            this.label2.TabIndex = 17;
+            this.label2.Text = "Fecha:";
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button2.Location = new System.Drawing.Point(280, 363);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(114, 31);
+            this.button2.TabIndex = 18;
+            this.button2.Text = "&Cancelar";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.rdAmbos);
+            this.groupBox3.Controls.Add(this.rdCobranzas);
+            this.groupBox3.Controls.Add(this.rdNormal);
+            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.Location = new System.Drawing.Point(46, 236);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(228, 121);
+            this.groupBox3.TabIndex = 15;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Seleccionar";
+            // 
+            // rdAmbos
+            // 
+            this.rdAmbos.AutoSize = true;
+            this.rdAmbos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdAmbos.Location = new System.Drawing.Point(19, 77);
+            this.rdAmbos.Name = "rdAmbos";
+            this.rdAmbos.Size = new System.Drawing.Size(69, 20);
+            this.rdAmbos.TabIndex = 5;
+            this.rdAmbos.Text = "Ambos";
+            this.rdAmbos.UseVisualStyleBackColor = true;
+            // 
+            // rdCobranzas
+            // 
+            this.rdCobranzas.AutoSize = true;
+            this.rdCobranzas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdCobranzas.Location = new System.Drawing.Point(18, 51);
+            this.rdCobranzas.Name = "rdCobranzas";
+            this.rdCobranzas.Size = new System.Drawing.Size(91, 20);
+            this.rdCobranzas.TabIndex = 4;
+            this.rdCobranzas.Text = "Cobranzas";
+            this.rdCobranzas.UseVisualStyleBackColor = true;
+            // 
+            // rdNormal
+            // 
+            this.rdNormal.AutoSize = true;
+            this.rdNormal.Checked = true;
+            this.rdNormal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdNormal.Location = new System.Drawing.Point(18, 25);
+            this.rdNormal.Name = "rdNormal";
+            this.rdNormal.Size = new System.Drawing.Size(70, 20);
+            this.rdNormal.TabIndex = 3;
+            this.rdNormal.TabStop = true;
+            this.rdNormal.Text = "Normal";
+            this.rdNormal.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(249, 361);
+            this.button1.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button1.Location = new System.Drawing.Point(160, 363);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(353, 33);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "GENERAR REPORTE";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Size = new System.Drawing.Size(114, 31);
+            this.button1.TabIndex = 15;
+            this.button1.Text = "&Aceptar";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
-            // panel6
+            // groupBox1
             // 
-            this.panel6.BackColor = System.Drawing.SystemColors.Control;
-            this.panel6.Controls.Add(this.label6);
-            this.panel6.Location = new System.Drawing.Point(0, 0);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(817, 35);
-            this.panel6.TabIndex = 4;
+            this.groupBox1.Controls.Add(this.rdHipotecario);
+            this.groupBox1.Controls.Add(this.rdQuiro);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(280, 236);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(244, 121);
+            this.groupBox1.TabIndex = 13;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Seleccionar";
             // 
-            // label6
+            // rdHipotecario
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(245, 9);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(357, 24);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "MÓDULO DE REPORTE DE SALDOS";
+            this.rdHipotecario.AutoSize = true;
+            this.rdHipotecario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdHipotecario.Location = new System.Drawing.Point(33, 56);
+            this.rdHipotecario.Name = "rdHipotecario";
+            this.rdHipotecario.Size = new System.Drawing.Size(96, 20);
+            this.rdHipotecario.TabIndex = 1;
+            this.rdHipotecario.Text = "Hipotecario";
+            this.rdHipotecario.UseVisualStyleBackColor = true;
             // 
-            // panel5
+            // rdQuiro
             // 
-            this.panel5.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.panel5.Controls.Add(this.radioButton13);
-            this.panel5.Controls.Add(this.radioButton11);
-            this.panel5.Controls.Add(this.radioButton10);
-            this.panel5.Controls.Add(this.radioButton9);
-            this.panel5.Controls.Add(this.radioButton8);
-            this.panel5.Controls.Add(this.radioButton7);
-            this.panel5.Controls.Add(this.radioButton6);
-            this.panel5.Controls.Add(this.label5);
-            this.panel5.Location = new System.Drawing.Point(456, 112);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(327, 213);
-            this.panel5.TabIndex = 3;
-            // 
-            // radioButton13
-            // 
-            this.radioButton13.AutoSize = true;
-            this.radioButton13.Location = new System.Drawing.Point(16, 173);
-            this.radioButton13.Name = "radioButton13";
-            this.radioButton13.Size = new System.Drawing.Size(137, 17);
-            this.radioButton13.TabIndex = 10;
-            this.radioButton13.Text = "ANALISIS DE SALDOS";
-            this.radioButton13.UseVisualStyleBackColor = true;
-            // 
-            // radioButton11
-            // 
-            this.radioButton11.AutoSize = true;
-            this.radioButton11.Location = new System.Drawing.Point(16, 150);
-            this.radioButton11.Name = "radioButton11";
-            this.radioButton11.Size = new System.Drawing.Size(59, 17);
-            this.radioButton11.TabIndex = 8;
-            this.radioButton11.Text = "TABLA";
-            this.radioButton11.UseVisualStyleBackColor = true;
-            this.radioButton11.CheckedChanged += new System.EventHandler(this.radioButton11_CheckedChanged);
-            // 
-            // radioButton10
-            // 
-            this.radioButton10.AutoSize = true;
-            this.radioButton10.Location = new System.Drawing.Point(16, 127);
-            this.radioButton10.Name = "radioButton10";
-            this.radioButton10.Size = new System.Drawing.Size(56, 17);
-            this.radioButton10.TabIndex = 7;
-            this.radioButton10.Text = "FOLIO";
-            this.radioButton10.UseVisualStyleBackColor = true;
-            // 
-            // radioButton9
-            // 
-            this.radioButton9.AutoSize = true;
-            this.radioButton9.Location = new System.Drawing.Point(16, 104);
-            this.radioButton9.Name = "radioButton9";
-            this.radioButton9.Size = new System.Drawing.Size(153, 17);
-            this.radioButton9.TabIndex = 6;
-            this.radioButton9.Text = "ALFABÉTICO SIN SALDO ";
-            this.radioButton9.UseVisualStyleBackColor = true;
-            // 
-            // radioButton8
-            // 
-            this.radioButton8.AutoSize = true;
-            this.radioButton8.Location = new System.Drawing.Point(16, 81);
-            this.radioButton8.Name = "radioButton8";
-            this.radioButton8.Size = new System.Drawing.Size(90, 17);
-            this.radioButton8.TabIndex = 5;
-            this.radioButton8.Text = "ALFABÉTICO";
-            this.radioButton8.UseVisualStyleBackColor = true;
-            // 
-            // radioButton7
-            // 
-            this.radioButton7.AutoSize = true;
-            this.radioButton7.Location = new System.Drawing.Point(16, 58);
-            this.radioButton7.Name = "radioButton7";
-            this.radioButton7.Size = new System.Drawing.Size(152, 17);
-            this.radioButton7.TabIndex = 4;
-            this.radioButton7.Text = "RESUMEN POR CUENTA";
-            this.radioButton7.UseVisualStyleBackColor = true;
-            // 
-            // radioButton6
-            // 
-            this.radioButton6.AutoSize = true;
-            this.radioButton6.Checked = true;
-            this.radioButton6.Location = new System.Drawing.Point(16, 35);
-            this.radioButton6.Name = "radioButton6";
-            this.radioButton6.Size = new System.Drawing.Size(146, 17);
-            this.radioButton6.TabIndex = 3;
-            this.radioButton6.TabStop = true;
-            this.radioButton6.Text = "SALDOS INDIVIDUALES";
-            this.radioButton6.UseVisualStyleBackColor = true;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(109, 14);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(124, 13);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "TIPO DE REPORTE ";
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.panel4.Controls.Add(this.rbcobranza);
-            this.panel4.Controls.Add(this.rbambos);
-            this.panel4.Controls.Add(this.rbnormal);
-            this.panel4.Controls.Add(this.label4);
-            this.panel4.Location = new System.Drawing.Point(453, 24);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(327, 74);
-            this.panel4.TabIndex = 2;
-            // 
-            // rbcobranza
-            // 
-            this.rbcobranza.AutoSize = true;
-            this.rbcobranza.Location = new System.Drawing.Point(229, 44);
-            this.rbcobranza.Name = "rbcobranza";
-            this.rbcobranza.Size = new System.Drawing.Size(84, 17);
-            this.rbcobranza.TabIndex = 4;
-            this.rbcobranza.Text = "COBRANZA";
-            this.rbcobranza.UseVisualStyleBackColor = true;
-            // 
-            // rbambos
-            // 
-            this.rbambos.AutoSize = true;
-            this.rbambos.Location = new System.Drawing.Point(126, 44);
-            this.rbambos.Name = "rbambos";
-            this.rbambos.Size = new System.Drawing.Size(63, 17);
-            this.rbambos.TabIndex = 3;
-            this.rbambos.Text = "AMBOS";
-            this.rbambos.UseVisualStyleBackColor = true;
-            // 
-            // rbnormal
-            // 
-            this.rbnormal.AutoSize = true;
-            this.rbnormal.Checked = true;
-            this.rbnormal.Location = new System.Drawing.Point(3, 44);
-            this.rbnormal.Name = "rbnormal";
-            this.rbnormal.Size = new System.Drawing.Size(71, 17);
-            this.rbnormal.TabIndex = 2;
-            this.rbnormal.TabStop = true;
-            this.rbnormal.Text = "NORMAL";
-            this.rbnormal.UseVisualStyleBackColor = true;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(109, 14);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(140, 13);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "ESTADO DEL CHEQUE";
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.panel3.Controls.Add(this.RBhipote);
-            this.panel3.Controls.Add(this.RBquiro);
-            this.panel3.Controls.Add(this.label3);
-            this.panel3.Location = new System.Drawing.Point(50, 179);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(327, 146);
-            this.panel3.TabIndex = 1;
-            // 
-            // RBhipote
-            // 
-            this.RBhipote.AutoSize = true;
-            this.RBhipote.Location = new System.Drawing.Point(177, 66);
-            this.RBhipote.Name = "RBhipote";
-            this.RBhipote.Size = new System.Drawing.Size(95, 17);
-            this.RBhipote.TabIndex = 2;
-            this.RBhipote.Text = "HIPOTECARO";
-            this.RBhipote.UseVisualStyleBackColor = true;
-            // 
-            // RBquiro
-            // 
-            this.RBquiro.AutoSize = true;
-            this.RBquiro.Checked = true;
-            this.RBquiro.Location = new System.Drawing.Point(37, 66);
-            this.RBquiro.Name = "RBquiro";
-            this.RBquiro.Size = new System.Drawing.Size(115, 17);
-            this.RBquiro.TabIndex = 1;
-            this.RBquiro.TabStop = true;
-            this.RBquiro.Text = "QUIROGRAFARIO";
-            this.RBquiro.UseVisualStyleBackColor = true;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(81, 16);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(190, 13);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "TIPO DE ESTADO DE CUENTA ";
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.panel2.Controls.Add(this.fecha1);
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Location = new System.Drawing.Point(50, 24);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(327, 131);
-            this.panel2.TabIndex = 0;
-            // 
-            // fecha1
-            // 
-            this.fecha1.Location = new System.Drawing.Point(69, 30);
-            this.fecha1.Name = "fecha1";
-            this.fecha1.Size = new System.Drawing.Size(200, 20);
-            this.fecha1.TabIndex = 2;
+            this.rdQuiro.AutoSize = true;
+            this.rdQuiro.Checked = true;
+            this.rdQuiro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdQuiro.Location = new System.Drawing.Point(33, 30);
+            this.rdQuiro.Name = "rdQuiro";
+            this.rdQuiro.Size = new System.Drawing.Size(104, 20);
+            this.rdQuiro.TabIndex = 0;
+            this.rdQuiro.TabStop = true;
+            this.rdQuiro.Text = "Quirografario";
+            this.rdQuiro.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(138, 14);
+            this.label1.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label1.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(28, 88);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "DESDE:";
+            this.label1.Size = new System.Drawing.Size(496, 39);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "Solicitudes a dependencias";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::SISPE_MIGRACION.Properties.Resources.logo_pensiones;
+            this.pictureBox1.Location = new System.Drawing.Point(73, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(431, 82);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 11;
+            this.pictureBox1.TabStop = false;
+            // 
+            // dFecha
+            // 
+            this.dFecha.Location = new System.Drawing.Point(84, 37);
+            this.dFecha.Name = "dFecha";
+            this.dFecha.Size = new System.Drawing.Size(341, 22);
+            this.dFecha.TabIndex = 18;
+            // 
+            // lbl1
+            // 
+            this.lbl1.BackColor = System.Drawing.Color.Maroon;
+            this.lbl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbl1.Location = new System.Drawing.Point(280, 409);
+            this.lbl1.Name = "lbl1";
+            this.lbl1.Size = new System.Drawing.Size(283, 22);
+            this.lbl1.TabIndex = 19;
+            this.lbl1.Text = "Reportes a 16 y 10 cpi";
+            this.lbl1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lbl1.Click += new System.EventHandler(this.lbl1_Click);
             // 
             // frmsaldos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(820, 406);
+            this.ClientSize = new System.Drawing.Size(563, 433);
             this.Controls.Add(this.panel1);
             this.Name = "frmsaldos";
             this.Text = "frmsaldos";
+            this.Load += new System.EventHandler(this.frmsaldos_Load);
             this.panel1.ResumeLayout(false);
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -355,29 +268,20 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.RadioButton radioButton13;
-        private System.Windows.Forms.RadioButton radioButton11;
-        private System.Windows.Forms.RadioButton radioButton10;
-        private System.Windows.Forms.RadioButton radioButton9;
-        private System.Windows.Forms.RadioButton radioButton8;
-        private System.Windows.Forms.RadioButton radioButton7;
-        private System.Windows.Forms.RadioButton radioButton6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.RadioButton rbcobranza;
-        private System.Windows.Forms.RadioButton rbambos;
-        private System.Windows.Forms.RadioButton rbnormal;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.RadioButton RBhipote;
-        private System.Windows.Forms.RadioButton RBquiro;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.DateTimePicker fecha1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.DateTimePicker dFecha;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.RadioButton rdAmbos;
+        private System.Windows.Forms.RadioButton rdCobranzas;
+        private System.Windows.Forms.RadioButton rdNormal;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.RadioButton rdHipotecario;
+        private System.Windows.Forms.RadioButton rdQuiro;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label lbl1;
     }
 }

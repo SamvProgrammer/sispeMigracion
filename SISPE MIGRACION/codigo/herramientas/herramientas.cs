@@ -134,6 +134,28 @@ namespace SISPE_MIGRACION.codigo.herramientas
             return aux;
         }
 
+        public static string formatoFecha(string fecha,char formato)
+        {
+            string f1 = string.Empty;
+            if (string.IsNullOrWhiteSpace(fecha)) return "";
+
+            string[] arreglo;
+            if ('-' == formato)
+            {
+                arreglo = fecha.Split('/');
+                if (arreglo.Length != 3) return "";
+
+                f1 = string.Format("{0}-{1}-{2}",arreglo[2],arreglo[1],arreglo[0]);
+            }
+            else {
+                arreglo = fecha.Split('-');
+                if (arreglo.Length != 3) return "";
+
+                f1 = string.Format("{0}/{1}/{2}", arreglo[0], arreglo[1], arreglo[2]);
+            }
+            return f1;
+        }
+
 
     }
 }

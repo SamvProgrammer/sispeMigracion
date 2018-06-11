@@ -55,5 +55,9 @@ class globales
     public static string[] getMeses() {
         return herramientas.meses;
     }
+
+    public static string formatoFecha(string fecha,char formato = '-') {
+        return herramientas.formatoFecha(fecha,formato);
+    }
 }
 

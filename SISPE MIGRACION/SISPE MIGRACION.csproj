@@ -237,6 +237,18 @@
     <Compile Include="formularios\PRESTACIONES ECON\CONTROL Y REGISTRO\REPORTES\frmTiporelacion.Designer.cs">
       <DependentUpon>frmTiporelacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="formularios\PRESTACIONES ECON\CONTROL Y REGISTRO\VALIDACIONES\frmSalida.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formularios\PRESTACIONES ECON\CONTROL Y REGISTRO\VALIDACIONES\frmSalida.Designer.cs">
+      <DependentUpon>frmSalida.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formularios\PRESTACIONES ECON\CONTROL Y REGISTRO\VALIDACIONES\frmSinPagos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formularios\PRESTACIONES ECON\CONTROL Y REGISTRO\VALIDACIONES\frmSinPagos.Designer.cs">
+      <DependentUpon>frmSinPagos.cs</DependentUpon>
+    </Compile>
     <Compile Include="formularios\PRESTACIONES ECON\ESTADOS DE CUENTA\adicionalconsulta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -469,6 +481,12 @@
     <EmbeddedResource Include="formularios\PRESTACIONES ECON\CONTROL Y REGISTRO\REPORTES\frmTiporelacion.resx">
       <DependentUpon>frmTiporelacion.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="formularios\PRESTACIONES ECON\CONTROL Y REGISTRO\VALIDACIONES\frmSalida.resx">
+      <DependentUpon>frmSalida.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formularios\PRESTACIONES ECON\CONTROL Y REGISTRO\VALIDACIONES\frmSinPagos.resx">
+      <DependentUpon>frmSinPagos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="formularios\PRESTACIONES ECON\ESTADOS DE CUENTA\adicionalconsulta.resx">
       <DependentUpon>adicionalconsulta.cs</DependentUpon>
     </EmbeddedResource>
@@ -566,6 +584,8 @@
     <EmbeddedResource Include="reportes\reporteAlfa.rdlc" />
     <EmbeddedResource Include="reportes\reportePagoCajaQ.rdlc" />
     <EmbeddedResource Include="reportes\reportePaty.rdlc" />
+    <EmbeddedResource Include="reportes\reporteSinEstadosCuenta.rdlc" />
+    <EmbeddedResource Include="reportes\reporteSinPagos.rdlc" />
     <EmbeddedResource Include="reportes\reporteSolicitudEntrega.rdlc" />
     <EmbeddedResource Include="reportes\reporteTasasDeInteresQ.rdlc" />
     <EmbeddedResource Include="reportes\reportMonto.rdlc" />
