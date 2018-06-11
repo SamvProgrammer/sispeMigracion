@@ -98,5 +98,27 @@ namespace SISPE_MIGRACION.formularios.CATÁLOGOS
         {
             proyecto = Convert.ToString(datos.Rows[e.Cell.RowIndex].Cells[0].Value);
         }
+
+        private void frmdependencias_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F2)
+            {
+                Close();
+            }
+        }
+
+        private void frmdependencias_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult dialogo = MessageBox.Show("¿Desea cerrar el módulo?",
+          "Cerrar el módulo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dialogo == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
+            else
+            {
+                e.Cancel = false;
+            }
+        }
     }
 }

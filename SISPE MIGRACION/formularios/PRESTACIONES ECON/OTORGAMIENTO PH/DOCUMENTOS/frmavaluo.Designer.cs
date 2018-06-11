@@ -28,9 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmavaluo));
             this.panel1 = new System.Windows.Forms.Panel();
             this.label12 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.label17 = new System.Windows.Forms.Label();
             this.txtvalor = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
@@ -65,6 +67,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -90,7 +94,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1384, 607);
+            this.panel1.Size = new System.Drawing.Size(1370, 607);
             this.panel1.TabIndex = 0;
             // 
             // label12
@@ -107,6 +111,9 @@
             // 
             // panel6
             // 
+            this.panel6.Controls.Add(this.label20);
+            this.panel6.Controls.Add(this.label19);
+            this.panel6.Controls.Add(this.label17);
             this.panel6.Controls.Add(this.txtvalor);
             this.panel6.Controls.Add(this.label18);
             this.panel6.Controls.Add(this.label16);
@@ -120,9 +127,21 @@
             this.panel6.Size = new System.Drawing.Size(1360, 153);
             this.panel6.TabIndex = 35;
             // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.BackColor = System.Drawing.Color.DarkOliveGreen;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label17.Location = new System.Drawing.Point(785, 127);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(270, 20);
+            this.label17.TabIndex = 36;
+            this.label17.Text = "[ F10] MODIFICAR REGISTROS";
+            // 
             // txtvalor
             // 
-            this.txtvalor.Location = new System.Drawing.Point(244, 119);
+            this.txtvalor.Location = new System.Drawing.Point(202, 93);
             this.txtvalor.Name = "txtvalor";
             this.txtvalor.Size = new System.Drawing.Size(349, 20);
             this.txtvalor.TabIndex = 10;
@@ -130,7 +149,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(69, 122);
+            this.label18.Location = new System.Drawing.Point(27, 96);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(169, 13);
             this.label18.TabIndex = 9;
@@ -209,6 +228,7 @@
             // 
             this.txtubicacion.Location = new System.Drawing.Point(173, 22);
             this.txtubicacion.Name = "txtubicacion";
+            this.txtubicacion.ReadOnly = true;
             this.txtubicacion.Size = new System.Drawing.Size(999, 20);
             this.txtubicacion.TabIndex = 2;
             // 
@@ -252,6 +272,7 @@
             // 
             this.txtcvecateg.Location = new System.Drawing.Point(519, 55);
             this.txtcvecateg.Name = "txtcvecateg";
+            this.txtcvecateg.ReadOnly = true;
             this.txtcvecateg.Size = new System.Drawing.Size(245, 20);
             this.txtcvecateg.TabIndex = 7;
             // 
@@ -277,6 +298,7 @@
             // 
             this.txttel.Location = new System.Drawing.Point(479, 22);
             this.txttel.Name = "txttel";
+            this.txttel.ReadOnly = true;
             this.txttel.Size = new System.Drawing.Size(578, 20);
             this.txttel.TabIndex = 4;
             // 
@@ -284,6 +306,7 @@
             // 
             this.txtproy.Location = new System.Drawing.Point(102, 52);
             this.txtproy.Name = "txtproy";
+            this.txtproy.ReadOnly = true;
             this.txtproy.Size = new System.Drawing.Size(245, 20);
             this.txtproy.TabIndex = 3;
             // 
@@ -291,6 +314,7 @@
             // 
             this.txtdependencia.Location = new System.Drawing.Point(102, 22);
             this.txtdependencia.Name = "txtdependencia";
+            this.txtdependencia.ReadOnly = true;
             this.txtdependencia.Size = new System.Drawing.Size(245, 20);
             this.txtdependencia.TabIndex = 2;
             // 
@@ -370,6 +394,7 @@
             // 
             this.txtnombre.Location = new System.Drawing.Point(467, 22);
             this.txtnombre.Name = "txtnombre";
+            this.txtnombre.ReadOnly = true;
             this.txtnombre.Size = new System.Drawing.Size(578, 20);
             this.txtnombre.TabIndex = 4;
             // 
@@ -377,6 +402,7 @@
             // 
             this.txtdomicilio.Location = new System.Drawing.Point(102, 52);
             this.txtdomicilio.Name = "txtdomicilio";
+            this.txtdomicilio.ReadOnly = true;
             this.txtdomicilio.Size = new System.Drawing.Size(513, 20);
             this.txtdomicilio.TabIndex = 3;
             // 
@@ -384,6 +410,7 @@
             // 
             this.txtrfc.Location = new System.Drawing.Point(102, 22);
             this.txtrfc.Name = "txtrfc";
+            this.txtrfc.ReadOnly = true;
             this.txtrfc.Size = new System.Drawing.Size(245, 20);
             this.txtrfc.TabIndex = 2;
             // 
@@ -416,7 +443,7 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::SISPE_MIGRACION.Properties.Resources.logo_pensiones;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(1057, 0);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(315, 97);
@@ -424,15 +451,39 @@
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
             // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(241, 29);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(61, 13);
+            this.label19.TabIndex = 37;
+            this.label19.Text = "AA-MM-DD";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.BackColor = System.Drawing.Color.DarkOliveGreen;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label20.Location = new System.Drawing.Point(432, 127);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(260, 20);
+            this.label20.TabIndex = 38;
+            this.label20.Text = "[ F7] MODIFICAR REGISTROS";
+            // 
             // frmavaluo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1384, 607);
+            this.ClientSize = new System.Drawing.Size(1370, 607);
             this.Controls.Add(this.panel1);
+            this.KeyPreview = true;
             this.Name = "frmavaluo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmavaluo";
             this.Load += new System.EventHandler(this.frmavaluo_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmavaluo_KeyDown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel6.ResumeLayout(false);
@@ -488,5 +539,8 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.TextBox txtubicacion;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label19;
     }
 }

@@ -59,7 +59,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(480, 503);
+            this.panel1.Size = new System.Drawing.Size(543, 503);
             this.panel1.TabIndex = 1;
             // 
             // panel2
@@ -120,10 +120,10 @@
             this.Colum1,
             this.Column2,
             this.NOMBRE});
-            this.datos.Location = new System.Drawing.Point(12, 164);
+            this.datos.Location = new System.Drawing.Point(15, 142);
             this.datos.Name = "datos";
             this.datos.ReadOnly = true;
-            this.datos.Size = new System.Drawing.Size(456, 263);
+            this.datos.Size = new System.Drawing.Size(516, 263);
             this.datos.TabIndex = 7;
             this.datos.CellStateChanged += new System.Windows.Forms.DataGridViewCellStateChangedEventHandler(this.datos_CellStateChanged);
             // 
@@ -148,7 +148,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(373, 3);
+            this.pictureBox1.Location = new System.Drawing.Point(410, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(85, 65);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -160,7 +160,7 @@
             this.txtBusqueda.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtBusqueda.Location = new System.Drawing.Point(12, 94);
             this.txtBusqueda.Name = "txtBusqueda";
-            this.txtBusqueda.Size = new System.Drawing.Size(456, 20);
+            this.txtBusqueda.Size = new System.Drawing.Size(519, 20);
             this.txtBusqueda.TabIndex = 4;
             this.txtBusqueda.TextChanged += new System.EventHandler(this.txtBusqueda_TextChanged);
             this.txtBusqueda.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBusqueda_KeyPress);
@@ -169,7 +169,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(116, 23);
+            this.label1.Location = new System.Drawing.Point(153, 32);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(202, 16);
             this.label1.TabIndex = 0;
@@ -179,14 +179,17 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(480, 503);
+            this.ClientSize = new System.Drawing.Size(543, 503);
             this.Controls.Add(this.panel1);
+            this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmCatalogoP_quirog";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmCatalogoP_quirog";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmCatalogoP_quirog_FormClosing);
             this.Load += new System.EventHandler(this.frmCatalogoP_quirog_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmCatalogoP_quirog_KeyDown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);

@@ -85,10 +85,13 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.txtrfc);
             this.Controls.Add(this.button1);
+            this.KeyPreview = true;
             this.Name = "frmdevol";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmdevol";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmdevol_FormClosing);
             this.Load += new System.EventHandler(this.frmdevol_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmdevol_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

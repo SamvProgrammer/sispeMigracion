@@ -134,5 +134,18 @@ namespace SISPE_MIGRACION.formularios.CATÁLOGOS
         {
             folio = Convert.ToString(datos.Rows[e.Cell.RowIndex].Cells[0].Value);
         }
+
+        private void frmCatalogoP_quirog_FormClosing(object sender, FormClosingEventArgs e)
+        {
+         
+        }
+
+        private void frmCatalogoP_quirog_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode ==Keys.F2)
+            {
+                Close();
+            }
+        }
     }
 }

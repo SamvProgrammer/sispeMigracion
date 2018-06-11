@@ -32,9 +32,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnsalir = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.ntnmodifica = new System.Windows.Forms.Button();
-            this.btnnuevo = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.datos02 = new System.Windows.Forms.DataGridView();
@@ -61,9 +58,6 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.btnsalir);
-            this.groupBox2.Controls.Add(this.button3);
-            this.groupBox2.Controls.Add(this.ntnmodifica);
-            this.groupBox2.Controls.Add(this.btnnuevo);
             this.groupBox2.Controls.Add(this.pictureBox1);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Right;
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -79,50 +73,13 @@
             this.btnsalir.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnsalir.Image = ((System.Drawing.Image)(resources.GetObject("btnsalir.Image")));
             this.btnsalir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnsalir.Location = new System.Drawing.Point(3, 390);
+            this.btnsalir.Location = new System.Drawing.Point(0, 306);
             this.btnsalir.Name = "btnsalir";
             this.btnsalir.Size = new System.Drawing.Size(172, 39);
             this.btnsalir.TabIndex = 7;
             this.btnsalir.Text = "SALIR ";
             this.btnsalir.UseVisualStyleBackColor = false;
             this.btnsalir.Click += new System.EventHandler(this.btnsalir_Click);
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(3, 317);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(172, 39);
-            this.button3.TabIndex = 6;
-            this.button3.Text = "GUARDAR CAMBIOS ";
-            this.button3.UseVisualStyleBackColor = false;
-            // 
-            // ntnmodifica
-            // 
-            this.ntnmodifica.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ntnmodifica.Image = ((System.Drawing.Image)(resources.GetObject("ntnmodifica.Image")));
-            this.ntnmodifica.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ntnmodifica.Location = new System.Drawing.Point(3, 243);
-            this.ntnmodifica.Name = "ntnmodifica";
-            this.ntnmodifica.Size = new System.Drawing.Size(172, 39);
-            this.ntnmodifica.TabIndex = 5;
-            this.ntnmodifica.Text = "MODIFICAR ";
-            this.ntnmodifica.UseVisualStyleBackColor = false;
-            this.ntnmodifica.Click += new System.EventHandler(this.ntnmodifica_Click);
-            // 
-            // btnnuevo
-            // 
-            this.btnnuevo.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnnuevo.Image = ((System.Drawing.Image)(resources.GetObject("btnnuevo.Image")));
-            this.btnnuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnnuevo.Location = new System.Drawing.Point(3, 171);
-            this.btnnuevo.Name = "btnnuevo";
-            this.btnnuevo.Size = new System.Drawing.Size(172, 39);
-            this.btnnuevo.TabIndex = 4;
-            this.btnnuevo.Text = "NUEVO";
-            this.btnnuevo.UseVisualStyleBackColor = false;
             // 
             // pictureBox1
             // 
@@ -213,8 +170,5 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnsalir;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button ntnmodifica;
-        private System.Windows.Forms.Button btnnuevo;
     }
 }

@@ -135,6 +135,12 @@
     <Compile Include="codigo\herramientas\herramientas.cs" />
     <Compile Include="codigo\herramientas\Prompt.cs" />
     <Compile Include="codigo\herramientas\validaciones.cs" />
+    <Compile Include="formularios\acerca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formularios\acerca.Designer.cs">
+      <DependentUpon>acerca.cs</DependentUpon>
+    </Compile>
     <Compile Include="formularios\CATÁLOGOS\frmCatalogoP_quirog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -182,6 +188,12 @@
     </Compile>
     <Compile Include="formularios\CATÁLOGOS\frmProyecto.Designer.cs">
       <DependentUpon>frmProyecto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formularios\Fondo de Pensiones\frmaportaciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formularios\Fondo de Pensiones\frmaportaciones.Designer.cs">
+      <DependentUpon>frmaportaciones.cs</DependentUpon>
     </Compile>
     <Compile Include="formularios\Fondo de Pensiones\frmreporlisaporta.cs">
       <SubType>Form</SubType>
@@ -237,6 +249,18 @@
     <Compile Include="formularios\PRESTACIONES ECON\CONTROL Y REGISTRO\REPORTES\frmTiporelacion.Designer.cs">
       <DependentUpon>frmTiporelacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="formularios\PRESTACIONES ECON\CONTROL Y REGISTRO\VALIDACIONES\frmSalida.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formularios\PRESTACIONES ECON\CONTROL Y REGISTRO\VALIDACIONES\frmSalida.Designer.cs">
+      <DependentUpon>frmSalida.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formularios\PRESTACIONES ECON\CONTROL Y REGISTRO\VALIDACIONES\frmSinPagos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formularios\PRESTACIONES ECON\CONTROL Y REGISTRO\VALIDACIONES\frmSinPagos.Designer.cs">
+      <DependentUpon>frmSinPagos.cs</DependentUpon>
+    </Compile>
     <Compile Include="formularios\PRESTACIONES ECON\ESTADOS DE CUENTA\adicionalconsulta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -290,6 +314,12 @@
     </Compile>
     <Compile Include="formularios\PRESTACIONES ECON\OTORGAMIENTO PH\DOCUMENTOS\frmdocusolic.Designer.cs">
       <DependentUpon>frmdocusolic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formularios\PRESTACIONES ECON\OTORGAMIENTO PH\DOCUMENTOS\frmestudiosocio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formularios\PRESTACIONES ECON\OTORGAMIENTO PH\DOCUMENTOS\frmestudiosocio.Designer.cs">
+      <DependentUpon>frmestudiosocio.cs</DependentUpon>
     </Compile>
     <Compile Include="formularios\PRESTACIONES ECON\OTORGAMIENTO PH\frmexpediente.cs">
       <SubType>Form</SubType>
@@ -421,6 +451,9 @@
     <EmbeddedResource Include="codigo\herramientas\forms\frmTasaDeInteresescs.resx">
       <DependentUpon>frmTasaDeInteresescs.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="formularios\acerca.resx">
+      <DependentUpon>acerca.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="formularios\CATÁLOGOS\frmCatalogoP_quirog.resx">
       <DependentUpon>frmCatalogoP_quirog.cs</DependentUpon>
     </EmbeddedResource>
@@ -445,6 +478,9 @@
     <EmbeddedResource Include="formularios\CATÁLOGOS\frmProyecto.resx">
       <DependentUpon>frmProyecto.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="formularios\Fondo de Pensiones\frmaportaciones.resx">
+      <DependentUpon>frmaportaciones.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="formularios\Fondo de Pensiones\frmreporlisaporta.resx">
       <DependentUpon>frmreporlisaporta.cs</DependentUpon>
     </EmbeddedResource>
@@ -468,6 +504,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="formularios\PRESTACIONES ECON\CONTROL Y REGISTRO\REPORTES\frmTiporelacion.resx">
       <DependentUpon>frmTiporelacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formularios\PRESTACIONES ECON\CONTROL Y REGISTRO\VALIDACIONES\frmSalida.resx">
+      <DependentUpon>frmSalida.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formularios\PRESTACIONES ECON\CONTROL Y REGISTRO\VALIDACIONES\frmSinPagos.resx">
+      <DependentUpon>frmSinPagos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formularios\PRESTACIONES ECON\ESTADOS DE CUENTA\adicionalconsulta.resx">
       <DependentUpon>adicionalconsulta.cs</DependentUpon>
@@ -495,6 +537,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="formularios\PRESTACIONES ECON\OTORGAMIENTO PH\DOCUMENTOS\frmdocusolic.resx">
       <DependentUpon>frmdocusolic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formularios\PRESTACIONES ECON\OTORGAMIENTO PH\DOCUMENTOS\frmestudiosocio.resx">
+      <DependentUpon>frmestudiosocio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formularios\PRESTACIONES ECON\OTORGAMIENTO PH\frmexpediente.resx">
       <DependentUpon>frmexpediente.cs</DependentUpon>
@@ -566,6 +611,7 @@
     <EmbeddedResource Include="reportes\reporteAlfa.rdlc" />
     <EmbeddedResource Include="reportes\reportePagoCajaQ.rdlc" />
     <EmbeddedResource Include="reportes\reportePaty.rdlc" />
+    <EmbeddedResource Include="reportes\reporteSinPagos.rdlc" />
     <EmbeddedResource Include="reportes\reporteSolicitudEntrega.rdlc" />
     <EmbeddedResource Include="reportes\reporteTasasDeInteresQ.rdlc" />
     <EmbeddedResource Include="reportes\reportMonto.rdlc" />

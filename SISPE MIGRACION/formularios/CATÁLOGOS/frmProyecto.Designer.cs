@@ -41,12 +41,12 @@
             this.btnsalir = new System.Windows.Forms.Button();
             this.btnguardar = new System.Windows.Forms.Button();
             this.btnmodifica = new System.Windows.Forms.Button();
-            this.btnnuevo = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.datos02 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnnuevo = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -193,19 +193,6 @@
             this.btnmodifica.UseVisualStyleBackColor = false;
             this.btnmodifica.Click += new System.EventHandler(this.btnmodifica_Click);
             // 
-            // btnnuevo
-            // 
-            this.btnnuevo.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnnuevo.Image = ((System.Drawing.Image)(resources.GetObject("btnnuevo.Image")));
-            this.btnnuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnnuevo.Location = new System.Drawing.Point(3, 110);
-            this.btnnuevo.Name = "btnnuevo";
-            this.btnnuevo.Size = new System.Drawing.Size(172, 39);
-            this.btnnuevo.TabIndex = 4;
-            this.btnnuevo.Text = "NUEVO";
-            this.btnnuevo.UseVisualStyleBackColor = false;
-            this.btnnuevo.Click += new System.EventHandler(this.btnnuevo_Click);
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -256,6 +243,19 @@
             this.Column2.HeaderText = "Descripción";
             this.Column2.Name = "Column2";
             // 
+            // btnnuevo
+            // 
+            this.btnnuevo.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnnuevo.Image = ((System.Drawing.Image)(resources.GetObject("btnnuevo.Image")));
+            this.btnnuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnnuevo.Location = new System.Drawing.Point(3, 110);
+            this.btnnuevo.Name = "btnnuevo";
+            this.btnnuevo.Size = new System.Drawing.Size(172, 39);
+            this.btnnuevo.TabIndex = 4;
+            this.btnnuevo.Text = "NUEVO";
+            this.btnnuevo.UseVisualStyleBackColor = false;
+            this.btnnuevo.Click += new System.EventHandler(this.btnnuevo_Click);
+            // 
             // frmProyecto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -290,7 +290,6 @@
         private System.Windows.Forms.Button btnsalir;
         private System.Windows.Forms.Button btnguardar;
         private System.Windows.Forms.Button btnmodifica;
-        private System.Windows.Forms.Button btnnuevo;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label lbldes;
@@ -300,5 +299,6 @@
         private System.Windows.Forms.Button btnok;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.Button btnnuevo;
     }
 }

@@ -329,5 +329,19 @@ namespace SISPE_MIGRACION.formularios.CATÁLOGOS
                 Close();
             }
         }
+
+        private void frmCatemplea_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult dialogo = MessageBox.Show("¿Desea cerrar el módulo?",
+          "Cerrar el módulo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dialogo == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
+            else
+            {
+                e.Cancel = false;
+            }
+        }
     }
 }

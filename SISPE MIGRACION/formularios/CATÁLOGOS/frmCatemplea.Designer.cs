@@ -506,6 +506,7 @@
             this.Name = "frmCatemplea";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CATÁLOGO DE EMPLEADOS";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmCatemplea_FormClosing);
             this.Load += new System.EventHandler(this.frmCatemplea_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmCatemplea_KeyDown);
             this.panel1.ResumeLayout(false);

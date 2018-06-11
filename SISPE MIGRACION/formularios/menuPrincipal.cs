@@ -274,5 +274,15 @@ namespace SISPE_MIGRACION.formularios
         {
             new frmSalida().ShowDialog();
         }
+
+        private void consultaPdevToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            new frmdevol().ShowDialog();
+        }
+
+        private void acercaDeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new acerca().ShowDialog();
+        }
     }
 }

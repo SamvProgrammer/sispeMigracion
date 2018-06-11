@@ -24,9 +24,35 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PH.DOCUMENT
             p_hipo.enviar2 = llenacampos;
             p_hipo.tablaConsultar = "p_hipotecarios";
             p_hipo.ShowDialog();
+            txtfecha.ReadOnly = true;
+            txtdestinario.ReadOnly = true;
+            txtvalor.ReadOnly = true;
 
-          
 
+        }
+
+        private void bloquear ()
+        {
+            txtfecha.ReadOnly = true;
+            txtdestinario.ReadOnly = true;
+            txtvalor.ReadOnly = true;
+        }
+
+
+        private void insertar()
+        {
+            string query = "INSERT INTO datos.h_evalua (f_solic,nombre,valor_bien,expediente)VALUES('{0}','{1}','{2}','{3}')";
+            string con = string.Format(query, txtfecha.Text, txtdestinario.Text, txtvalor.Text, txtexpediente.Text);
+            List<Dictionary<string, object>> resultado = globales.consulta(con);
+            if (globales.consulta(con, true))
+            {
+                MessageBox.Show("Registros insertados");
+            }
+            else
+            {
+                MessageBox.Show("Existe un error en el procedimiento");
+            }
+       
         }
 
 
@@ -48,16 +74,50 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PH.DOCUMENT
             string query = "SELECT * FROM datos.h_evalua where expediente='{0}' ";
             string con = string.Format(query, txtexpediente.Text);
             List<Dictionary<string, object>> resultado = globales.consulta(con);
-            this.txtfecha.Text = Convert.ToString(resultado[0]["f_solic"]).Replace("12:00:00 a. m.", "");
-            this.txtdestinario.Text = Convert.ToString(resultado[0]["nombre"]);
-            this.txtvalor.Text = Convert.ToString(resultado[0]["valor_bien"]);
 
+            if (resultado.Count <= 0)
+            {
+                MessageBox.Show("NO HAY DATOS ADICIONALES DEL EXPEDIENTE SELECCIONADO, FAVOR DE INGRESAR REGISTROS");
+            }
+            else
+            {
+
+                this.txtfecha.Text = Convert.ToString(resultado[0]["f_solic"]).Replace("12:00:00 a. m.", "");
+                this.txtdestinario.Text = Convert.ToString(resultado[0]["nombre"]);
+                this.txtvalor.Text = Convert.ToString(resultado[0]["valor_bien"]);
+            }
             // joelk d
 
 
 
 
         }
+
+        private void frmavaluo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F7)
+            {
+
+                MessageBox.Show("YA ES POSIBLE MODIFICAR LOS REGISTROS ");
+                MessageBox.Show("AL FINALIZAR PRESIONA F10 PARA GUARDAR");
+                txtfecha.ReadOnly = false;
+                txtdestinario.ReadOnly = false;
+                txtvalor.ReadOnly = false;
+              
+
+            }
+
+            if (e.KeyCode == Keys.F10)
+            {
+                insertar();
+            }
+            if (e.KeyCode == Keys.F12)
+                MessageBox.Show("YA PUEDE INGRESAR EL AVALUO");
+
+
+        }
     }
-    
 }
+
+
+
