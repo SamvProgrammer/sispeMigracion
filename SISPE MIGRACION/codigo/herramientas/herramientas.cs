@@ -151,7 +151,7 @@ namespace SISPE_MIGRACION.codigo.herramientas
                 arreglo = fecha.Split('-');
                 if (arreglo.Length != 3) return "";
 
-                f1 = string.Format("{0}/{1}/{2}", arreglo[0], arreglo[1], arreglo[2]);
+                f1 = string.Format("{0}/{1}/{2}", arreglo[2], arreglo[1], arreglo[0]);
             }
             return f1;
         }

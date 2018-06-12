@@ -29,7 +29,9 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lbl1 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.dFecha = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -42,8 +44,6 @@
             this.rdQuiro = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.dFecha = new System.Windows.Forms.DateTimePicker();
-            this.lbl1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -68,6 +68,19 @@
             this.panel1.Size = new System.Drawing.Size(563, 433);
             this.panel1.TabIndex = 7;
             // 
+            // lbl1
+            // 
+            this.lbl1.BackColor = System.Drawing.Color.Maroon;
+            this.lbl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbl1.Location = new System.Drawing.Point(280, 409);
+            this.lbl1.Name = "lbl1";
+            this.lbl1.Size = new System.Drawing.Size(283, 22);
+            this.lbl1.TabIndex = 19;
+            this.lbl1.Text = "Reportes a 16 y 10 cpi";
+            this.lbl1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lbl1.Click += new System.EventHandler(this.lbl1_Click);
+            // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.dFecha);
@@ -79,6 +92,13 @@
             this.groupBox4.TabIndex = 16;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Seleccionar";
+            // 
+            // dFecha
+            // 
+            this.dFecha.Location = new System.Drawing.Point(84, 37);
+            this.dFecha.Name = "dFecha";
+            this.dFecha.Size = new System.Drawing.Size(341, 22);
+            this.dFecha.TabIndex = 18;
             // 
             // label2
             // 
@@ -211,7 +231,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(496, 39);
             this.label1.TabIndex = 12;
-            this.label1.Text = "Solicitudes a dependencias";
+            this.label1.Text = "Saldos";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBox1
@@ -223,26 +243,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 11;
             this.pictureBox1.TabStop = false;
-            // 
-            // dFecha
-            // 
-            this.dFecha.Location = new System.Drawing.Point(84, 37);
-            this.dFecha.Name = "dFecha";
-            this.dFecha.Size = new System.Drawing.Size(341, 22);
-            this.dFecha.TabIndex = 18;
-            // 
-            // lbl1
-            // 
-            this.lbl1.BackColor = System.Drawing.Color.Maroon;
-            this.lbl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbl1.Location = new System.Drawing.Point(280, 409);
-            this.lbl1.Name = "lbl1";
-            this.lbl1.Size = new System.Drawing.Size(283, 22);
-            this.lbl1.TabIndex = 19;
-            this.lbl1.Text = "Reportes a 16 y 10 cpi";
-            this.lbl1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.lbl1.Click += new System.EventHandler(this.lbl1_Click);
             // 
             // frmsaldos
             // 

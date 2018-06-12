@@ -385,6 +385,24 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="reporteSinSaldo" msprop:Generator_TableClassName="reporteSinSaldoDataTable" msprop:Generator_TableVarName="tablereporteSinSaldo" msprop:Generator_RowChangedName="reporteSinSaldoRowChanged" msprop:Generator_TablePropName="reporteSinSaldo" msprop:Generator_RowDeletingName="reporteSinSaldoRowDeleting" msprop:Generator_RowChangingName="reporteSinSaldoRowChanging" msprop:Generator_RowEvHandlerName="reporteSinSaldoRowChangeEventHandler" msprop:Generator_RowDeletedName="reporteSinSaldoRowDeleted" msprop:Generator_RowClassName="reporteSinSaldoRow" msprop:Generator_UserTableName="reporteSinSaldo" msprop:Generator_RowEvArgName="reporteSinSaldoRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="folio" msprop:Generator_ColumnVarNameInTable="columnfolio" msprop:Generator_ColumnPropNameInRow="folio" msprop:Generator_ColumnPropNameInTable="folioColumn" msprop:Generator_UserColumnName="folio" type="xs:string" minOccurs="0" />
+              <xs:element name="rfc" msprop:Generator_ColumnVarNameInTable="columnrfc" msprop:Generator_ColumnPropNameInRow="rfc" msprop:Generator_ColumnPropNameInTable="rfcColumn" msprop:Generator_UserColumnName="rfc" type="xs:string" minOccurs="0" />
+              <xs:element name="nombre" msprop:Generator_ColumnVarNameInTable="columnnombre" msprop:Generator_ColumnPropNameInRow="nombre" msprop:Generator_ColumnPropNameInTable="nombreColumn" msprop:Generator_UserColumnName="nombre" type="xs:string" minOccurs="0" />
+              <xs:element name="ubic" msprop:Generator_ColumnVarNameInTable="columnubic" msprop:Generator_ColumnPropNameInRow="ubic" msprop:Generator_ColumnPropNameInTable="ubicColumn" msprop:Generator_UserColumnName="ubic" type="xs:string" minOccurs="0" />
+              <xs:element name="proyecto" msprop:Generator_ColumnVarNameInTable="columnproyecto" msprop:Generator_ColumnPropNameInRow="proyecto" msprop:Generator_ColumnPropNameInTable="proyectoColumn" msprop:Generator_UserColumnName="proyecto" type="xs:string" minOccurs="0" />
+              <xs:element name="serie" msprop:Generator_ColumnVarNameInTable="columnserie" msprop:Generator_ColumnPropNameInRow="serie" msprop:Generator_ColumnPropNameInTable="serieColumn" msprop:Generator_UserColumnName="serie" type="xs:string" minOccurs="0" />
+              <xs:element name="importe" msprop:Generator_ColumnVarNameInTable="columnimporte" msprop:Generator_ColumnPropNameInRow="importe" msprop:Generator_ColumnPropNameInTable="importeColumn" msprop:Generator_UserColumnName="importe" type="xs:string" minOccurs="0" />
+              <xs:element name="im_unitario" msprop:Generator_ColumnVarNameInTable="columnim_unitario" msprop:Generator_ColumnPropNameInRow="im_unitario" msprop:Generator_ColumnPropNameInTable="im_unitarioColumn" msprop:Generator_UserColumnName="im_unitario" type="xs:string" minOccurs="0" />
+              <xs:element name="pagado" msprop:Generator_ColumnVarNameInTable="columnpagado" msprop:Generator_ColumnPropNameInRow="pagado" msprop:Generator_ColumnPropNameInTable="pagadoColumn" msprop:Generator_UserColumnName="pagado" type="xs:string" minOccurs="0" />
+              <xs:element name="saldo" msprop:Generator_ColumnVarNameInTable="columnsaldo" msprop:Generator_ColumnPropNameInRow="saldo" msprop:Generator_ColumnPropNameInTable="saldoColumn" msprop:Generator_UserColumnName="saldo" type="xs:string" minOccurs="0" />
+              <xs:element name="cta" msprop:Generator_ColumnVarNameInTable="columncta" msprop:Generator_ColumnPropNameInRow="cta" msprop:Generator_ColumnPropNameInTable="ctaColumn" msprop:Generator_UserColumnName="cta" type="xs:string" minOccurs="0" />
+              <xs:element name="ctaDescripcion" msprop:Generator_ColumnVarNameInTable="columnctaDescripcion" msprop:Generator_ColumnPropNameInRow="ctaDescripcion" msprop:Generator_ColumnPropNameInTable="ctaDescripcionColumn" msprop:Generator_UserColumnName="ctaDescripcion" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
