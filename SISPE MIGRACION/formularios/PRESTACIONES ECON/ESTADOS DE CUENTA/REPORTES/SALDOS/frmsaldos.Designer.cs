@@ -254,7 +254,7 @@
             this.MinimizeBox = false;
             this.Name = "frmsaldos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmsaldos";
+            this.Text = "Saldos";
             this.Load += new System.EventHandler(this.frmsaldos_Load);
             this.panel1.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
