@@ -86,7 +86,42 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.ESTADOS_DE_CUENTA
 
             query = string.Format("select folio, max(f_descuento) as fecha, max(cta) as cta from datos.d_ecquir where f_descuento <= '{0}' group by folio order by folio asc ", fecha);
             List<Dictionary<string, object>> r2 = globales.consulta(query);
+
+            query = "select folio,cta from datos.d_ecquir where f_descuento <= '{0}' order by folio asc, f_descuento desc";
+            query = string.Format(query, fecha);
+
+            List<Dictionary<string, object>> cta = globales.consulta(query);
+
+
             int contador = 0;
+            foreach (Dictionary<string,object> item in r2) {
+                if (contador == cta.Count) break;
+                double folio = Convert.ToDouble(item["folio"]);
+                double folio2 = Convert.ToDouble(cta[contador]["folio"]);
+
+                if (folio != folio2) {
+                    for (int x = contador; x < cta.Count; x++)
+                    {
+                        double folio3 = Convert.ToDouble(cta[x]["folio"]);
+                        if (folio3 == folio)
+                        {
+                            folio2 = folio3;
+                            break;
+                        }
+                        contador++;
+                    }
+                }
+
+
+                if (folio == folio2)
+                {
+                    item["cta"] = cta[contador]["cta"];
+                    contador++;
+                }
+                              
+            }
+
+            contador = 0;
             for (int x = 0; x < r2.Count; x++)
             {
                 if (r1.Count == contador) break;
@@ -118,6 +153,8 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.ESTADOS_DE_CUENTA
             }
 
             List<Dictionary<string, object>> resultado = r1;
+
+            query = "";
 
             MessageBox.Show("Se actualizara folios sin pagos ", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -214,6 +251,8 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.ESTADOS_DE_CUENTA
                 double dImporte = Math.Round(Convert.ToDouble(sImporte), 2);
                 double dPagado = Math.Round(Convert.ToDouble(sPagado), 2);
 
+                double folio = Convert.ToDouble(item["folio"]);
+               
                 if (dPagado >= dImporte)
                 {
                     continue;
@@ -238,8 +277,8 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.ESTADOS_DE_CUENTA
                     resultado[contador]["cta"] = item["cta"];
                     resultado[contador]["cta_descripcion"] = item["cta_descripcion"];
 
-                    double importe = string.IsNullOrWhiteSpace(Convert.ToString(resultado[contador]["importe"])) ? 0 : Math.Round(Convert.ToDouble(resultado[contador]["importe"]));
-                    double pagado = string.IsNullOrWhiteSpace(Convert.ToString(resultado[contador]["pagado"])) ? 0 : Math.Round(Convert.ToDouble(resultado[contador]["pagado"]));
+                    double importe = string.IsNullOrWhiteSpace(Convert.ToString(resultado[contador]["importe"])) ? 0 : (Convert.ToDouble(resultado[contador]["importe"]));
+                    double pagado = string.IsNullOrWhiteSpace(Convert.ToString(resultado[contador]["pagado"])) ? 0 : (Convert.ToDouble(resultado[contador]["pagado"]));
 
                     double saldo = importe - pagado;
 
@@ -249,6 +288,7 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.ESTADOS_DE_CUENTA
                 }
             }
             this.Cursor = Cursors.Default;
+
             new listaReportes(resultado, rdQuiro.Checked, globales.formatoFecha(fecha,'/')).ShowDialog();
 
         } 
