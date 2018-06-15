@@ -206,7 +206,7 @@ namespace SISPE_MIGRACION.formularios
 
         private void estadoDeCuentasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new frmedocuenta().ShowDialog();
+            new SISPE_MIGRACION.formularios.PRESTACIONES_ECON.ESTADOS_DE_CUENTA.REPORTES.ESTADOS_DE_CUENTA.frmEstadosCuenta().ShowDialog();
         }
 
         private void hipotecarioToolStripMenuItem_Click(object sender, EventArgs e)
