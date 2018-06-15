@@ -192,7 +192,7 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.ESTADOS_DE_CUENTA.REPORT
             MessageBox.Show("Se folios con saldo ", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
-            query = "SELECT	folio,rfc,nombre_em,proyecto,	importe,	ubic_pagare,'' as numdesc,'' as totdesc,'' as pagado,'' as ultimop, f_primdesc,imp_unit,'' as saldo,'' as fecha,'' as cta,'' as cta_descripcion FROM	datos.{0} WHERE 	(f_emischeq <= '{1}' or f_emischeq is null) {2} order by folio asc";
+            query = "SELECT	'1' as secuencia,'' as tipo_rel,folio,rfc,nombre_em,proyecto,	importe,	ubic_pagare,'' as numdesc,'' as totdesc,'' as pagado,'' as ultimop, f_primdesc,imp_unit,'' as saldo,'' as fecha,'' as cta,'' as cta_descripcion FROM	datos.{0} WHERE 	(f_emischeq <= '{1}' or f_emischeq is null) {2} order by folio asc";
             query = string.Format(query, ECEDOCTA, fecha, ECNCA);
 
             r1 = globales.consulta(query);
@@ -261,10 +261,9 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.ESTADOS_DE_CUENTA.REPORT
             }
 
             //Se eligen cuentas con saldo o sin saldo
-
+            List<Dictionary<string, object>> tmp = new List<Dictionary<string, object>>();
             if (chkFolios.Checked) {
                 MessageBox.Show("Se seleccionara folios con saldo al " + fecha, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                List<Dictionary<string, object>> tmp = new List<Dictionary<string, object>>();
 
                 foreach (Dictionary<string, object> item in resultado)
                 {
@@ -288,6 +287,116 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.ESTADOS_DE_CUENTA.REPORT
                 tmp = null;
             }
 
+            contador = 0;
+
+            foreach (Dictionary<string, object> item in crosover)
+            {
+                if (contador == resultado.Count) break;
+
+                double folio = Convert.ToDouble(item["folio"]);
+                double folio2 = Convert.ToDouble(resultado[contador]["folio"]);
+                if (folio == folio2)
+                {
+                    resultado[contador]["fecha"] = item["fecha"];
+                    resultado[contador]["cta"] = item["cta"];
+                    resultado[contador]["cta_descripcion"] = item["cta_descripcion"];
+
+                    double importe = string.IsNullOrWhiteSpace(Convert.ToString(resultado[contador]["importe"])) ? 0 : (Convert.ToDouble(resultado[contador]["importe"]));
+                    double pagado = string.IsNullOrWhiteSpace(Convert.ToString(resultado[contador]["pagado"])) ? 0 : (Convert.ToDouble(resultado[contador]["pagado"]));
+
+                    double saldo = importe - pagado;
+
+                    resultado[contador]["saldo"] = saldo;
+
+                    contador++;
+                }
+            }
+
+            query = string.Format("select * from datos.d_ecquir where folio >= {0} and folio <= {1} order by folio asc,numdesc asc  ", txtDel.Text,txtAl.Text);
+            tmp = globales.consulta(query);
+
+            contador = 0;
+            int aux = 1;
+            List<Dictionary<string, object>> tmp2 = new List<Dictionary<string, object>>();
+            foreach (Dictionary<string,object> item in tmp) {
+                double folio = Convert.ToDouble(item["folio"]);
+                double folio2 = Convert.ToDouble(resultado[contador]["folio"]);
+                if (folio > folio2)
+                {
+                    aux = 1;
+                    for (int y = contador; y < tmp.Count; y++)
+                    {
+                        double folioAux = Convert.ToDouble(resultado[contador]["folio"]);
+                        if (folioAux >= folio)
+                        {
+                            folio2 = Convert.ToDouble(resultado[contador]["folio"]);
+                            break;
+                        }
+
+                        contador++;
+                    }
+                }
+
+                if (folio == folio2)
+                {
+                    Dictionary<string, object> obj = new Dictionary<string, object>();
+                    foreach (string llave in resultado[contador].Keys)
+                        obj.Add(llave, resultado[contador][llave]);
+
+
+                    obj["fecha"] = item["f_descuento"];
+                    obj["numdesc"] = item["numdesc"];
+                    obj["totdesc"] = item["totdesc"];
+                    obj["imp_unit"] = item["imp_unit"];
+                    obj["tipo_rel"] = item["tipo_rel"];
+                    obj["cta"] = item["cta"];
+                    obj["secuencia"] = aux;
+                    tmp2.Add(obj);
+                    aux++;
+                }
+                
+            }
+
+            resultado = tmp2;
+            tmp2 = null;
+
+
+
+            //----------------------hora de formar el reporte-----------------------
+
+
+            contador = 0;
+
+            object[] objReporte = new object[resultado.Count];
+
+            foreach (Dictionary<string, object> item in resultado)
+            {
+                int secuencia = Convert.ToInt32(item["secuencia"]);
+                string tipo_rel = Convert.ToString(item["tipo_rel"]);
+                double folio = Convert.ToDouble(item["folio"]);
+                string rfc = Convert.ToString(item["rfc"]);
+                string nombre = Convert.ToString(item["nombre_em"]);
+                string proyecto = Convert.ToString(item["proyecto"]);
+                double importe = (string.IsNullOrWhiteSpace(Convert.ToString(item["importe"]))) ? 0 : Convert.ToDouble(item["importe"]);
+                string ubic_pagare = Convert.ToString(item["ubic_pagare"]);
+                string numDesc = Convert.ToString(item["numdesc"]);
+                string totDesc = Convert.ToString(item["totdesc"]);
+                string serie = numDesc + "/" + totDesc;
+                double pagado = string.IsNullOrWhiteSpace(Convert.ToString(item["pagado"])) ? 0 : Convert.ToDouble(item["pagado"]);
+                string fecha_primdescuento = Convert.ToString(item["f_primdesc"]).Replace(" 12:00:00 a. m.", "");
+                double importeUnitario = string.IsNullOrWhiteSpace(Convert.ToString(item["imp_unit"])) ? 0 : Convert.ToDouble(item["imp_unit"]);
+                double saldo = string.IsNullOrWhiteSpace(Convert.ToString(item["saldo"])) ? 0 : Convert.ToDouble(item["saldo"]);
+                fecha = Convert.ToString(item["fecha"]).Replace(" 12:00:00 a. m.", "");
+                string scta = Convert.ToString(item["cta"]);
+                string descripcionCuenta = Convert.ToString(item["cta_descripcion"]);
+
+                object[] obj2 = { secuencia,tipo_rel,folio,rfc,nombre,proyecto,importe,ubic_pagare,numDesc,
+                                  pagado,fecha_primdescuento,importe,saldo,fecha,scta,descripcionCuenta};
+
+                objReporte[contador] = obj2;
+                contador++;
+
+            }
 
         }
     }
