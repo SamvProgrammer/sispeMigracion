@@ -30,6 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmdocusolic));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblinsertar = new System.Windows.Forms.Label();
+            this.lbl2 = new System.Windows.Forms.Label();
+            this.lblcambios = new System.Windows.Forms.Label();
+            this.lbl1 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.txtamplia = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -74,6 +78,10 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.panel1.Controls.Add(this.lblinsertar);
+            this.panel1.Controls.Add(this.lbl2);
+            this.panel1.Controls.Add(this.lblcambios);
+            this.panel1.Controls.Add(this.lbl1);
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.txtamplia);
             this.panel1.Controls.Add(this.label7);
@@ -86,8 +94,56 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1202, 601);
+            this.panel1.Size = new System.Drawing.Size(1202, 645);
             this.panel1.TabIndex = 0;
+            // 
+            // lblinsertar
+            // 
+            this.lblinsertar.AutoSize = true;
+            this.lblinsertar.BackColor = System.Drawing.Color.OliveDrab;
+            this.lblinsertar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblinsertar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblinsertar.Location = new System.Drawing.Point(987, 608);
+            this.lblinsertar.Name = "lblinsertar";
+            this.lblinsertar.Size = new System.Drawing.Size(185, 15);
+            this.lblinsertar.TabIndex = 36;
+            this.lblinsertar.Text = "[F12] INSERTAR REGISTRO";
+            // 
+            // lbl2
+            // 
+            this.lbl2.AutoSize = true;
+            this.lbl2.BackColor = System.Drawing.Color.OliveDrab;
+            this.lbl2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbl2.Location = new System.Drawing.Point(728, 608);
+            this.lbl2.Name = "lbl2";
+            this.lbl2.Size = new System.Drawing.Size(237, 15);
+            this.lbl2.TabIndex = 35;
+            this.lbl2.Text = "[ F7] HABILITAR NUEVO REGISTRO ";
+            // 
+            // lblcambios
+            // 
+            this.lblcambios.AutoSize = true;
+            this.lblcambios.BackColor = System.Drawing.Color.OliveDrab;
+            this.lblcambios.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblcambios.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblcambios.Location = new System.Drawing.Point(267, 608);
+            this.lblcambios.Name = "lblcambios";
+            this.lblcambios.Size = new System.Drawing.Size(174, 15);
+            this.lblcambios.TabIndex = 34;
+            this.lblcambios.Text = "[F11] GUARDAR CAMBIOS";
+            // 
+            // lbl1
+            // 
+            this.lbl1.AutoSize = true;
+            this.lbl1.BackColor = System.Drawing.Color.OliveDrab;
+            this.lbl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbl1.Location = new System.Drawing.Point(12, 608);
+            this.lbl1.Name = "lbl1";
+            this.lbl1.Size = new System.Drawing.Size(220, 15);
+            this.lbl1.TabIndex = 33;
+            this.lbl1.Text = "[ F5] HABILITAR ACTUALIZACIÓN ";
             // 
             // label9
             // 
@@ -147,6 +203,9 @@
             this.griddocument.Name = "griddocument";
             this.griddocument.Size = new System.Drawing.Size(1183, 276);
             this.griddocument.TabIndex = 0;
+            this.griddocument.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.griddocument_CellClick);
+            this.griddocument.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.griddocument_CellValueChanged);
+            this.griddocument.KeyDown += new System.Windows.Forms.KeyEventHandler(this.griddocument_KeyDown);
             // 
             // Column1
             // 
@@ -393,12 +452,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1202, 601);
+            this.ClientSize = new System.Drawing.Size(1202, 645);
             this.Controls.Add(this.panel1);
+            this.KeyPreview = true;
             this.Name = "frmdocusolic";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmdocusolic";
             this.Load += new System.EventHandler(this.frmdocusolic_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmdocusolic_KeyDown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel6.ResumeLayout(false);
@@ -448,5 +509,9 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn Column3;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.Label lbl1;
+        private System.Windows.Forms.Label lblinsertar;
+        private System.Windows.Forms.Label lbl2;
+        private System.Windows.Forms.Label lblcambios;
     }
 }

@@ -32,7 +32,9 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label12 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.label17 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.LBL2 = new System.Windows.Forms.Label();
             this.txtvalor = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
@@ -58,7 +60,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtexpediente = new System.Windows.Forms.TextBox();
             this.label45 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.LBL1 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.txtnombre = new System.Windows.Forms.TextBox();
             this.txtdomicilio = new System.Windows.Forms.TextBox();
@@ -67,13 +69,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
+            this.LBL3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
-            this.panel3.SuspendLayout();
+            this.LBL1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -89,7 +90,7 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.txtexpediente);
             this.panel1.Controls.Add(this.label45);
-            this.panel1.Controls.Add(this.panel3);
+            this.panel1.Controls.Add(this.LBL1);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -111,9 +112,10 @@
             // 
             // panel6
             // 
+            this.panel6.Controls.Add(this.LBL3);
             this.panel6.Controls.Add(this.label20);
             this.panel6.Controls.Add(this.label19);
-            this.panel6.Controls.Add(this.label17);
+            this.panel6.Controls.Add(this.LBL2);
             this.panel6.Controls.Add(this.txtvalor);
             this.panel6.Controls.Add(this.label18);
             this.panel6.Controls.Add(this.label16);
@@ -127,17 +129,38 @@
             this.panel6.Size = new System.Drawing.Size(1360, 153);
             this.panel6.TabIndex = 35;
             // 
-            // label17
+            // label20
             // 
-            this.label17.AutoSize = true;
-            this.label17.BackColor = System.Drawing.Color.DarkOliveGreen;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label17.Location = new System.Drawing.Point(785, 127);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(270, 20);
-            this.label17.TabIndex = 36;
-            this.label17.Text = "[ F10] MODIFICAR REGISTROS";
+            this.label20.AutoSize = true;
+            this.label20.BackColor = System.Drawing.Color.DarkOliveGreen;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label20.Location = new System.Drawing.Point(16, 127);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(260, 20);
+            this.label20.TabIndex = 38;
+            this.label20.Text = "[ F7] MODIFICAR REGISTROS";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(241, 29);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(61, 13);
+            this.label19.TabIndex = 37;
+            this.label19.Text = "AA-MM-DD";
+            // 
+            // LBL2
+            // 
+            this.LBL2.AutoSize = true;
+            this.LBL2.BackColor = System.Drawing.Color.DarkOliveGreen;
+            this.LBL2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LBL2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.LBL2.Location = new System.Drawing.Point(369, 127);
+            this.LBL2.Name = "LBL2";
+            this.LBL2.Size = new System.Drawing.Size(260, 20);
+            this.LBL2.TabIndex = 36;
+            this.LBL2.Text = "[ F10] INSERTAR REGISTROS";
             // 
             // txtvalor
             // 
@@ -368,18 +391,18 @@
             this.label45.TabIndex = 17;
             this.label45.Text = "DATOS PERSONALES";
             // 
-            // panel3
+            // LBL1
             // 
-            this.panel3.Controls.Add(this.label4);
-            this.panel3.Controls.Add(this.txtnombre);
-            this.panel3.Controls.Add(this.txtdomicilio);
-            this.panel3.Controls.Add(this.txtrfc);
-            this.panel3.Controls.Add(this.label3);
-            this.panel3.Controls.Add(this.label1);
-            this.panel3.Location = new System.Drawing.Point(3, 172);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1360, 86);
-            this.panel3.TabIndex = 1;
+            this.LBL1.Controls.Add(this.label4);
+            this.LBL1.Controls.Add(this.txtnombre);
+            this.LBL1.Controls.Add(this.txtdomicilio);
+            this.LBL1.Controls.Add(this.txtrfc);
+            this.LBL1.Controls.Add(this.label3);
+            this.LBL1.Controls.Add(this.label1);
+            this.LBL1.Location = new System.Drawing.Point(3, 172);
+            this.LBL1.Name = "LBL1";
+            this.LBL1.Size = new System.Drawing.Size(1360, 86);
+            this.LBL1.TabIndex = 1;
             // 
             // label4
             // 
@@ -451,26 +474,17 @@
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
             // 
-            // label19
+            // LBL3
             // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(241, 29);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(61, 13);
-            this.label19.TabIndex = 37;
-            this.label19.Text = "AA-MM-DD";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.BackColor = System.Drawing.Color.DarkOliveGreen;
-            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label20.Location = new System.Drawing.Point(432, 127);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(260, 20);
-            this.label20.TabIndex = 38;
-            this.label20.Text = "[ F7] MODIFICAR REGISTROS";
+            this.LBL3.AutoSize = true;
+            this.LBL3.BackColor = System.Drawing.Color.DarkOliveGreen;
+            this.LBL3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LBL3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.LBL3.Location = new System.Drawing.Point(709, 127);
+            this.LBL3.Name = "LBL3";
+            this.LBL3.Size = new System.Drawing.Size(296, 20);
+            this.LBL3.TabIndex = 39;
+            this.LBL3.Text = "[ F12] GUARDAR ACTUALIZACIÓN";
             // 
             // frmavaluo
             // 
@@ -492,8 +506,8 @@
             this.panel5.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
+            this.LBL1.ResumeLayout(false);
+            this.LBL1.PerformLayout();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
@@ -503,7 +517,7 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel LBL1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label45;
@@ -539,8 +553,9 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.TextBox txtubicacion;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label LBL2;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label LBL3;
     }
 }

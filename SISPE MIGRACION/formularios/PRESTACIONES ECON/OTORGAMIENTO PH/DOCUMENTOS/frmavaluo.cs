@@ -27,6 +27,7 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PH.DOCUMENT
             txtfecha.ReadOnly = true;
             txtdestinario.ReadOnly = true;
             txtvalor.ReadOnly = true;
+            LBL2.Visible = false;
 
 
         }
@@ -53,6 +54,22 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PH.DOCUMENT
                 MessageBox.Show("Existe un error en el procedimiento");
             }
        
+        }
+
+        private void actualizar()
+        {
+            string query = "update datos.h_evalua set f_solic='{0}',nombre='{1}',valor_bien='{2}' WHERE expediente='{3}'";
+            string con = string.Format(query, txtfecha.Text, txtdestinario.Text, txtvalor.Text, txtexpediente.Text);
+            List<Dictionary<string, object>> resultado = globales.consulta(con);
+            if (globales.consulta(con, true))
+            {
+                MessageBox.Show("Registros actualizados");
+            }
+            else
+            {
+                MessageBox.Show("Existe un error en el procedimiento");
+            }
+
         }
 
 
@@ -98,12 +115,13 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PH.DOCUMENT
             if (e.KeyCode == Keys.F7)
             {
 
-                MessageBox.Show("YA ES POSIBLE MODIFICAR LOS REGISTROS ");
-                MessageBox.Show("AL FINALIZAR PRESIONA F10 PARA GUARDAR");
+                MessageBox.Show("YA ES POSIBLE INSERTAR O MODIFICAR LOS REGISTROS ");
+               
                 txtfecha.ReadOnly = false;
                 txtdestinario.ReadOnly = false;
                 txtvalor.ReadOnly = false;
-              
+                LBL2.Visible = true;
+                LBL3.Visible = true;
 
             }
 
@@ -111,8 +129,11 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PH.DOCUMENT
             {
                 insertar();
             }
+           
             if (e.KeyCode == Keys.F12)
-                MessageBox.Show("YA PUEDE INGRESAR EL AVALUO");
+            {
+                actualizar();
+            }
 
 
         }

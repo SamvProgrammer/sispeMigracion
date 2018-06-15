@@ -46,10 +46,10 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PH
                     new frmavaluo().ShowDialog();
                     break;
                 case 2:
-                    new frmavaluo().ShowDialog();
+                    new frmestudiosocio().ShowDialog();
                     break;
                 case 3:
-                    MessageBox.Show("es item 1");
+                   new frmestudiotec().ShowDialog();
                     break;
                 case 4:
                     MessageBox.Show("es item 1");
