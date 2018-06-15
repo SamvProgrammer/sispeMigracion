@@ -233,6 +233,7 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.ESTADOS_DE_CUENTA.REPORT
                 }
             }
 
+            //Se selecciona folios entre un rango a otro o por número de Cta.
             resultado = new List<Dictionary<string, object>>();
 
             if (rdFolio.Checked)
@@ -257,6 +258,34 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.ESTADOS_DE_CUENTA.REPORT
                     if (sCta1 == sCta2)
                         resultado.Add(item);
                 }
+            }
+
+            //Se eligen cuentas con saldo o sin saldo
+
+            if (chkFolios.Checked) {
+                MessageBox.Show("Se seleccionara folios con saldo al " + fecha, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                List<Dictionary<string, object>> tmp = new List<Dictionary<string, object>>();
+
+                foreach (Dictionary<string, object> item in resultado)
+                {
+                    string sImporte = (string.IsNullOrWhiteSpace(Convert.ToString(item["importe"]))) ? "0" : Convert.ToString(item["importe"]);
+                    string sPagado = (string.IsNullOrWhiteSpace(Convert.ToString(item["pagado"]))) ? "0" : Convert.ToString(item["pagado"]);
+
+                    double dImporte = Math.Round(Convert.ToDouble(sImporte), 2);
+                    double dPagado = Math.Round(Convert.ToDouble(sPagado), 2);
+
+                    double folio = Convert.ToDouble(item["folio"]);
+
+                    if (dPagado >= dImporte)
+                    {
+                        continue;
+                    }
+
+                    tmp.Add(item);
+                }
+
+                resultado = tmp;
+                tmp = null;
             }
 
 
