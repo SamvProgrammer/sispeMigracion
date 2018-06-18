@@ -29,6 +29,18 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.p1 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtdependencia = new System.Windows.Forms.TextBox();
+            this.p2 = new System.Windows.Forms.Panel();
+            this.txtAl = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtDel = new System.Windows.Forms.TextBox();
+            this.chkFolios = new System.Windows.Forms.CheckBox();
+            this.rdFolio = new System.Windows.Forms.RadioButton();
+            this.rdDependencias = new System.Windows.Forms.RadioButton();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dFecha = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
@@ -39,31 +51,19 @@
             this.rdNormal = new System.Windows.Forms.RadioButton();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rdMoratorios = new System.Windows.Forms.RadioButton();
             this.rdHipotecario = new System.Windows.Forms.RadioButton();
             this.rdQuiro = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.rdFolio = new System.Windows.Forms.RadioButton();
-            this.rdDependencias = new System.Windows.Forms.RadioButton();
-            this.chkFolios = new System.Windows.Forms.CheckBox();
-            this.rdMoratorios = new System.Windows.Forms.RadioButton();
-            this.p2 = new System.Windows.Forms.Panel();
-            this.txtAl = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtDel = new System.Windows.Forms.TextBox();
-            this.p1 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtdependencia = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.p1.SuspendLayout();
+            this.p2.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.groupBox2.SuspendLayout();
-            this.p2.SuspendLayout();
-            this.p1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -82,6 +82,127 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(592, 549);
             this.panel1.TabIndex = 8;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.p1);
+            this.groupBox2.Controls.Add(this.p2);
+            this.groupBox2.Controls.Add(this.chkFolios);
+            this.groupBox2.Controls.Add(this.rdFolio);
+            this.groupBox2.Controls.Add(this.rdDependencias);
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(46, 345);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(478, 119);
+            this.groupBox2.TabIndex = 16;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Seleccionar";
+            // 
+            // p1
+            // 
+            this.p1.Controls.Add(this.label3);
+            this.p1.Controls.Add(this.txtdependencia);
+            this.p1.Location = new System.Drawing.Point(190, 11);
+            this.p1.Name = "p1";
+            this.p1.Size = new System.Drawing.Size(288, 41);
+            this.p1.TabIndex = 9;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(-1, 12);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(90, 16);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Dependencia";
+            // 
+            // txtdependencia
+            // 
+            this.txtdependencia.Location = new System.Drawing.Point(94, 9);
+            this.txtdependencia.Name = "txtdependencia";
+            this.txtdependencia.Size = new System.Drawing.Size(188, 22);
+            this.txtdependencia.TabIndex = 8;
+            // 
+            // p2
+            // 
+            this.p2.Controls.Add(this.txtAl);
+            this.p2.Controls.Add(this.label5);
+            this.p2.Controls.Add(this.label4);
+            this.p2.Controls.Add(this.txtDel);
+            this.p2.Location = new System.Drawing.Point(190, 53);
+            this.p2.Name = "p2";
+            this.p2.Size = new System.Drawing.Size(288, 53);
+            this.p2.TabIndex = 8;
+            // 
+            // txtAl
+            // 
+            this.txtAl.Location = new System.Drawing.Point(88, 28);
+            this.txtAl.Name = "txtAl";
+            this.txtAl.Size = new System.Drawing.Size(68, 22);
+            this.txtAl.TabIndex = 15;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(52, 30);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(20, 16);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "Al";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(44, 8);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(29, 16);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "Del";
+            // 
+            // txtDel
+            // 
+            this.txtDel.Location = new System.Drawing.Point(88, 5);
+            this.txtDel.Name = "txtDel";
+            this.txtDel.Size = new System.Drawing.Size(68, 22);
+            this.txtDel.TabIndex = 12;
+            // 
+            // chkFolios
+            // 
+            this.chkFolios.AutoSize = true;
+            this.chkFolios.Checked = true;
+            this.chkFolios.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkFolios.Location = new System.Drawing.Point(18, 78);
+            this.chkFolios.Name = "chkFolios";
+            this.chkFolios.Size = new System.Drawing.Size(152, 20);
+            this.chkFolios.TabIndex = 5;
+            this.chkFolios.Text = "Solo folios con saldo";
+            this.chkFolios.UseVisualStyleBackColor = true;
+            // 
+            // rdFolio
+            // 
+            this.rdFolio.AutoSize = true;
+            this.rdFolio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdFolio.Location = new System.Drawing.Point(18, 51);
+            this.rdFolio.Name = "rdFolio";
+            this.rdFolio.Size = new System.Drawing.Size(56, 20);
+            this.rdFolio.TabIndex = 4;
+            this.rdFolio.Text = "Folio";
+            this.rdFolio.UseVisualStyleBackColor = true;
+            this.rdFolio.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
+            // 
+            // rdDependencias
+            // 
+            this.rdDependencias.AutoSize = true;
+            this.rdDependencias.Checked = true;
+            this.rdDependencias.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdDependencias.Location = new System.Drawing.Point(18, 25);
+            this.rdDependencias.Name = "rdDependencias";
+            this.rdDependencias.Size = new System.Drawing.Size(108, 20);
+            this.rdDependencias.TabIndex = 3;
+            this.rdDependencias.TabStop = true;
+            this.rdDependencias.Text = "Dependencia";
+            this.rdDependencias.UseVisualStyleBackColor = true;
+            this.rdDependencias.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged);
             // 
             // groupBox4
             // 
@@ -124,6 +245,7 @@
             this.button2.TabIndex = 18;
             this.button2.Text = "&Cancelar";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // groupBox3
             // 
@@ -200,6 +322,17 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Seleccionar";
             // 
+            // rdMoratorios
+            // 
+            this.rdMoratorios.AutoSize = true;
+            this.rdMoratorios.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdMoratorios.Location = new System.Drawing.Point(33, 73);
+            this.rdMoratorios.Name = "rdMoratorios";
+            this.rdMoratorios.Size = new System.Drawing.Size(90, 20);
+            this.rdMoratorios.TabIndex = 2;
+            this.rdMoratorios.Text = "Moratorios";
+            this.rdMoratorios.UseVisualStyleBackColor = true;
+            // 
             // rdHipotecario
             // 
             this.rdHipotecario.AutoSize = true;
@@ -246,138 +379,6 @@
             this.pictureBox1.TabIndex = 11;
             this.pictureBox1.TabStop = false;
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.p1);
-            this.groupBox2.Controls.Add(this.p2);
-            this.groupBox2.Controls.Add(this.chkFolios);
-            this.groupBox2.Controls.Add(this.rdFolio);
-            this.groupBox2.Controls.Add(this.rdDependencias);
-            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(46, 345);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(478, 119);
-            this.groupBox2.TabIndex = 16;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Seleccionar";
-            // 
-            // rdFolio
-            // 
-            this.rdFolio.AutoSize = true;
-            this.rdFolio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdFolio.Location = new System.Drawing.Point(18, 51);
-            this.rdFolio.Name = "rdFolio";
-            this.rdFolio.Size = new System.Drawing.Size(56, 20);
-            this.rdFolio.TabIndex = 4;
-            this.rdFolio.Text = "Folio";
-            this.rdFolio.UseVisualStyleBackColor = true;
-            this.rdFolio.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
-            // 
-            // rdDependencias
-            // 
-            this.rdDependencias.AutoSize = true;
-            this.rdDependencias.Checked = true;
-            this.rdDependencias.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdDependencias.Location = new System.Drawing.Point(18, 25);
-            this.rdDependencias.Name = "rdDependencias";
-            this.rdDependencias.Size = new System.Drawing.Size(108, 20);
-            this.rdDependencias.TabIndex = 3;
-            this.rdDependencias.TabStop = true;
-            this.rdDependencias.Text = "Dependencia";
-            this.rdDependencias.UseVisualStyleBackColor = true;
-            this.rdDependencias.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged);
-            // 
-            // chkFolios
-            // 
-            this.chkFolios.AutoSize = true;
-            this.chkFolios.Checked = true;
-            this.chkFolios.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkFolios.Location = new System.Drawing.Point(18, 78);
-            this.chkFolios.Name = "chkFolios";
-            this.chkFolios.Size = new System.Drawing.Size(152, 20);
-            this.chkFolios.TabIndex = 5;
-            this.chkFolios.Text = "Solo folios con saldo";
-            this.chkFolios.UseVisualStyleBackColor = true;
-            // 
-            // rdMoratorios
-            // 
-            this.rdMoratorios.AutoSize = true;
-            this.rdMoratorios.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdMoratorios.Location = new System.Drawing.Point(33, 73);
-            this.rdMoratorios.Name = "rdMoratorios";
-            this.rdMoratorios.Size = new System.Drawing.Size(90, 20);
-            this.rdMoratorios.TabIndex = 2;
-            this.rdMoratorios.Text = "Moratorios";
-            this.rdMoratorios.UseVisualStyleBackColor = true;
-            // 
-            // p2
-            // 
-            this.p2.Controls.Add(this.txtAl);
-            this.p2.Controls.Add(this.label5);
-            this.p2.Controls.Add(this.label4);
-            this.p2.Controls.Add(this.txtDel);
-            this.p2.Location = new System.Drawing.Point(190, 53);
-            this.p2.Name = "p2";
-            this.p2.Size = new System.Drawing.Size(288, 53);
-            this.p2.TabIndex = 8;
-            // 
-            // txtAl
-            // 
-            this.txtAl.Location = new System.Drawing.Point(88, 28);
-            this.txtAl.Name = "txtAl";
-            this.txtAl.Size = new System.Drawing.Size(68, 22);
-            this.txtAl.TabIndex = 15;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(52, 30);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(20, 16);
-            this.label5.TabIndex = 14;
-            this.label5.Text = "Al";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(44, 8);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(29, 16);
-            this.label4.TabIndex = 13;
-            this.label4.Text = "Del";
-            // 
-            // txtDel
-            // 
-            this.txtDel.Location = new System.Drawing.Point(88, 5);
-            this.txtDel.Name = "txtDel";
-            this.txtDel.Size = new System.Drawing.Size(68, 22);
-            this.txtDel.TabIndex = 12;
-            // 
-            // p1
-            // 
-            this.p1.Controls.Add(this.label3);
-            this.p1.Controls.Add(this.txtdependencia);
-            this.p1.Location = new System.Drawing.Point(190, 11);
-            this.p1.Name = "p1";
-            this.p1.Size = new System.Drawing.Size(288, 41);
-            this.p1.TabIndex = 9;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(-1, 12);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(90, 16);
-            this.label3.TabIndex = 9;
-            this.label3.Text = "Dependencia";
-            // 
-            // txtdependencia
-            // 
-            this.txtdependencia.Location = new System.Drawing.Point(94, 9);
-            this.txtdependencia.Name = "txtdependencia";
-            this.txtdependencia.Size = new System.Drawing.Size(188, 22);
-            this.txtdependencia.TabIndex = 8;
-            // 
             // frmEstadosCuenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -391,6 +392,12 @@
             this.Text = "Estados de cuenta";
             this.Load += new System.EventHandler(this.frmEstadosCuenta_Load);
             this.panel1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.p1.ResumeLayout(false);
+            this.p1.PerformLayout();
+            this.p2.ResumeLayout(false);
+            this.p2.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -398,12 +405,6 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.p2.ResumeLayout(false);
-            this.p2.PerformLayout();
-            this.p1.ResumeLayout(false);
-            this.p1.PerformLayout();
             this.ResumeLayout(false);
 
         }

@@ -389,15 +389,21 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.ESTADOS_DE_CUENTA.REPORT
                 fecha = Convert.ToString(item["fecha"]).Replace(" 12:00:00 a. m.", "");
                 string scta = Convert.ToString(item["cta"]);
                 string descripcionCuenta = Convert.ToString(item["cta_descripcion"]);
-
+                string letrasSaldo = globales.convertirNumerosLetras(Convert.ToString(saldo),true);
                 object[] obj2 = { secuencia,tipo_rel,folio,rfc,nombre,proyecto,importe,ubic_pagare,numDesc,
-                                  pagado,fecha_primdescuento,importe,saldo,fecha,scta,descripcionCuenta};
+                                  pagado,fecha_primdescuento,saldo,fecha,scta,descripcionCuenta,serie,importeUnitario,letrasSaldo};
 
                 objReporte[contador] = obj2;
                 contador++;
 
             }
+            globales.reportes("reporteEstadosDecuenta", "estadosCuenta", objReporte);
+            this.Cursor = Cursors.Default;
+        }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
