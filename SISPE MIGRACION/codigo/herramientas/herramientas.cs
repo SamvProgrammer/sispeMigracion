@@ -156,6 +156,38 @@ namespace SISPE_MIGRACION.codigo.herramientas
             return f1;
         }
 
+        public static List<Dictionary<string, object>> leerDbf(string ruta) {
+            DbfDataReader.DbfTable tabla = new DbfDataReader.DbfTable(ruta);
+            DbfDataReader.DbfRecord filas = new DbfDataReader.DbfRecord(tabla);
+            List<Dictionary<string, object>> lista = new List<Dictionary<string, object>>();
+            string[] tipos = new string[tabla.Columns.Count];
+            string[] nombreColumnas = new string[tabla.Columns.Count];
+            int contador = 0;
+            foreach (var dbfColumn in tabla.Columns)
+            {
+                string tipo = Convert.ToString(dbfColumn.ColumnType);
+                string nombreColumna = Convert.ToString(dbfColumn.Name).ToLower();
+                tipos[contador] = tipo;
+                nombreColumnas[contador] = nombreColumna;
+                contador++;
+            }
+            while (tabla.Read(filas))
+            {
+                contador = 0;
+                Dictionary<string, object> diccionario = new Dictionary<string, object>();
+                foreach (var dbfValue in filas.Values)
+                {
+                    string obj = Convert.ToString(dbfValue.GetValue()).Replace(" 12:00:00 a. m.", "");
+                    obj = (string.IsNullOrWhiteSpace(Convert.ToString(obj)) && tipos[contador].Equals("Number") ? "0" : obj);
+                    obj = obj + "|" + ((tipos[contador].Equals("Number")) ? "N" : "C");
+                    diccionario.Add(nombreColumnas[contador], obj);
+                    contador++;
+                }
+                lista.Add(diccionario);
+            }
+            tabla.Close();
+            return lista;
+        }
 
     }
 }

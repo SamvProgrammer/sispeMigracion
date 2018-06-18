@@ -59,5 +59,9 @@ class globales
     public static string formatoFecha(string fecha,char formato = '-') {
         return herramientas.formatoFecha(fecha,formato);
     }
+
+    public static dynamic leerDbf(string ruta) {
+        return herramientas.leerDbf(ruta);
+    }
 }
 

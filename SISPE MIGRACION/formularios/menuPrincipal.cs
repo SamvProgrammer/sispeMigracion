@@ -284,5 +284,10 @@ namespace SISPE_MIGRACION.formularios
         {
             new acerca().ShowDialog();
         }
+
+        private void actualizarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new SISPE_MIGRACION.formularios.Fondo_de_Pensiones.DISKETTES.frmActualizar().ShowDialog();
+        }
     }
 }
