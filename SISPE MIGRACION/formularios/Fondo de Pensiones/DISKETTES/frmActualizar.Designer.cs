@@ -64,8 +64,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtRuta = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.open1 = new System.Windows.Forms.OpenFileDialog();
+            this.button2 = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -85,7 +85,7 @@
             this.panel2.Controls.Add(this.label1);
             this.panel2.Location = new System.Drawing.Point(0, 67);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(851, 34);
+            this.panel2.Size = new System.Drawing.Size(1019, 34);
             this.panel2.TabIndex = 4;
             // 
             // label1
@@ -106,14 +106,14 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(885, 104);
+            this.panel1.Size = new System.Drawing.Size(1019, 104);
             this.panel1.TabIndex = 3;
             // 
             // panel3
             // 
             this.panel3.Controls.Add(this.pictureBox1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel3.Location = new System.Drawing.Point(610, 0);
+            this.panel3.Location = new System.Drawing.Point(744, 0);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(275, 104);
             this.panel3.TabIndex = 0;
@@ -140,14 +140,15 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(0, 104);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(885, 460);
+            this.panel4.Size = new System.Drawing.Size(1019, 483);
             this.panel4.TabIndex = 4;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(12, 196);
+            this.label7.ForeColor = System.Drawing.Color.Maroon;
+            this.label7.Location = new System.Drawing.Point(12, 231);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(288, 25);
             this.label7.TabIndex = 6;
@@ -156,9 +157,9 @@
             // p1
             // 
             this.p1.Controls.Add(this.datos1);
-            this.p1.Location = new System.Drawing.Point(13, 224);
+            this.p1.Location = new System.Drawing.Point(12, 259);
             this.p1.Name = "p1";
-            this.p1.Size = new System.Drawing.Size(670, 212);
+            this.p1.Size = new System.Drawing.Size(792, 212);
             this.p1.TabIndex = 5;
             // 
             // datos1
@@ -176,7 +177,7 @@
             this.datos1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.datos1.Location = new System.Drawing.Point(0, 0);
             this.datos1.Name = "datos1";
-            this.datos1.Size = new System.Drawing.Size(670, 212);
+            this.datos1.Size = new System.Drawing.Size(792, 212);
             this.datos1.TabIndex = 0;
             // 
             // Column1
@@ -226,9 +227,9 @@
             this.group.Controls.Add(this.btnNuevo);
             this.group.Dock = System.Windows.Forms.DockStyle.Right;
             this.group.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.group.Location = new System.Drawing.Point(689, 0);
+            this.group.Location = new System.Drawing.Point(823, 0);
             this.group.Name = "group";
-            this.group.Size = new System.Drawing.Size(196, 460);
+            this.group.Size = new System.Drawing.Size(196, 483);
             this.group.TabIndex = 4;
             this.group.TabStop = false;
             this.group.Text = "Opciones";
@@ -275,9 +276,9 @@
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.txtArchivo);
             this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Location = new System.Drawing.Point(13, 62);
+            this.groupBox2.Location = new System.Drawing.Point(12, 88);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(670, 131);
+            this.groupBox2.Size = new System.Drawing.Size(715, 131);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Información basica";
@@ -393,11 +394,11 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.txtRuta);
-            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Location = new System.Drawing.Point(12, 6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(671, 49);
+            this.groupBox1.Size = new System.Drawing.Size(716, 67);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Buscar";
@@ -405,22 +406,13 @@
             // txtRuta
             // 
             this.txtRuta.Cursor = System.Windows.Forms.Cursors.No;
+            this.txtRuta.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRuta.ForeColor = System.Drawing.SystemColors.InactiveCaption;
             this.txtRuta.Location = new System.Drawing.Point(26, 19);
             this.txtRuta.Name = "txtRuta";
             this.txtRuta.ReadOnly = true;
-            this.txtRuta.Size = new System.Drawing.Size(304, 20);
+            this.txtRuta.Size = new System.Drawing.Size(304, 27);
             this.txtRuta.TabIndex = 0;
-            // 
-            // button1
-            // 
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Location = new System.Drawing.Point(336, 16);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(97, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "&Buscar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // open1
             // 
@@ -428,11 +420,25 @@
             this.open1.DefaultExt = "dbf";
             this.open1.FileName = "dialogoAbrir";
             // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(336, 15);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(122, 37);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "BUSCAR";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button1_Click);
+            // 
             // frmActualizar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(885, 564);
+            this.ClientSize = new System.Drawing.Size(1019, 587);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel1);
             this.MaximizeBox = false;
@@ -466,7 +472,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox txtRuta;
         private System.Windows.Forms.OpenFileDialog open1;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -497,5 +502,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Button button2;
     }
 }

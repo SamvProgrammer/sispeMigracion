@@ -60,8 +60,8 @@ class globales
         return herramientas.formatoFecha(fecha,formato);
     }
 
-    public static dynamic leerDbf(string ruta) {
-        return herramientas.leerDbf(ruta);
+    public static dynamic leerDbf(string ruta,bool verTipo = false) {
+        return herramientas.leerDbf(ruta,verTipo);
     }
 }
 

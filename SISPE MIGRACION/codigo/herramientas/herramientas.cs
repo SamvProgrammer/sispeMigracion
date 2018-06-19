@@ -156,7 +156,7 @@ namespace SISPE_MIGRACION.codigo.herramientas
             return f1;
         }
 
-        public static List<Dictionary<string, object>> leerDbf(string ruta) {
+        public static List<Dictionary<string, object>> leerDbf(string ruta,bool verTipo) {
             DbfDataReader.DbfTable tabla = new DbfDataReader.DbfTable(ruta);
             DbfDataReader.DbfRecord filas = new DbfDataReader.DbfRecord(tabla);
             List<Dictionary<string, object>> lista = new List<Dictionary<string, object>>();
@@ -179,7 +179,9 @@ namespace SISPE_MIGRACION.codigo.herramientas
                 {
                     string obj = Convert.ToString(dbfValue.GetValue()).Replace(" 12:00:00 a. m.", "");
                     obj = (string.IsNullOrWhiteSpace(Convert.ToString(obj)) && tipos[contador].Equals("Number") ? "0" : obj);
-                    obj = obj + "|" + ((tipos[contador].Equals("Number")) ? "N" : "C");
+                    if (verTipo) 
+                        obj = obj + "|" + ((tipos[contador].Equals("Number")) ? "N" : "C");
+                    
                     diccionario.Add(nombreColumnas[contador], obj);
                     contador++;
                 }
