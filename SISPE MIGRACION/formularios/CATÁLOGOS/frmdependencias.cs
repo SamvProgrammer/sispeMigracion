@@ -14,6 +14,7 @@ namespace SISPE_MIGRACION.formularios.CATÁLOGOS
 {
     public partial class frmdependencias : Form
     {
+        private bool aceptar { get; set; }
         internal enviarDatos enviar;
         private List<Dictionary<string, object>> resultado;
         private string proyecto = string.Empty;
@@ -43,7 +44,9 @@ namespace SISPE_MIGRACION.formularios.CATÁLOGOS
 
         private void btnseleccionar_Click(object sender, EventArgs e)
         {
+            if (this.resultado.Count == 0) return;
             Dictionary<string, object> valor =  null;
+            this.aceptar = true;
             foreach (Dictionary<string, object> item in resultado)
             {
                 if (item["proy"].Equals(proyecto))
@@ -70,13 +73,13 @@ namespace SISPE_MIGRACION.formularios.CATÁLOGOS
 
         private void txtBusqueda_KeyUp(object sender, KeyEventArgs e)
         {
-            string query = string.Format("select * from catalogos.dependencias where descripcion like '{0}%' or proy like '{0}%' LIMIT 30",txtBusqueda.Text);
-            var elemento = baseDatos.consulta(query);
+            string query = string.Format("select * from catalogos.dependencias where descripcion like '{0}%' or proy like '{0}%' LIMIT 30", txtBusqueda.Text);
+            resultado = baseDatos.consulta(query);
             datos.Rows.Clear();
-            foreach (var item in elemento)
+            foreach (Dictionary<string,object> item in resultado)
             {
-                string descripcion = item["descripcion"];
-                string proy = item["proy"];
+                string descripcion = Convert.ToString(item["descripcion"]);
+                string proy = Convert.ToString(item["proy"]);
                 datos.Rows.Add(proy, descripcion);
             }
         }
@@ -90,8 +93,8 @@ namespace SISPE_MIGRACION.formularios.CATÁLOGOS
 
         private void datos_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == 13)
-                btnseleccionar_Click(null,null);
+            
+                
         }
 
         private void datos_CellStateChanged(object sender, DataGridViewCellStateChangedEventArgs e)
@@ -109,6 +112,7 @@ namespace SISPE_MIGRACION.formularios.CATÁLOGOS
 
         private void frmdependencias_FormClosing(object sender, FormClosingEventArgs e)
         {
+            if (aceptar) return;
             DialogResult dialogo = MessageBox.Show("¿Desea cerrar el módulo?",
           "Cerrar el módulo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dialogo == DialogResult.No)
@@ -118,6 +122,14 @@ namespace SISPE_MIGRACION.formularios.CATÁLOGOS
             else
             {
                 e.Cancel = false;
+            }
+        }
+
+        private void datos_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) {
+                e.SuppressKeyPress = true;
+                btnseleccionar_Click(null, null);
             }
         }
     }

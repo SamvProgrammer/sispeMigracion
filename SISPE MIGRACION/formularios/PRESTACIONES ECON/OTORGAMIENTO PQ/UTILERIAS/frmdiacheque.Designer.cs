@@ -32,6 +32,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.cmbFecha = new System.Windows.Forms.ComboBox();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -58,7 +59,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.cmbFecha = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel6.SuspendLayout();
             this.group.SuspendLayout();
@@ -82,7 +82,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(856, 607);
+            this.panel1.Size = new System.Drawing.Size(941, 607);
             this.panel1.TabIndex = 0;
             // 
             // label6
@@ -99,7 +99,7 @@
             // 
             // panel6
             // 
-            this.panel6.BackColor = System.Drawing.Color.Gainsboro;
+            this.panel6.BackColor = System.Drawing.SystemColors.Menu;
             this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel6.Controls.Add(this.cmbFecha);
             this.panel6.Controls.Add(this.btnGuardar);
@@ -110,8 +110,17 @@
             this.panel6.Controls.Add(this.label7);
             this.panel6.Location = new System.Drawing.Point(24, 508);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(568, 70);
+            this.panel6.Size = new System.Drawing.Size(640, 78);
             this.panel6.TabIndex = 5;
+            // 
+            // cmbFecha
+            // 
+            this.cmbFecha.FormattingEnabled = true;
+            this.cmbFecha.Location = new System.Drawing.Point(289, 38);
+            this.cmbFecha.Name = "cmbFecha";
+            this.cmbFecha.Size = new System.Drawing.Size(144, 21);
+            this.cmbFecha.TabIndex = 7;
+            this.cmbFecha.SelectedValueChanged += new System.EventHandler(this.cmbFecha_SelectedValueChanged);
             // 
             // btnGuardar
             // 
@@ -119,7 +128,7 @@
             this.btnGuardar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnGuardar.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardar.Image")));
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardar.Location = new System.Drawing.Point(462, 27);
+            this.btnGuardar.Location = new System.Drawing.Point(450, 27);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(102, 39);
             this.btnGuardar.TabIndex = 6;
@@ -184,7 +193,7 @@
             this.group.Controls.Add(this.btnsalir);
             this.group.Dock = System.Windows.Forms.DockStyle.Right;
             this.group.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.group.Location = new System.Drawing.Point(660, 104);
+            this.group.Location = new System.Drawing.Point(745, 104);
             this.group.Name = "group";
             this.group.Size = new System.Drawing.Size(196, 503);
             this.group.TabIndex = 4;
@@ -208,7 +217,7 @@
             // cmbMes
             // 
             this.cmbMes.FormattingEnabled = true;
-            this.cmbMes.Location = new System.Drawing.Point(15, 219);
+            this.cmbMes.Location = new System.Drawing.Point(15, 258);
             this.cmbMes.Name = "cmbMes";
             this.cmbMes.Size = new System.Drawing.Size(169, 21);
             this.cmbMes.TabIndex = 8;
@@ -217,7 +226,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 203);
+            this.label5.Location = new System.Drawing.Point(12, 242);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(34, 13);
             this.label5.TabIndex = 7;
@@ -226,7 +235,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 154);
+            this.label4.Location = new System.Drawing.Point(12, 193);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(33, 13);
             this.label4.TabIndex = 6;
@@ -235,7 +244,7 @@
             // cmbAño
             // 
             this.cmbAño.FormattingEnabled = true;
-            this.cmbAño.Location = new System.Drawing.Point(15, 170);
+            this.cmbAño.Location = new System.Drawing.Point(15, 209);
             this.cmbAño.Name = "cmbAño";
             this.cmbAño.Size = new System.Drawing.Size(169, 21);
             this.cmbAño.TabIndex = 5;
@@ -244,7 +253,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 124);
+            this.label3.Location = new System.Drawing.Point(6, 163);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(39, 13);
             this.label3.TabIndex = 4;
@@ -256,7 +265,7 @@
             this.btnsalir.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnsalir.Image = ((System.Drawing.Image)(resources.GetObject("btnsalir.Image")));
             this.btnsalir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnsalir.Location = new System.Drawing.Point(9, 73);
+            this.btnsalir.Location = new System.Drawing.Point(9, 87);
             this.btnsalir.Name = "btnsalir";
             this.btnsalir.Size = new System.Drawing.Size(175, 39);
             this.btnsalir.TabIndex = 3;
@@ -282,11 +291,15 @@
             this.panel5.Controls.Add(this.gridcheques);
             this.panel5.Location = new System.Drawing.Point(24, 132);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(568, 349);
+            this.panel5.Size = new System.Drawing.Size(640, 349);
             this.panel5.TabIndex = 2;
             // 
             // gridcheques
             // 
+            this.gridcheques.AllowUserToAddRows = false;
+            this.gridcheques.AllowUserToDeleteRows = false;
+            this.gridcheques.AllowUserToResizeColumns = false;
+            this.gridcheques.AllowUserToResizeRows = false;
             this.gridcheques.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gridcheques.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.gridcheques.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -298,8 +311,10 @@
             this.gridcheques.Cursor = System.Windows.Forms.Cursors.Hand;
             this.gridcheques.Location = new System.Drawing.Point(3, 31);
             this.gridcheques.Name = "gridcheques";
-            this.gridcheques.Size = new System.Drawing.Size(560, 313);
+            this.gridcheques.Size = new System.Drawing.Size(632, 313);
             this.gridcheques.TabIndex = 1;
+            this.gridcheques.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridcheques_CellContentClick);
+            this.gridcheques.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridcheques_CellMouseLeave);
             this.gridcheques.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridcheques_CellValueChanged);
             this.gridcheques.CellValuePushed += new System.Windows.Forms.DataGridViewCellValueEventHandler(this.gridcheques_CellValuePushed);
             this.gridcheques.Click += new System.EventHandler(this.gridcheques_Click);
@@ -340,7 +355,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(856, 104);
+            this.panel2.Size = new System.Drawing.Size(941, 104);
             this.panel2.TabIndex = 1;
             // 
             // panel4
@@ -350,7 +365,7 @@
             this.panel4.Controls.Add(this.label2);
             this.panel4.Location = new System.Drawing.Point(0, 72);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(856, 32);
+            this.panel4.Size = new System.Drawing.Size(941, 32);
             this.panel4.TabIndex = 3;
             // 
             // label2
@@ -369,7 +384,7 @@
             // 
             this.panel3.Controls.Add(this.pictureBox1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel3.Location = new System.Drawing.Point(581, 0);
+            this.panel3.Location = new System.Drawing.Point(666, 0);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(275, 104);
             this.panel3.TabIndex = 0;
@@ -385,20 +400,11 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // cmbFecha
-            // 
-            this.cmbFecha.FormattingEnabled = true;
-            this.cmbFecha.Location = new System.Drawing.Point(289, 38);
-            this.cmbFecha.Name = "cmbFecha";
-            this.cmbFecha.Size = new System.Drawing.Size(144, 21);
-            this.cmbFecha.TabIndex = 7;
-            this.cmbFecha.SelectedValueChanged += new System.EventHandler(this.cmbFecha_SelectedValueChanged);
-            // 
             // frmdiacheque
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(856, 607);
+            this.ClientSize = new System.Drawing.Size(941, 607);
             this.Controls.Add(this.panel1);
             this.KeyPreview = true;
             this.MaximizeBox = false;

@@ -14,7 +14,7 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PQ
 {
     public partial class frmdiacheque : Form
     {
-
+        private bool modificado2 { get; set; }
         private string[] meses = { "", "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" };
         public frmdiacheque()
         {
@@ -25,7 +25,7 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PQ
         {
             try
             {
-
+                
                 string cheques = ("SELECT fecha, inhabil, CASE WHEN to_char(fecha, 'd') = '1' then cast('Domingo' as char(10)) WHEN to_char(fecha,'d') = '2' then cast('Lunes' as char(10)) WHEN to_char(fecha,'d') = '3' then cast('Martes' as char(10)) WHEN to_char(fecha,'d') = '4'then cast('Miercoles' as char(10)) WHEN to_char(fecha,'d') = '5'then cast('Jueves' as char(10)) WHEN to_char(fecha,'d') = '6'then cast('Viernes' as char(10)) WHEN to_char(fecha,'d') = '7' then cast('Sabado' as char(10))END AS dia, programados FROM catalogos.progpq order by fecha desc limit 100");
                 var elemento3 = baseDatos.consulta(cheques);
                 cmbAño.Items.Clear();
@@ -100,7 +100,7 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PQ
         private void frmdiacheque_FormClosing(object sender, FormClosingEventArgs e)
         {
             DialogResult dialogo = MessageBox.Show("¿Desea cerrar el módulo?",
-       "Cerrar el módulo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                 "Cerrar el módulo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dialogo == DialogResult.No)
             {
                 e.Cancel = true;
@@ -115,21 +115,32 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PQ
         {
             try
             {
-                var aux = gridcheques.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
-                string query = "update catalogos.progpq set ";
-                switch (e.ColumnIndex)
+                bool modificando = Convert.ToBoolean(gridcheques.Rows[e.RowIndex].Cells[1].Value);
+                if (e.ColumnIndex == 3)
                 {
-                    case 1:
-                        query += " inhabil = '{0}'";
-                        aux = (Convert.ToBoolean(aux)) ? "*" : "";
-                        break;
-                    case 3:
-                        query += " programados = '{0}'";
-                        break;
-
+                    if (modificando && !modificado2 && Convert.ToInt32(gridcheques.Rows[e.RowIndex].Cells[3].Value) != 0)
+                    {
+                        MessageBox.Show("No se puede programar cheques en un día no hábil", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        modificado2 = true;
+                        gridcheques.Rows[e.RowIndex].Cells[3].Value = 0;
+                        return;
+                    }
                 }
-                query += " where fecha = '{1}'";
-                string dia = string.Format(query, aux, gridcheques.Rows[e.RowIndex].Cells[0].Value);
+                else {
+                    if (modificando) {
+                        gridcheques.Rows[e.RowIndex].Cells[3].Value = 0;
+                    }
+                }
+            
+                modificado2 = false;
+
+                string query = "update catalogos.progpq set inhabil = '{0}' , programados = '{1}' where fecha = '{2}'";
+                string aux = (Convert.ToBoolean(gridcheques.Rows[e.RowIndex].Cells[1].Value)) ? "*" : "";
+                string aux2 = Convert.ToString(gridcheques.Rows[e.RowIndex].Cells[3].Value);
+                string[] sFechaArreglo = Convert.ToString(gridcheques.Rows[e.RowIndex].Cells[0].Value).Split('/');
+                string sFecha = string.Format("{0}-{1}-{2}", sFechaArreglo[2],sFechaArreglo[1],sFechaArreglo[0]);
+                
+                string dia = string.Format(query, aux,aux2, sFecha);
                 baseDatos.consulta(dia, true);
             }
             catch
@@ -292,6 +303,16 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PQ
             catch {
 
             }
+        }
+
+        private void gridcheques_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            btnNuevo.Focus();
+        }
+
+        private void gridcheques_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

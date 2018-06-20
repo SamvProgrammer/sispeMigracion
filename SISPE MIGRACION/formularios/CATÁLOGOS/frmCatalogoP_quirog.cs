@@ -108,6 +108,7 @@ namespace SISPE_MIGRACION.formularios.CATÁLOGOS
 
         private void btnseleccionar_Click(object sender, EventArgs e)
         {
+            if (resultado.Count == 0) return;
             Close();
             Dictionary<string, object> aux = null;
             foreach (var item in resultado)
@@ -145,6 +146,29 @@ namespace SISPE_MIGRACION.formularios.CATÁLOGOS
             if (e.KeyCode ==Keys.F2)
             {
                 Close();
+            }
+        }
+
+        private void datos_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            
+        }
+
+        private void datos_QueryAccessibilityHelp(object sender, QueryAccessibilityHelpEventArgs e)
+        {
+
+        }
+
+        private void datos_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+           
+
+        }
+
+        private void datos_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) {
+                e.SuppressKeyPress = true;
             }
         }
     }

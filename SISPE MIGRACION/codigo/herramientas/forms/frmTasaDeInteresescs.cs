@@ -30,18 +30,16 @@ namespace SISPE_MIGRACION.codigo.herramientas.forms
         private void frmTasaDeInteresescs_Load(object sender, EventArgs e)
         {
             //Se obtiene los tipos de relación de catalogos.tasas de la DB
-            Dictionary<string, string> tipoRelacion = new Dictionary<string, string>();
-            tipoRelacion.Add("B","BASE");
-            tipoRelacion.Add("C", "CONFIANZA");
-            tipoRelacion.Add("J", "JUBILADO");
-            tipoRelacion.Add("M", "MANDO MEDIO");
-            tipoRelacion.Add("P", "PENSIONADO");
-            tipoRelacion.Add("I", "PENSIONISTA");
 
-            foreach (var item in tipoRelacion) {
+            string query = "select * from datos.c_tasai";
+            List<Dictionary<string, object>> resultado = globales.consulta(query);
+
+            
+
+            foreach (Dictionary<string,object> item in resultado) {
                 RadioButton elementos = new RadioButton();
-                elementos.Text = item.Value;
-                elementos.Name = item.Key;
+                elementos.Text = Convert.ToString(item["descripcion"]);
+                elementos.Name = Convert.ToString(item["trel"]);
                 groupRadio.Controls.Add(elementos);
             }
             RadioButton c =(RadioButton) groupRadio.Controls[0];

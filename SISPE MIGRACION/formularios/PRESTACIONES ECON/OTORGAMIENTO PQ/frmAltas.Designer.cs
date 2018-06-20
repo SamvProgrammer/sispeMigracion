@@ -874,7 +874,7 @@
             // 
             this.txtTelefono.Cursor = System.Windows.Forms.Cursors.No;
             this.txtTelefono.Location = new System.Drawing.Point(597, 64);
-            this.txtTelefono.MaxLength = 7;
+            this.txtTelefono.MaxLength = 10;
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.ReadOnly = true;
             this.txtTelefono.Size = new System.Drawing.Size(177, 20);
@@ -906,6 +906,7 @@
             this.txtSecretaria.TabIndex = 3;
             this.txtSecretaria.TextChanged += new System.EventHandler(this.txtSecretaria_TextChanged);
             this.txtSecretaria.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSecretaria_KeyPress);
+            this.txtSecretaria.Leave += new System.EventHandler(this.txtSecretaria_Leave);
             // 
             // txtnombre_em
             // 
@@ -926,6 +927,7 @@
             this.txtRfc.TabIndex = 1;
             this.txtRfc.TextChanged += new System.EventHandler(this.txtRfc_TextChanged);
             this.txtRfc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRfc_KeyPress);
+            this.txtRfc.Leave += new System.EventHandler(this.txtRfc_Leave);
             // 
             // txtDomicilio
             // 

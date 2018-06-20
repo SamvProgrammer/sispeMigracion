@@ -37,6 +37,7 @@ namespace SISPE_MIGRACION.formularios.CATÁLOGOS
 
         private void btnseleccionar_Click(object sender, EventArgs e)
         {
+            if (resultado.Count == 0) return; 
             foreach (Dictionary<string, object> item in resultado)
             {
                 if (item["rfc"].Equals(rfc))
@@ -107,7 +108,21 @@ namespace SISPE_MIGRACION.formularios.CATÁLOGOS
 
         private void datos_KeyPress(object sender, KeyPressEventArgs e)
         {
-            btnseleccionar_Click(null,null);
+           
+        }
+
+        private void datos_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+           
+        }
+
+        private void datos_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                btnseleccionar_Click(null, null);
+            }
         }
     }
 }

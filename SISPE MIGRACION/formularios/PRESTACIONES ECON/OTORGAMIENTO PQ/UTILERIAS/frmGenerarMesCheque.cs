@@ -29,7 +29,7 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PQ.UTILERIA
             for (int x = 1; x < meses.Length; x++) {
                 cmbMes.Items.Add(meses[x]);
             }
-            cmbMes.SelectedIndex = 0;
+            cmbMes.SelectedIndex = DateTime.Now.Month - 1;
         }
 
         private void button1_Click(object sender, EventArgs e)

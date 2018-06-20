@@ -128,7 +128,9 @@ namespace SISPE_MIGRACION.formularios.CATÁLOGOS
             this.datos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datos_CellClick);
             this.datos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.datos.CellStateChanged += new System.Windows.Forms.DataGridViewCellStateChangedEventHandler(this.datos_CellStateChanged);
+            this.datos.KeyDown += new System.Windows.Forms.KeyEventHandler(this.datos_KeyDown);
             this.datos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.datos_KeyPress);
+            this.datos.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.datos_PreviewKeyDown);
             // 
             // Colum1
             // 

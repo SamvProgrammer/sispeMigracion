@@ -231,18 +231,20 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PQ
             //Verifica que el susuario que se ingreso con su RFC no se encuentre en la tabla de P_QUIROG.....
             //Si este se encuentra verifica que no se haya realizado algún movimiento en los último 120 días...
 
-            MessageBox.Show("Se verificara el RFC en FOLIOs anteriores....", "Notificación", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            Cursor = Cursors.WaitCursor;
-            string query = string.Format("select *, (select CAST(now() AS DATE) - CAST('120 days' AS INTERVAL)) as limite from datos.P_QUIROG " +
-                                         "where F_solicitud >= (select CAST(now() AS DATE) - CAST('120 days' AS INTERVAL)) " +
-                                         "and RFC like '%{0}%'", rfc);
-            List<Dictionary<string, object>> resultado = baseDatos.consulta(query);
-            Cursor = Cursors.Default;
-            if (resultado.Count > 0)
-            {
-                string limite = Convert.ToString(resultado[0]["limite"]);
-                MessageBox.Show("Este RFC ya fue utilizado en un préstamo después del " + limite, "Notificación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            if (guardar) {
+                MessageBox.Show("Se verificara el RFC en FOLIOs anteriores....", "Notificación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Cursor = Cursors.WaitCursor;
+                string query = string.Format("select *, (select CAST(now() AS DATE) - CAST('120 days' AS INTERVAL)) as limite from datos.P_QUIROG " +
+                                             "where F_solicitud >= (select CAST(now() AS DATE) - CAST('120 days' AS INTERVAL)) " +
+                                             "and RFC like '%{0}%'", rfc);
+                List<Dictionary<string, object>> resultado = baseDatos.consulta(query);
+                Cursor = Cursors.Default;
+                if (resultado.Count > 0)
+                {
+                    string limite = Convert.ToString(resultado[0]["limite"]);
+                    MessageBox.Show("Este RFC ya fue utilizado en un préstamo después del " + limite, "Notificación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
+                }
             }
 
             this.txtRfc.Text = rfc;
@@ -258,9 +260,9 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PQ
 
         public void rellenarCamposSecretarias(Dictionary<string, object> datos, bool externo = false)
         {
+            
             if (!externo)
             {
-
                 /*
                     Se agrega líneas para pedir los importes de percepciones
                     y reducciones del trabajador.
@@ -277,8 +279,8 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PQ
                 {
                     MessageBox.Show("El empleado no contiene categoría..Favor de verificar", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
-
-                PER = Convert.ToDouble(txtSueldoBase.Text);
+                
+                PER =(string.IsNullOrWhiteSpace(txtSueldoBase.Text))? 0 : Convert.ToDouble(txtSueldoBase.Text);
                 DED = 0.00;
                 D = "N";
                 DED1 = DED;
@@ -298,6 +300,7 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PQ
                 DED9 = 0.00;
                 DED10 = 0.00;
 
+                regresa:
                 frmDescuentosDePensiones descuentos = new frmDescuentosDePensiones();
                 descuentos.cambiar = cambiarTxtSueldoBase;
                 descuentos.PER.Text = Convert.ToString(PER);
@@ -306,7 +309,13 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PQ
                 descuentos.DED5.Text = Convert.ToString(DED5);
                 descuentos.DED6.Text = Convert.ToString(DED6);
                 descuentos.ShowDialog();
+                if (!descuentos.esAceptar) return;
+                if (string.IsNullOrWhiteSpace(txtSueldoBase.Text) || txtSueldoBase.Text == "0") {
+                    MessageBox.Show("Se debe ingresar el sueldo base, favor de ingresarlo para continuar","Aviso",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                    goto regresa;
+                }
 
+                PER  = Convert.ToDouble(descuentos.PER.Text);
                 DED3 = Convert.ToDouble(descuentos.DED3.Text);
                 DED4 = Convert.ToDouble(descuentos.DED4.Text);
                 DED5 = Convert.ToDouble(descuentos.DED5.Text);
@@ -361,11 +370,20 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PQ
             }
 
             this.auxiliar = datos;
-            string secretaria = Convert.ToString(datos["proy"]);
-            string descripcionProyecto = Convert.ToString(datos["descripcion"]);
-            txtSecretaria.Text = secretaria;
-            txtAdscripcion.Text = descripcionProyecto;
+            string secretaria = string.Empty;
+            string descripcionProyecto = string.Empty;
+            if (datos.Count != 0)
+            {
+                secretaria = Convert.ToString(datos["proy"]);
+                descripcionProyecto = Convert.ToString(datos["descripcion"]);
+            }
+             
+             
+            txtSecretaria.Text = string.IsNullOrWhiteSpace(secretaria)?txtSecretaria.Text:secretaria;
+            txtAdscripcion.Text = string.IsNullOrWhiteSpace(descripcionProyecto)?txtAdscripcion.Text: descripcionProyecto;
 
+            if (string.IsNullOrWhiteSpace(txtSueldoBase.Text)) return;
+            
             if (secretaria != "J" && secretaria != "P" && secretaria != "T")
             {
                 txtSueldo_m.Text = (Convert.ToDouble(txtSueldoBase.Text) * 2).ToString();
@@ -559,7 +577,7 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PQ
             if (txtAntQ.ReadOnly) return;
 
             int valor = (string.IsNullOrWhiteSpace(txtAntQ.Text) ? 0 : Convert.ToInt32(txtAntQ.Text));
-            if (valor < 12)
+            if (valor < 12 && valor != 0)
             {
                 MessageBox.Show("No debe ser menor a 12 quincenas", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 txtAntQ.Text = "0";
@@ -906,13 +924,26 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PQ
             DateTime hoy = DateTime.Now;
 
             string auxHoy = string.Format("{0}-{1}-{2}", hoy.Year, hoy.Month, hoy.Day);
+            regresar:
             query = string.Format("select * from catalogos.progpq where fecha > '{0}' and inhabil <> '*' and utilizados <> programados  order by fecha asc limit 1", auxHoy);
             resultado = globales.consulta(query);
             if (resultado.Count == 0)
             {
                 MessageBox.Show("Para continuar las solicitudes se debe generar el mes siguiente..", "Fecha emisión de cheque", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                this.Cursor = Cursors.Default;
-                return;
+                DialogResult respuesta = MessageBox.Show("¿Desea generar el mes siguiente ahora?","Generar mes siguiente",MessageBoxButtons.YesNo,MessageBoxIcon.Information);
+                if (respuesta == DialogResult.No)
+                {
+                    this.Cursor = Cursors.Default;
+                    return;
+                }
+                else {
+                    frmdiacheque obj1 =  new frmdiacheque();
+                    obj1.ShowDialog();
+                    resultado = globales.consulta(query);
+                    if (resultado.Count == 0) {
+                        goto regresar;
+                    }
+                }
             }
 
             //----------------- fin de fecha de emisión de cheque-----------------------
@@ -945,6 +976,7 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PQ
             frmEmpleados.ShowDialog();
             this.ActiveControl = txtProyecto;
             guardar = true;
+            this.Cursor = Cursors.Default;
         }
 
         private void activarControlesBasicos()
@@ -1031,6 +1063,7 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PQ
         }
         private void rellenarModificarFolios(Dictionary<string, object> quirografario, List<Dictionary<string, object>> avales, bool externo = false)
         {
+
             txtFolio.Text = Convert.ToString(quirografario["folio"]);
             txtRfc.Text = Convert.ToString(quirografario["rfc"]);
             txtnombre_em.Text = Convert.ToString(quirografario["nombre_em"]);
@@ -1301,14 +1334,17 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PQ
             if (!globales.alfaNumerico(e.KeyChar))
                 return;
 
-
+            
             limpiarTodosCampos();
             activarControlesBasicos();
+            activarControl(txtFolio);
             txtEmisionCheque.Text = "";
             frmCatalogoP_quirog P_quirog = new frmCatalogoP_quirog();
+            P_quirog.tablaConsultar = "p_quirog";
             P_quirog.enviar = rellenarModificarFolios;
             P_quirog.ShowDialog();
             this.ActiveControl = txtRfc;
+            
         }
 
         private void txtFolio_TextChanged(object sender, EventArgs e)
@@ -1640,6 +1676,28 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PQ
         private void txtSueldoBase_KeyPress(object sender, KeyPressEventArgs e)
         {
 
+        }
+
+        private void txtSecretaria_Leave(object sender, EventArgs e)
+        {
+            if (!guardar) {
+                string query = string.Format("select * from catalogos.dependencias where proy = '{0}'",txtSecretaria.Text);
+                List<Dictionary<string,object>> a = globales.consulta(query);
+                if (a.Count > 0)
+                    auxiliar = a[0];
+                else
+                    auxiliar = new Dictionary<string, object>();
+            }
+        }
+
+        private void txtRfc_Leave(object sender, EventArgs e)
+        {
+            if (!guardar) {
+                string query = string.Format("select * from datos.empleados where rfc like '%{0}'", txtRfc.Text);
+                List<Dictionary<string, object>> listita = globales.consulta(query);
+                if (listita.Count > 0)
+                    rellenarCamposdeRFC(listita[0]); 
+            }
         }
     }
 }
