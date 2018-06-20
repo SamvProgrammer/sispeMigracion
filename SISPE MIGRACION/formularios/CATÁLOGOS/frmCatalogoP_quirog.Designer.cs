@@ -190,7 +190,7 @@
             this.MinimizeBox = false;
             this.Name = "frmCatalogoP_quirog";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmCatalogoP_quirog";
+            this.Text = "Cátalogos";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmCatalogoP_quirog_FormClosing);
             this.Load += new System.EventHandler(this.frmCatalogoP_quirog_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmCatalogoP_quirog_KeyDown);

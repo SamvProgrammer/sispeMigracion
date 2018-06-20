@@ -248,12 +248,14 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PQ
             }
 
             this.txtRfc.Text = rfc;
-            this.txtnombre_em.Text = Convert.ToString(datos["nombre_em"]);
-            this.txtProyecto.Text = Convert.ToString(datos["proyecto"]);
-            this.txtSueldoBase.Text = Convert.ToString(datos["sueldo_base"]);
-            this.txtNap.Text = Convert.ToString(datos["nap"]);
-            this.txtDomicilio.Text = Convert.ToString(datos["direccion"]);
-            this.txtNue.Text = Convert.ToString(datos["nue"]);
+            if (guardar) {
+                this.txtnombre_em.Text = Convert.ToString(datos["nombre_em"]);
+                this.txtProyecto.Text = Convert.ToString(datos["proyecto"]);
+                this.txtSueldoBase.Text = Convert.ToString(datos["sueldo_base"]);
+                this.txtNap.Text = Convert.ToString(datos["nap"]);
+                this.txtDomicilio.Text = Convert.ToString(datos["direccion"]);
+                this.txtNue.Text = Convert.ToString(datos["nue"]);
+            }
             this.cve_categ = Convert.ToString(datos["cve_categ"]);
 
         }
@@ -757,6 +759,7 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PQ
                     btnGuardar.Visible = false;
                     btnImprimir.Enabled = true;
                     btnCalculo.Enabled = false;
+                    txtFolio.Text = "AUTOGENERADO";
                 }
                 else
                     MessageBox.Show("Error al actualizar el registro, contactar al equipo de sistemas!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -787,6 +790,7 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PQ
                     btnGuardar.Visible = false;
                     btnImprimir.Enabled = true;
                     btnCalculo.Enabled = false;
+                    txtFolio.Text = "AUTOGENERADO";
                 }
                 else
                     MessageBox.Show("Error al guardar el registor, contactar al equipo de sistemas!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -1069,31 +1073,31 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PQ
             txtnombre_em.Text = Convert.ToString(quirografario["nombre_em"]);
             txtProyecto.Text = Convert.ToString(quirografario["proyecto"]);
             txtSecretaria.Text = Convert.ToString(quirografario["secretaria"]);
-            txtAntQ.Text = Convert.ToString(quirografario["antig_q"]);
-            txtSueldoBase.Text = Convert.ToString(quirografario["sueldo_base"]);
+            txtAntQ.Text = string.IsNullOrWhiteSpace(Convert.ToString(quirografario["antig_q"])) || Convert.ToString(quirografario["antig_q"]) == "0" ? "0": Convert.ToDouble(quirografario["antig_q"]).ToString("#.##");
+            txtSueldoBase.Text = string.IsNullOrWhiteSpace(Convert.ToString(quirografario["sueldo_base"])) || Convert.ToString(quirografario["sueldo_base"]) == "0" ? "0": Convert.ToDouble(quirografario["sueldo_base"]).ToString("#.##");
             txtAdscripcion.Text = Convert.ToString(quirografario["descripcion"]);
             txtTelefono.Text = Convert.ToString(quirografario["telefono"]);
             txtExtencion.Text = Convert.ToString(quirografario["extension"]);
             txtDomicilio.Text = Convert.ToString(quirografario["direccion"]);
             txtNue.Text = Convert.ToString(quirografario["nue"]);
             txtNap.Text = Convert.ToString(quirografario["nap"]);
-            txtSueldo_m.Text = Convert.ToString(quirografario["sueldo_m"]);
+            txtSueldo_m.Text = string.IsNullOrWhiteSpace(Convert.ToString(quirografario["sueldo_m"])) || Convert.ToString(quirografario["sueldo_m"]) == "0" ? "0": Convert.ToDouble(quirografario["sueldo_m"]).ToString("#.##");
             txtAntiguedad.Text = Convert.ToString(quirografario["ant_a"]) + " A" + Convert.ToString(quirografario["ant_m"]) + " M" + Convert.ToString(quirografario["ant_q"]) + " Q";
-            txtmeses_corres.Text = Convert.ToString(quirografario["meses_corres"]);
-            txtOtros_desc.Text = Convert.ToString(quirografario["otros_desc"]);
-            txtPorc.Text = Convert.ToString(quirografario["porc"]);
-            txtplazo.Text = Convert.ToString(quirografario["plazo"]);
+            txtmeses_corres.Text = string.IsNullOrWhiteSpace(Convert.ToString(quirografario["meses_corres"])) || Convert.ToString(quirografario["meses_corres"]) == "0" ? "0": Convert.ToDouble(quirografario["meses_corres"]).ToString("#.##");
+            txtOtros_desc.Text = string.IsNullOrWhiteSpace(Convert.ToString(quirografario["otros_desc"])) || Convert.ToString(quirografario["otros_desc"]) == "0" ? "0.00": Convert.ToString(quirografario["otros_desc"]);
+            txtPorc.Text = string.IsNullOrWhiteSpace(Convert.ToString(quirografario["porc"])) || Convert.ToString(quirografario["porc"]) == "0" ? "0": Convert.ToDouble(quirografario["porc"]).ToString("#.##");
+            txtplazo.Text = string.IsNullOrWhiteSpace(Convert.ToString(quirografario["plazo"])) || Convert.ToString(quirografario["plazo"]) == "0" ? "0": Convert.ToString(quirografario["plazo"]);
             txtTipoPago.Text = Convert.ToString(quirografario["tipo_pago"]);
             txtTrl.Text = Convert.ToString(quirografario["trel"]);
             txtEmisionCheque.Text = Convert.ToString(quirografario["f_emischeq"]).Replace("12:00:00 a. m.", "");
             txtF_primerdesc.Text = Convert.ToString(quirografario["f_primdesc"]).Replace("12:00:00 a. m.", ""); ;
             txtultpago.Text = Convert.ToString(quirografario["f_ultimode"]).Replace("12:00:00 a. m.", ""); ;
-            txtImpUnit.Text = Convert.ToString(quirografario["imp_unit"]);
-            txtImporte.Text = Convert.ToString(quirografario["importe"]);
-            txtintereses.Text = Convert.ToString(quirografario["interes"]);
-            txtFondo_g.Text = Convert.ToString(quirografario["fondo_g"]);
-            txtOtros_desc.Text = Convert.ToString(quirografario["otros_desc"]);
-            txtliquido.Text = Convert.ToString(quirografario["liquido"]);
+            txtImpUnit.Text = string.IsNullOrWhiteSpace(Convert.ToString(quirografario["imp_unit"])) || Convert.ToString(quirografario["imp_unit"]) == "0" ? "0.00": Convert.ToDouble(quirografario["imp_unit"]).ToString("#.##");
+            txtImporte.Text = string.IsNullOrWhiteSpace(Convert.ToString(quirografario["importe"])) || Convert.ToString(quirografario["importe"]) == "0" ? "0.00": Convert.ToDouble(quirografario["importe"]).ToString("#.##");
+            txtintereses.Text = string.IsNullOrWhiteSpace(Convert.ToString(quirografario["interes"])) || Convert.ToString(quirografario["interes"]) == "0" ? "0.00": Convert.ToDouble(quirografario["interes"]).ToString("#.##");
+            txtFondo_g.Text = string.IsNullOrWhiteSpace(Convert.ToString(quirografario["fondo_g"])) || Convert.ToString(quirografario["fondo_g"]) == "0" ? "0.00": Convert.ToDouble(quirografario["fondo_g"]).ToString("#.##");
+            txtOtros_desc.Text = string.IsNullOrWhiteSpace(Convert.ToString(quirografario["otros_desc"])) || Convert.ToString(quirografario["otros_desc"]) == "0" ? "0.00": Convert.ToDouble(quirografario["otros_desc"]).ToString("#.##");
+            txtliquido.Text = string.IsNullOrWhiteSpace(Convert.ToString(quirografario["liquido"])) || Convert.ToString(quirografario["liquido"]) == "0" ? "0.00": Convert.ToDouble(quirografario["liquido"]).ToString("#.##");
 
             if (avales.Count == 1)
             {
@@ -1675,7 +1679,7 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PQ
 
         private void txtSueldoBase_KeyPress(object sender, KeyPressEventArgs e)
         {
-
+            e.Handled = !globales.numerico(e.KeyChar);
         }
 
         private void txtSecretaria_Leave(object sender, EventArgs e)

@@ -63,7 +63,7 @@ namespace SISPE_MIGRACION.formularios.CATÁLOGOS
             string maximo = Convert.ToString(resultado2[0]["max"]);
             numeroMaximo = maximo.Length;
 
-            string query2 = string.Format("select * from datos.{0} order by folio asc limit 100",tablaConsultar);
+            string query2 = string.Format("select * from datos.{0} order by folio desc limit 100",tablaConsultar);
 
             resultado = globales.consulta(query2);
             resultado.ForEach(o => datos.Rows.Add(o["folio"], o["rfc"], o["nombre_em"]));

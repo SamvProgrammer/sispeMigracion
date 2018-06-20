@@ -853,6 +853,7 @@
             // 
             this.txtSueldoBase.Cursor = System.Windows.Forms.Cursors.No;
             this.txtSueldoBase.Location = new System.Drawing.Point(890, 39);
+            this.txtSueldoBase.MaxLength = 9;
             this.txtSueldoBase.Name = "txtSueldoBase";
             this.txtSueldoBase.ReadOnly = true;
             this.txtSueldoBase.Size = new System.Drawing.Size(165, 20);
@@ -949,8 +950,10 @@
             // 
             // txtProyecto
             // 
+            this.txtProyecto.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtProyecto.Cursor = System.Windows.Forms.Cursors.No;
             this.txtProyecto.Location = new System.Drawing.Point(99, 35);
+            this.txtProyecto.MaxLength = 20;
             this.txtProyecto.Name = "txtProyecto";
             this.txtProyecto.ReadOnly = true;
             this.txtProyecto.Size = new System.Drawing.Size(195, 20);
