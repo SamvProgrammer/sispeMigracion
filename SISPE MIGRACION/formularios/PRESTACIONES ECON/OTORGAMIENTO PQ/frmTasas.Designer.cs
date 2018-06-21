@@ -187,6 +187,7 @@
             this.cmbDescripcion.Size = new System.Drawing.Size(280, 28);
             this.cmbDescripcion.TabIndex = 4;
             this.cmbDescripcion.TextChanged += new System.EventHandler(this.cmbDescripcion_TextChanged);
+            this.cmbDescripcion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmbDescripcion_KeyPress);
             // 
             // label2
             // 

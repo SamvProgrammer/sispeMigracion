@@ -97,5 +97,10 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PQ
         {
             new frmImprimirReporteTasas().ShowDialog();
         }
+
+        private void cmbDescripcion_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
     }
 }

@@ -64,19 +64,19 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panel2.BackColor = System.Drawing.SystemColors.Menu;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel2.Controls.Add(this.btncerrar);
             this.panel2.Controls.Add(this.btnseleccionar);
             this.panel2.Location = new System.Drawing.Point(12, 433);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(456, 64);
+            this.panel2.Size = new System.Drawing.Size(519, 64);
             this.panel2.TabIndex = 9;
             // 
             // btncerrar
             // 
             this.btncerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btncerrar.Location = new System.Drawing.Point(314, 17);
+            this.btncerrar.Location = new System.Drawing.Point(379, 17);
             this.btncerrar.Name = "btncerrar";
             this.btncerrar.Size = new System.Drawing.Size(115, 27);
             this.btncerrar.TabIndex = 3;
@@ -87,7 +87,7 @@
             // btnseleccionar
             // 
             this.btnseleccionar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnseleccionar.Location = new System.Drawing.Point(23, 17);
+            this.btnseleccionar.Location = new System.Drawing.Point(244, 17);
             this.btnseleccionar.Name = "btnseleccionar";
             this.btnseleccionar.Size = new System.Drawing.Size(120, 27);
             this.btnseleccionar.TabIndex = 2;

@@ -19,6 +19,7 @@ namespace SISPE_MIGRACION.codigo.herramientas.forms
 
         private void button1_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             try
             {
                 string aux1 = string.Format("{0}-{1}-{2}",fecha1.Value.Year, fecha1.Value.Month, fecha1.Value.Day);
@@ -47,6 +48,7 @@ namespace SISPE_MIGRACION.codigo.herramientas.forms
             catch {
                 MessageBox.Show("Contacte al área de sistemas, error en capturar fechas...");
             }
+            this.Cursor = Cursors.Default;
         }
 
         private void frmImprimirReporteTasas_Load(object sender, EventArgs e)

@@ -446,10 +446,10 @@
         </Style>
       </Textbox>
     </ReportItems>
-    <Height>2.22412in</Height>
+    <Height>3.36301in</Height>
     <Style />
   </Body>
-  <Width>6.64615in</Width>
+  <Width>9.24337in</Width>
   <Page>
     <PageHeader>
       <Height>2.32833cm</Height>
@@ -506,9 +506,9 @@
           <Source>Embedded</Source>
           <Value>logo_oaxaca</Value>
           <Sizing>FitProportional</Sizing>
-          <Left>12.1533cm</Left>
-          <Height>1.46472cm</Height>
-          <Width>4.72792cm</Width>
+          <Left>15.78691cm</Left>
+          <Height>1.78222cm</Height>
+          <Width>7.69125cm</Width>
           <ZIndex>1</ZIndex>
           <Style>
             <Border>

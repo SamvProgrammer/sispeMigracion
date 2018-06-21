@@ -975,11 +975,12 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PQ
 
             txtEmisionCheque.Text = fechaProgramacion;
 
+
+            guardar = true;
             frmEmpleados = new frmEmpleados();
             frmEmpleados.enviar = rellenarCamposdeRFC;
             frmEmpleados.ShowDialog();
             this.ActiveControl = txtProyecto;
-            guardar = true;
             this.Cursor = Cursors.Default;
         }
 
@@ -1137,6 +1138,8 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PQ
         private void calculoLiquido()
         {
             List<Dictionary<string, object>> resultado = (List<Dictionary<string, object>>)globales.seleccionaTasaDeInteres();
+            if (resultado == null) return; 
+            if (resultado.Count == 0) return;
             Dictionary<string, object> objeto = resultado[0];
             txtTrl.Text = Convert.ToString(objeto["trel"]);
             lblmod.Text = modalidades[txtTrl.Text];
@@ -1568,6 +1571,7 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PQ
             p_quirog.tablaConsultar = "p_quirog";
             p_quirog.enviar = rellenarModificarFolios;
             p_quirog.ShowDialog();
+            if (!p_quirog.btnAceptarbool) return;
 
             frmImpresionQuirografario imp = new frmImpresionQuirografario();
             imp.ShowDialog();

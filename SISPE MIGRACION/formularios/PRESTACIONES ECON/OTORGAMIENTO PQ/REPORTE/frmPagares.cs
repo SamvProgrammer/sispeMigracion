@@ -33,6 +33,7 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PQ.reportes
 
         private void filtrar(string c1, string c2,string variable)
         {
+            this.Cursor = Cursors.WaitCursor;
             string query = string.Format("SELECT folio, nombre_em, rfc ,proyecto, importe FROM datos.p_quirog AA LEFT JOIN catalogos.cuenta BB ON AA.secretaria = BB.proy WHERE BB.tipo_dep LIKE '{0}' AND f_emischeq >= '{1}' AND f_emischeq <= '{2}' ORDER BY AA.FOLIO", variable, c1, c2);
             List<Dictionary<string, object>> resultado = globales.consulta(query);
             object[] aux2 = new object[resultado.Count];
@@ -80,7 +81,7 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PQ.reportes
 
             globales.reportes("Reportpagare", "p_quirog", aux2, "", false, enviarParametros);
 
-
+            this.Cursor = Cursors.Default;
         }
         }
 

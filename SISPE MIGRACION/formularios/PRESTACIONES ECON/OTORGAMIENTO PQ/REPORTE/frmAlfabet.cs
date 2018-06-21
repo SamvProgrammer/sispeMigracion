@@ -32,6 +32,7 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PQ.reportes
 
         private void filtrar(string c1, string c2)
         {
+            this.Cursor = Cursors.WaitCursor;
             string query = string.Format("select folio, nombre_em , f_solicitud , f_emischeq ,proyecto , importe from datos.p_quirog where f_emischeq >= '{0}' and f_emischeq <= '{1}' order by nombre_em asc", c1, c2);
             List<Dictionary<string, object>> resultado = globales.consulta(query);
             object[] aux2 = new object[resultado.Count];
@@ -79,6 +80,7 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.OTORGAMIENTO_PQ.reportes
             enviarParametros[1] = valor;
 
             globales.reportes("reporteAlfa", "p_quirog", aux2, "", false, enviarParametros);
+            this.Cursor = Cursors.Default;
         }
     }
 }

@@ -51,7 +51,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(442, 290);
+            this.panel1.Size = new System.Drawing.Size(442, 277);
             this.panel1.TabIndex = 1;
             // 
             // pictureBox1
@@ -66,12 +66,14 @@
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.SystemColors.Control;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.Location = new System.Drawing.Point(159, 222);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(110, 23);
+            this.button1.Size = new System.Drawing.Size(110, 34);
             this.button1.TabIndex = 8;
             this.button1.Text = "&Generar reporte";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label2
@@ -110,7 +112,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(442, 290);
+            this.ClientSize = new System.Drawing.Size(442, 277);
             this.Controls.Add(this.panel1);
             this.Name = "frmAlfabet";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

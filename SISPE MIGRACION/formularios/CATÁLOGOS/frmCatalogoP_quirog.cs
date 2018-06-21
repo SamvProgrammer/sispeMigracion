@@ -21,7 +21,7 @@ namespace SISPE_MIGRACION.formularios.CATÁLOGOS
         internal string tablaConsultar = string.Empty;
         internal rellenar enviar2;
         internal bool enviarBool = false;
-
+        internal bool btnAceptarbool = false;
         public frmCatalogoP_quirog()
         {
             InitializeComponent();
@@ -110,6 +110,7 @@ namespace SISPE_MIGRACION.formularios.CATÁLOGOS
         {
             if (resultado.Count == 0) return;
             Close();
+            this.btnAceptarbool = true;
             Dictionary<string, object> aux = null;
             foreach (var item in resultado)
             {

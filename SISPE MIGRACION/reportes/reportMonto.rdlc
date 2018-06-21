@@ -6,22 +6,22 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>2.5cm</Width>
+              <Width>1.94068cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.77cm</Width>
+              <Width>2.50156cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>7.92922cm</Width>
+              <Width>7.01534cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.37313cm</Width>
+              <Width>2.45925cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>4.80188cm</Width>
+              <Width>3.53344cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.5cm</Width>
+              <Width>1.94068cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -384,7 +384,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!importe.Value</Value>
+                              <Value>=FormatCurrency(Fields!importe.Value)</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -431,9 +431,9 @@
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
         <Top>0.57891cm</Top>
-        <Left>0.84874cm</Left>
+        <Left>0.38774cm</Left>
         <Height>1.2cm</Height>
-        <Width>24.87422cm</Width>
+        <Width>19.39092cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -444,27 +444,13 @@
     <Height>2in</Height>
     <Style />
   </Body>
-  <Width>11.60632in</Width>
+  <Width>7.78688in</Width>
   <Page>
     <PageHeader>
-      <Height>2.54cm</Height>
+      <Height>3.88056cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
-        <Image Name="Image1">
-          <Source>Embedded</Source>
-          <Value>logo_pensiones</Value>
-          <Sizing>FitProportional</Sizing>
-          <Top>0.2554cm</Top>
-          <Left>17.89943cm</Left>
-          <Height>2.02917cm</Height>
-          <Width>9.22583cm</Width>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-          </Style>
-        </Image>
         <Textbox Name="Textbox4">
           <CanGrow>true</CanGrow>
           <KeepTogether>true</KeepTogether>
@@ -474,14 +460,14 @@
                 <TextRun>
                   <Value>RELACIÓN DE CRÉDITOS QUIROGRAFARIOS OTORGADOS POR LA OFICINA DE PENSIONES DEL ESTADO DE OAXACA.</Value>
                   <Style>
-                    <FontSize>14pt</FontSize>
+                    <FontSize>11pt</FontSize>
                     <FontWeight>Bold</FontWeight>
                   </Style>
                 </TextRun>
                 <TextRun>
                   <Value xml:space="preserve">      </Value>
                   <Style>
-                    <FontSize>12pt</FontSize>
+                    <FontSize>11pt</FontSize>
                   </Style>
                 </TextRun>
               </TextRuns>
@@ -491,11 +477,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox4</rd:DefaultName>
-          <Top>0.73166cm</Top>
-          <Left>1.21708cm</Left>
+          <Top>1.94097cm</Top>
+          <Left>4.06087cm</Left>
           <Height>1.55292cm</Height>
-          <Width>15.835cm</Width>
-          <ZIndex>1</ZIndex>
+          <Width>11.39111cm</Width>
           <Style>
             <Border>
               <Style>None</Style>
@@ -506,6 +491,20 @@
             <PaddingBottom>2pt</PaddingBottom>
           </Style>
         </Textbox>
+        <Image Name="Image1">
+          <Source>Embedded</Source>
+          <Value>logo_pensiones</Value>
+          <Sizing>FitProportional</Sizing>
+          <Left>10.40198cm</Left>
+          <Height>1.76458cm</Height>
+          <Width>9.37668cm</Width>
+          <ZIndex>1</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </Image>
       </ReportItems>
       <Style>
         <Border>
@@ -533,10 +532,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox7</rd:DefaultName>
-          <Top>0.21187cm</Top>
-          <Left>2.01462cm</Left>
+          <Top>0.26354cm</Top>
+          <Left>4.82997cm</Left>
           <Height>0.86458cm</Height>
-          <Width>4.56204cm</Width>
+          <Width>5.80363cm</Width>
           <Style>
             <Border>
               <Style>None</Style>
@@ -562,10 +561,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox16</rd:DefaultName>
-          <Top>0.22951cm</Top>
-          <Left>0.38774cm</Left>
+          <Top>0.26354cm</Top>
+          <Left>2.85402cm</Left>
           <Height>0.6cm</Height>
-          <Width>1.33583cm</Width>
+          <Width>1.94068cm</Width>
           <ZIndex>1</ZIndex>
           <Style>
             <Border>
@@ -592,8 +591,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox15</rd:DefaultName>
-          <Top>0.26479cm</Top>
-          <Left>6.57666cm</Left>
+          <Top>0.22951cm</Top>
+          <Left>10.6336cm</Left>
           <Height>0.6cm</Height>
           <Width>0.54208cm</Width>
           <ZIndex>2</ZIndex>
@@ -623,7 +622,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox9</rd:DefaultName>
           <Top>0.21187cm</Top>
-          <Left>7.25985cm</Left>
+          <Left>11.17568cm</Left>
           <Height>0.86458cm</Height>
           <Width>7.9088cm</Width>
           <ZIndex>3</ZIndex>
@@ -654,10 +653,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox11</rd:DefaultName>
-          <Top>1.1634cm</Top>
-          <Left>13.03165cm</Left>
+          <Top>1.12812cm</Top>
+          <Left>5.82747cm</Left>
           <Height>0.6cm</Height>
-          <Width>7.9088cm</Width>
+          <Width>8.87646cm</Width>
           <ZIndex>4</ZIndex>
           <Style>
             <Border>
@@ -685,9 +684,9 @@
           </Paragraphs>
           <rd:DefaultName>Textbox10</rd:DefaultName>
           <Top>1.7634cm</Top>
-          <Left>13.64858cm</Left>
+          <Left>7.25985cm</Left>
           <Height>0.6cm</Height>
-          <Width>6.01896cm</Width>
+          <Width>8.19213cm</Width>
           <ZIndex>5</ZIndex>
           <Style>
             <Border>
@@ -714,8 +713,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox14</rd:DefaultName>
-          <Top>0.26479cm</Top>
-          <Left>24.62526cm</Left>
+          <Top>1.94cm</Top>
+          <Left>17.27866cm</Left>
           <Height>0.6cm</Height>
           <Width>2.5cm</Width>
           <ZIndex>6</ZIndex>
@@ -736,12 +735,12 @@
         </Border>
       </Style>
     </PageFooter>
-    <PageHeight>29.7cm</PageHeight>
-    <PageWidth>21cm</PageWidth>
-    <LeftMargin>2cm</LeftMargin>
-    <RightMargin>2cm</RightMargin>
-    <TopMargin>2cm</TopMargin>
-    <BottomMargin>2cm</BottomMargin>
+    <PageHeight>27.94cm</PageHeight>
+    <PageWidth>21.59cm</PageWidth>
+    <LeftMargin>0.5cm</LeftMargin>
+    <RightMargin>0.5cm</RightMargin>
+    <TopMargin>0.5cm</TopMargin>
+    <BottomMargin>1cm</BottomMargin>
     <ColumnSpacing>0.13cm</ColumnSpacing>
     <Style />
   </Page>
@@ -786,15 +785,11 @@
           <DataField>importe</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="liquido">
-          <DataField>liquido</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>tablas</rd:DataSetName>
-        <rd:SchemaPath>G:\sispe VSTUDIO\SISPE MIGRACION\reportes\tablas.xsd</rd:SchemaPath>
-        <rd:TableName>p_montos</rd:TableName>
+        <rd:SchemaPath>C:\Users\samv\Desktop\repositorios\sispeMigracion\SISPE MIGRACION\reportes\tablas.xsd</rd:SchemaPath>
+        <rd:TableName>p_monto</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />
         <rd:TableAdapterName />
