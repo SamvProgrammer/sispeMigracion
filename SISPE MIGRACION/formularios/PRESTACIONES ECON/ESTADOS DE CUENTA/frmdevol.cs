@@ -36,10 +36,11 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.ESTADOS_DE_CUENTA
 
         private void button1_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             string rfc1 = txtrfc.Text;
             object[] objetotablaReporte;
 
-            string query = string.Format("select * from datos.p_quirog where rfc = '{0}'", rfc1);
+            string query = string.Format("select * from datos.p_edocta where rfc = '{0}'", rfc1);
             List<Dictionary<string, object>> resultado = globales.consulta(query);
             objetotablaReporte = new object[resultado.Count];
             int contador = 0;
@@ -73,6 +74,7 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.ESTADOS_DE_CUENTA
 
 
             globales.reportes("reporteConsultaPDevolucion", "consultaDevolucion", objectoenviar);
+            this.Cursor = Cursors.Default;
         }
 
         private void frmdevol_FormClosing(object sender, FormClosingEventArgs e)
@@ -95,6 +97,14 @@ namespace SISPE_MIGRACION.formularios.PRESTACIONES_ECON.ESTADOS_DE_CUENTA
             {
                 Close();
             }
+        }
+
+        private void txtrfc_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            frmEmpleados p_quirog = new frmEmpleados();
+            p_quirog.enviar = rellenarConsulta;
+
+            p_quirog.ShowDialog();
         }
     }
 }
